@@ -5,7 +5,7 @@ import moment from 'moment';
 
 function App() {
 
-  const [lista2, setLista2] = React.useState('');
+  const [lista, setLista] = React.useState('');
   const [paiva, setPaiva] = React.useState(0);
 
 
@@ -21,7 +21,7 @@ function App() {
       }
   })
     .then(response => response.json())
-    .then(data => setLista2(data.data))
+    .then(data => setLista(data.data))
     }
 
   const MuutaPaiva = (event) => {
@@ -30,8 +30,8 @@ function App() {
 
   let eventit = "";
 
-  if (lista2 !== '') {
-    eventit = lista2.map((lista, i) => {
+  if (lista !== '') {
+    eventit = lista.map((lista, i) => {
 
       if (paiva === 0) {
         let nimi = lista.name.fi;
