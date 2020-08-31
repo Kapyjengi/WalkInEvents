@@ -8,15 +8,12 @@ function App() {
   const [lista2, setLista2] = React.useState('');
   const [paiva, setPaiva] = React.useState(0);
 
-  let lista = [];
 
   useEffect(() => {
     Hae()
   }, [])
 
   function Hae(){
-
-
     fetch('http://open-api.myhelsinki.fi/v1/events/', {
       method: 'GET',
       headers: {
@@ -31,7 +28,7 @@ function App() {
     setPaiva(event.target.value)
   }
 
-  let eventit = 0;
+  let eventit = "";
 
   if (lista2 !== '') {
     eventit = lista2.map((lista, i) => {
@@ -121,8 +118,6 @@ function App() {
   const NaytaKaikki = () => {
     setPaiva(0)
   }
-
-
 
 
   return (
