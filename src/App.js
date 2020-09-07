@@ -17,14 +17,15 @@ function App() {
 
   function Hae(){
   
-    fetch('http://open-api.myhelsinki.fi/v1/events/', {
+    fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/', {
       method: 'GET',
       headers: {
-        "accept": "application/json","origin": "*"
+        "accept": "application/json"
       }
   })
     .then(response => response.json())
     .then(data => setLista(data.data))
+    .catch(err => console.error(err))
     }
 
   const MuutaPaiva = (event) => {
