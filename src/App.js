@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import './App.css';
-import moment from 'moment';
-import Show from './components/Show';
-
-
+import React, { useEffect } from 'react'
+import './App.css'
+import moment from 'moment'
+import Show from './components/Show'
 
 function App() {
 
-  const [events, setEvents] = React.useState('');
-  const [selectedDay, setSelectedDay] = React.useState(0);
-  const [event, setEvent] = React.useState(0);
-
+  const [events, setEvents] = React.useState('')
+  const [selectedDay, setSelectedDay] = React.useState(0)
+  const [event, setEvent] = React.useState(0)
+  const [longitude, setLongitude] = React.useState(0)
+  const [latitude, setLatitude] = React.useState(0)
+  
   const [loading, setLoading] = React.useState('LOADING')
  
   
@@ -36,7 +36,6 @@ function App() {
  
   const ChangeDay = (event) => {
     setSelectedDay(event.target.value)
-
   }
 
   const SeekName = (event) => {
@@ -49,8 +48,15 @@ function App() {
     }
   }
 
+  const ChangeLongitude = (event) => {
+    setLongitude(event.target.value)
+    console.log(longitude)
+  }
 
-
+  const ChangeLatitude = (event) => {
+    setLatitude(event.target.value)
+    console.log(latitude)
+  }
 
   const ShowAll = () => {
     setSelectedDay(0)
@@ -59,15 +65,17 @@ function App() {
     document.getElementById("Paiva").value="";
   }
 
-
   let letEvent;
-
 
   if (loading==='LOADING'){
   return (
     <div className="App">
       <h1> </h1>
-      <p>name: <input id="name" placeholder="event" onChange={SeekName} /><input type="date" id="Paiva" onChange={ChangeDay}></input></p>
+      <p>name: <input id="name" placeholder="event" onChange={SeekName} />
+      <input type="date" id="Paiva" onChange={ChangeDay} />
+      Longitude: <input type="text" id="Longitude" onChange={ChangeLongitude} />
+      Latitude: <input type="text" id="Latitude" onChange={ChangeLatitude} />
+      </p>
       <p><button onClick={ShowAll}>Näytä kaikki</button></p>
       {loading}
     </div>
@@ -76,9 +84,13 @@ function App() {
     return (
       <div className="App">
         <h1> </h1>
-        <p>name: <input id="name" placeholder="event" onChange={SeekName} /><input type="date" id="Paiva" onChange={ChangeDay}></input></p>
+        <p>name: <input id="name" placeholder="event" onChange={SeekName} />
+        <input type="date" id="Paiva" onChange={ChangeDay} />
+        Longitude: <input type="text" id="Longitude" onChange={ChangeLongitude} />
+        Latitude: <input type="text" id="Latitude" onChange={ChangeLatitude} />
+        </p>
         <p><button onClick={ShowAll}>Näytä kaikki</button></p>
-        <Show events={events} event={event} selectedDay={selectedDay}/>
+        <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
       </div>
     )
 

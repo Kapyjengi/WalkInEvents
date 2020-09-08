@@ -1,9 +1,3 @@
-
-
-import React from 'react';
-import moment from 'moment';
-
-
 export default function SearchByEvent(events, event) {
 
   let letEvents = "";

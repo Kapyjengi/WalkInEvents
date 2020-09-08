@@ -1,7 +1,5 @@
-
-
-import React from 'react';
-import moment from 'moment';
+import React from 'react'
+import moment from 'moment'
 
 
 
@@ -14,7 +12,7 @@ export default function SearchByDate(events, selectedDay) {
   letEvents = events.map((events) => {
 
     if (moment(events.event_dates.starting_day).format("DD.MM.YYYY") === moment(selectedDay).format("DD.MM.YYYY")) {
-      console.log(events.event_dates.starting_day + "      " + selectedDay)
+      //console.log(events.event_dates.starting_day + "      " + selectedDay)
       filtered.push(events)
     }
   }

@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import '../App.css';
-import moment from 'moment';
+import React, { useEffect } from 'react'
+import '../App.css'
+import moment from 'moment'
 import SearchByDate from './SearchByDate'
 import SearchByEvent from './SearchByEvent'
+import SearchByLocation from './SearchByLocation'
 export default function ShowAll(props) {
 
     
    let events = props.events
-   console.log(props.events)
+   //console.log(props.events)
    let filted;
    if (props.selectedDay !==0){
        filted=SearchByDate(props.events,props.selectedDay)
@@ -17,6 +18,12 @@ export default function ShowAll(props) {
        filted=(SearchByEvent(props.events,props.event))
        events=filted
    }
+
+   if (props.longitude !==0 && props.latitude !==0) {
+    filted=(SearchByLocation(props.events, props.longitude, props.latitude))
+    events=filted
+   }
+
    if (props.event==='' && props.selectedDay===0) {
        events=props.event
    }
