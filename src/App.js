@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
+import Loading from './components/Loading'
 
 function App() {
 
@@ -12,20 +13,24 @@ function App() {
   const [latitude, setLatitude] = React.useState(0)
   
   const [loading, setLoading] = React.useState('LOADING')
- 
   
         useEffect(() => {
           async function fetchData() {
             var data = await fetch('http://open-api.myhelsinki.fi/v1/events/', {
+              
               method: 'GET',
               headers: {
                 "accept": "application/json", "origin": "*"
               }
-            }).then(res => {
+            })
+            .then(res => {
+            
               return res.json();
-            });
+            })
+
             setEvents(data.data);
             setLoading('')
+            
           }
           fetchData();
         }, []);
@@ -77,7 +82,7 @@ function App() {
       Latitude: <input type="text" id="Latitude" onChange={ChangeLatitude} />
       </p>
       <p><button onClick={ShowAll}>Näytä kaikki</button></p>
-      {loading}
+      <Loading loading={loading}/>
     </div>
   )
   } else {

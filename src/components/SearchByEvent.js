@@ -1,3 +1,5 @@
+import Sort from './Sort'
+
 export default function SearchByEvent(events, event) {
 
   let letEvents = "";
@@ -16,13 +18,15 @@ export default function SearchByEvent(events, event) {
       name = events.name.sv
     }
 
-
+    name=name.toLowerCase();
+    event=event.toLowerCase();
     if (name.includes(event) === true) {
       filtered.push(events)
     }
   }
   )
-  console.log(filtered)
+  
+  filtered = Sort(filtered)
 
   return filtered
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../App.css'
 import moment from 'moment'
 import SearchByDate from './SearchByDate'
@@ -13,10 +13,16 @@ export default function ShowAll(props) {
    if (props.selectedDay !==0){
        filted=SearchByDate(props.events,props.selectedDay)
        events=filted
+       if (props.event !==0) {
+        events=(SearchByEvent(events,props.event))
+       }
    }
    if (props.event !==0) {
        filted=(SearchByEvent(props.events,props.event))
        events=filted
+       if (props.selectedDay !==0){
+         events=(SearchByDate(events,props.selectedDay))
+       }
    }
 
    if (props.longitude !==0 && props.latitude !==0) {

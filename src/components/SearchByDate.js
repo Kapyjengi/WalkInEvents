@@ -1,6 +1,5 @@
-import React from 'react'
 import moment from 'moment'
-
+import Sort from './Sort'
 
 
 export default function SearchByDate(events, selectedDay) {
@@ -17,6 +16,8 @@ export default function SearchByDate(events, selectedDay) {
     }
   }
   )
+
+  filtered = Sort(filtered)
 
   return filtered
 }
