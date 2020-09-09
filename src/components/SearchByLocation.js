@@ -1,3 +1,5 @@
+import Sort from './Sort'
+
 export default function SearchByLocation(events, longitude, latitude) {
 
   let filtered=[]
@@ -22,7 +24,7 @@ export default function SearchByLocation(events, longitude, latitude) {
   })
 
   console.log(filtered2)
-
+  filtered2=(Sort(filtered2))
   return filtered2
 }
 

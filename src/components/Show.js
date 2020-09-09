@@ -16,6 +16,9 @@ export default function ShowAll(props) {
        if (props.event !==0) {
         events=(SearchByEvent(events,props.event))
        }
+       if (props.longitude !==0 && props.latitude !==0) {
+        events=(SearchByLocation(props.events, props.longitude, props.latitude))
+       }
    }
    if (props.event !==0) {
        filted=(SearchByEvent(props.events,props.event))
@@ -23,11 +26,20 @@ export default function ShowAll(props) {
        if (props.selectedDay !==0){
          events=(SearchByDate(events,props.selectedDay))
        }
+       if (props.longitude !==0 && props.latitude !==0) {
+        events=(SearchByLocation(props.events, props.longitude, props.latitude))
+       }
    }
 
    if (props.longitude !==0 && props.latitude !==0) {
     filted=(SearchByLocation(props.events, props.longitude, props.latitude))
     events=filted
+    if (props.selectedDay !==0){
+      events=(SearchByDate(events,props.selectedDay))
+    }
+    if (props.event !==0) {
+      events=(SearchByEvent(events,props.event))
+     }
    }
 
    if (props.event==='' && props.selectedDay===0) {
@@ -69,8 +81,8 @@ export default function ShowAll(props) {
             <td> </td>
             <td>{moment(endingday).format("DD.MM.YYYY HH:mm")} </td>
             <td> </td>
-            <td>{lon.toFixed(3)}</td>
-            <td>{lat.toFixed(3)}</td>
+            <td>{lon.toFixed(4)}</td>
+            <td>{lat.toFixed(4)}</td>
           </tr>
         )      
 
