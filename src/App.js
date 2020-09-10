@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
@@ -29,6 +29,7 @@ function App() {
             })
 
             setEvents(data.data);
+            console.log(data.data)
             setLoading('')
             
           }
