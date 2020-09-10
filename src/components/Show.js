@@ -4,6 +4,7 @@ import moment from 'moment'
 import SearchByDate from './SearchByDate'
 import SearchByEvent from './SearchByEvent'
 import SearchByLocation from './SearchByLocation'
+import SearchByTag from './SearchByTag'
 export default function ShowAll(props) {
 
     
@@ -69,6 +70,7 @@ export default function ShowAll(props) {
    if (props.event==='' && props.selectedDay===0) {
        events=props.event
    }
+   //events = SearchByTag(events)
 
    // letEventsista tulee lista jota aiemmin mahdollisesti jo filteröitiin ja sortattiin
     let letEvents = "";

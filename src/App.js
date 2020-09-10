@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
@@ -12,11 +12,29 @@ function App() {
   const [longitude, setLongitude] = React.useState(0)
   const [latitude, setLatitude] = React.useState(0)
   const [loading, setLoading] = React.useState('LOADING')
+
   let letEvent;
 
-        // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
+   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
         useEffect(() => {
-          
+          async function fetchData() {
+            var data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
+              
+              method: 'GET',
+              headers: {
+                "accept": "application/json"
+              }
+            })
+            .then(res => {
+            
+              return res.json();
+            })
+
+            setEvents(data.data);
+            console.log(data.data)
+            setLoading('')
+            
+          }
           fetchData();
         }, []);
 
