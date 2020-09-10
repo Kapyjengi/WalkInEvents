@@ -16,7 +16,7 @@ function App() {
   
         useEffect(() => {
           async function fetchData() {
-            var data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/', {
+            var data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
               
               method: 'GET',
               headers: {

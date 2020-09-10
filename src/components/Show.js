@@ -46,6 +46,7 @@ export default function ShowAll(props) {
    if (props.event==='' && props.selectedDay===0) {
        events=props.event
    }
+   //events = SearchByTag(events)
 
     let letEvents = "";
 
