@@ -17,43 +17,28 @@ function App() {
 
    // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
         useEffect(() => {
-          async function fetchData() {
-            let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
-              
-              method: 'GET',
-              headers: {
-                "accept": "application/json"
-              }
-            })
-            .then(res => {
-            
-              return res.json();
-            })
-
-            setEvents(data.data);
-            console.log(data.data)
-            setLoading('')
-            
-          }
+       
           fetchData();
         }, []);
 
-  async function fetchData() {
-    let data = await fetch('http://open-api.myhelsinki.fi/v1/events/', {
-      method: 'GET',              
-      headers: {
-        "accept": "application/json", "Origin": "*"
-      }
-    })
-    .then(res => {
-    
-      return res.json();
-    })
+        async function fetchData() {
+          let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
+            
+            method: 'GET',
+            headers: {
+              "accept": "application/json"
+            }
+          })
+          .then(res => {
+          
+            return res.json();
+          })
 
-    setEvents(data.data);
-    setLoading('')
-    
-  }      
+          setEvents(data.data);
+          console.log(data.data)
+          setLoading('')
+          
+        }
     
       
 
