@@ -18,7 +18,7 @@ function App() {
    // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
         useEffect(() => {
           async function fetchData() {
-            var data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
+            let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
               
               method: 'GET',
               headers: {
