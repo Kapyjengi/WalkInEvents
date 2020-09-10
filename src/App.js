@@ -11,31 +11,32 @@ function App() {
   const [event, setEvent] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
   const [latitude, setLatitude] = React.useState(0)
-  
   const [loading, setLoading] = React.useState('LOADING')
-  
-        useEffect(() => {
-          async function fetchData() {
-            var data = await fetch('http://open-api.myhelsinki.fi/v1/events/', {
-              
-              method: 'GET',
-              headers: {
-                "accept": "application/json", "origin": "*"
-              }
-            })
-            .then(res => {
-            
-              return res.json();
-            })
+  let letEvent;
 
-            setEvents(data.data);
-            setLoading('')
-            
-          }
+        // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
+        useEffect(() => {
+          
           fetchData();
         }, []);
 
-          
+  async function fetchData() {
+    let data = await fetch('http://open-api.myhelsinki.fi/v1/events/', {
+      method: 'GET',              
+      headers: {
+        "accept": "application/json", "Origin": "*"
+      }
+    })
+    .then(res => {
+    
+      return res.json();
+    })
+
+    setEvents(data.data);
+    setLoading('')
+    
+  }      
+    
       
 
  
@@ -45,6 +46,8 @@ function App() {
 
   const SeekName = (event) => {
     letEvent = event.target.value
+    // Mikäli hakukentässä on enemmän kuin kolme(3) merkkiä niin sitten aletaan etsimään vastaavia sanoja
+    // Muuten käy niin että hakuaika on liiiian pitkä.
     if (letEvent.length > 2) {
       setEvent(letEvent)
     }
@@ -55,23 +58,23 @@ function App() {
 
   const ChangeLongitude = (event) => {
     setLongitude(event.target.value)
-    console.log(longitude)
+    //console.log(longitude)
   }
 
   const ChangeLatitude = (event) => {
     setLatitude(event.target.value)
-    console.log(latitude)
+    //console.log(latitude)
   }
 
   const ShowAll = () => {
+    //Nollataan kaikki filtterit ja lista alkaa taas
     setSelectedDay(0)
     setEvent(0)
     document.getElementById("name").value="";
     document.getElementById("Paiva").value="";
   }
 
-  let letEvent;
-
+  // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään inputteja sekä lataus 'merkkiä'
   if (loading==='LOADING'){
   return (
     <div className="App">
@@ -86,6 +89,7 @@ function App() {
     </div>
   )
   } else {
+    // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
         <h1> </h1>

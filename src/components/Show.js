@@ -8,46 +8,70 @@ export default function ShowAll(props) {
 
     
    let events = props.events
-   //console.log(props.events)
    let filted;
+
+   //Jos päivämäärä on valittu ->
    if (props.selectedDay !==0){
+        //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
        filted=SearchByDate(props.events,props.selectedDay)
+       // sortattu tiedosto laitetaan ison listan tilalle.
        events=filted
+       // Mikäli päivän lisäksi on kirjoitettu hakukenttään jotain ->
        if (props.event !==0) {
+         //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
         events=(SearchByEvent(events,props.event))
        }
+       //Mikäli päivän ja haku kentän lisäksi on laitettu etäisyyksiä niin ->
        if (props.longitude !==0 && props.latitude !==0) {
-        events=(SearchByLocation(props.events, props.longitude, props.latitude))
-       }
-   }
-   if (props.event !==0) {
-       filted=(SearchByEvent(props.events,props.event))
-       events=filted
-       if (props.selectedDay !==0){
-         events=(SearchByDate(events,props.selectedDay))
-       }
-       if (props.longitude !==0 && props.latitude !==0) {
+         //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
         events=(SearchByLocation(props.events, props.longitude, props.latitude))
        }
    }
 
+   //Jos hakukenttä on valittu on valittu ->
+   if (props.event !==0) {
+      //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
+       filted=(SearchByEvent(props.events,props.event))
+       // sortattu tiedosto laitetaan ison listan tilalle.
+       events=filted
+       //Jos hakukentän lisäksi on päivämäärä valittu ->
+       if (props.selectedDay !==0){
+      //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
+         events=(SearchByDate(events,props.selectedDay))
+       }
+       //Mikäli päivän ja haku kentän lisäksi on laitettu etäisyyksiä niin ->
+       if (props.longitude !==0 && props.latitude !==0) {
+        //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
+        events=(SearchByLocation(props.events, props.longitude, props.latitude))
+       }
+   }
+
+   //Jos etäisyyttä on ronkittu ->
    if (props.longitude !==0 && props.latitude !==0) {
+    //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
     filted=(SearchByLocation(props.events, props.longitude, props.latitude))
+    // sortattu tiedosto laitetaan ison listan tilalle.
     events=filted
+    //Jos etäisyysmittarin lisäksi on päivämäärä valittu ->
     if (props.selectedDay !==0){
+      //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
       events=(SearchByDate(events,props.selectedDay))
     }
+    // Mikäli päivän lisäksi on kirjoitettu hakukenttään jotain ->
     if (props.event !==0) {
+     //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
       events=(SearchByEvent(events,props.event))
      }
    }
 
+   //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
+   //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/
    if (props.event==='' && props.selectedDay===0) {
        events=props.event
    }
 
+   // letEventsista tulee lista jota aiemmin mahdollisesti jo filteröitiin ja sortattiin
     let letEvents = "";
-
     letEvents = events.map((events, i) => {
 
       
@@ -68,11 +92,11 @@ export default function ShowAll(props) {
           endingday = events.event_dates.starting_day;
         }
 
+        // Tässä määritellään mitä näytetään käyttäjälle
         return (
           <tr key={i} >
             <td>{i}</td>
             <td></td>
-            {/* <td>name: {events.name.fi}</td> */}
             <td width={500}>{name}</td>
             <td>{events.location.address.street_address} </td>
             <td>{events.location.address.postal_code} </td>
@@ -81,8 +105,8 @@ export default function ShowAll(props) {
             <td> </td>
             <td>{moment(endingday).format("DD.MM.YYYY HH:mm")} </td>
             <td> </td>
-            <td>{lon.toFixed(4)}</td>
-            <td>{lat.toFixed(4)}</td>
+            <td>{lon.toFixed(6)}</td>
+            <td>{lat.toFixed(6)}</td>
           </tr>
         )      
 
@@ -103,6 +127,7 @@ export default function ShowAll(props) {
         <th></th>
         <th>longitude</th>
         <th>latitude</th>
+        {/* Alla oleva on koodi {letEvents} on koko ylempänä ollut koodi pläjäys */}
         {letEvents}
       </table>
 

@@ -1,6 +1,7 @@
 
 export default function Sorting(filtered) {
 
+    //Tässä on Bubblesorttaus... 
     const changeArrays = (filtered, x, y) => {
         let temp = filtered[x];
         filtered[x] = filtered[y];
