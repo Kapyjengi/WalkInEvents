@@ -5,7 +5,9 @@ import Sort from './Sort'
 
 //TODO: SearchByTag(events, selectedTags): get selectedTags array as prop instead of hard coded
 export default function SearchByTag(events) {
-    let selectedTags = ["Kuvataide","Muotoilu","Elokuvat","Kuvataide","Musiikki","Tanssi","Teatteri"]
+    console.log(events)
+    //let selectedTags = ["Kuvataide","Muotoilu","Elokuvat","Kuvataide","Musiikki","Tanssi","Teatteri"]
+    let selectedTags = ["Tanssi", "General"]
     let filtered = [];
 
 
@@ -18,16 +20,17 @@ export default function SearchByTag(events) {
 
     // checks if an event tag is among selectedtags. Returns true if it does include 
     function includesTag(event) {
-        let intersection = event.tags.filter(x => selectedTags.includes(x))
-
-        // if intersection-array has elements, there is a common tag. Return true
-        if (intersection.length != 0) {
-            return true
-        } else {
-            return false
+        let includes = false
+        if (event.tags.some(tag => {
+            return selectedTags.includes(tag.name)
+        })) {
+            includes = true
         }
+        return includes
 
     }
+
+    console.log(filtered)
 
 
 
