@@ -20,7 +20,7 @@ function App() {
               
               method: 'GET',
               headers: {
-                "accept": "application/json", "origin": "*"
+                "accept": "application/json"
               }
             })
             .then(res => {
