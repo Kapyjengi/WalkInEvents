@@ -17,12 +17,11 @@ function App() {
 
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-
-    fetchData();
-  }, []);
+    fetchData()    
+  }, [])
 
   async function fetchData() {
-    let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=50', {
+    let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?limit=100', {
 
       method: 'GET',
       headers: {
@@ -30,18 +29,14 @@ function App() {
       }
     })
       .then(res => {
-
         return res.json();
       })
 
     setEvents(data.data);
     console.log(data.data)
     setLoading('')
-
+    
   }
-
-
-
 
   const ChangeDay = (event) => {
     setSelectedDay(event.target.value)
@@ -59,35 +54,44 @@ function App() {
     }
   }
 
-  const ChangeLongitude = (event) => {
-    setLongitude(event.target.value)
-    //console.log(longitude)
+  const getMyPosition = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getPosition)
+    }
   }
 
-  const ChangeLatitude = (event) => {
+  const getPosition = (position) =>  {
+    console.log('latitude is: ', position.coords.latitude)
+    console.log('longitude is: ', position.coords.longitude)
+    setLongitude(position.coords.longitude)
+    setLatitude(position.coords.latitude)
+  }
+
+  const handleLongitudeChange = (event) => {
+    console.log(event.target.value)
+    setLongitude(event.target.value)
+  }
+
+  const handleLatitudeChange = (event) => {
+    console.log(event.target.value)
     setLatitude(event.target.value)
-    //console.log(latitude)
   }
 
   const ShowAll = () => {
     //Nollataan kaikki filtterit ja lista alkaa taas
     setSelectedDay(0)
     setEvent(0)
-    document.getElementById("name").value = "";
-    document.getElementById("Paiva").value = "";
+    document.getElementById("name").value = ""
+    document.getElementById("Paiva").value = ""
+    setLongitude(0)
+    setLatitude(0)
   }
 
-  // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään inputteja sekä lataus 'merkkiä'
+  // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   if (loading === 'LOADING') {
     return (
       <div className="App">
         <h1> </h1>
-        <p>name: <input id="name" placeholder="event" onChange={SeekName} />
-          <input type="date" id="Paiva" onChange={ChangeDay} />
-      Longitude: <input type="text" id="Longitude" onChange={ChangeLongitude} />
-      Latitude: <input type="text" id="Latitude" onChange={ChangeLatitude} />
-        </p>
-        <p><button onClick={ShowAll}>Näytä kaikki</button></p>
         <Loading loading={loading} />
       </div>
     )
@@ -98,10 +102,11 @@ function App() {
         <h1> </h1>
         <p>name: <input id="name" placeholder="event" onChange={SeekName} />
           <input type="date" id="Paiva" onChange={ChangeDay} />
-        Longitude: <input type="text" id="Longitude" onChange={ChangeLongitude} />
-        Latitude: <input type="text" id="Latitude" onChange={ChangeLatitude} />
+        Longitude: <input type="text" id="Longitude" onChange={handleLongitudeChange} value={longitude} />
+        Latitude: <input type="text" id="Latitude" onChange={handleLatitudeChange} value={latitude}  />
         </p>
-        <p><button onClick={ShowAll}>Näytä kaikki</button></p>
+        <p><button onClick={ShowAll}>Show all</button></p>
+        <p><button onClick={getMyPosition}> Get my location</button></p>
         <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
       </div>
     )
@@ -110,4 +115,4 @@ function App() {
   }
 }
 
-export default App;
+export default App

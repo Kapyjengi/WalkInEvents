@@ -11,10 +11,10 @@ export default function SearchByLocation(events, longitude, latitude) {
 
   events.map((events, i) => {
 
-    // ensin käsitellään longitudea, kaikki mitkä on 0.01 + tai - tulee näkyviin... 
+    // ensin käsitellään longitudea, kaikki mitkä on 0.001 + tai - tulee näkyviin... 
     let eventLongitude = events.location.lon
 
-    if (eventLongitude >= longitude - 0.01 || eventLongitude <= longitude + 0.01) {
+    if (eventLongitude >= longitude - 0.001 || eventLongitude <= longitude + 0.001) {
         filtered.push(events)
     }
   })
@@ -24,15 +24,15 @@ export default function SearchByLocation(events, longitude, latitude) {
 
     let eventLatitude = events.location.lat
 
-    //kaikki mitkä on 0.01 + tai - tulee näkyviin...
-    if (eventLatitude >= latitude - 0.01 || eventLatitude <= latitude + 0.01) {
+    //kaikki mitkä on 0.001 + tai - tulee näkyviin...
+    if (eventLatitude >= latitude - 0.001 || eventLatitude <= latitude + 0.001) {
 
         filtered2.push(events)
     }
   })
 
   //console.log(filtered2)
-  //Kun longitude, anatude, latitude on jauhettu jiiriin ja mankeloidaan koko komeus vielä sorttiaseman kautta  
+  //Kun longitude, latitude on jauhettu jiiriin ja mankeloidaan koko komeus vielä sorttiaseman kautta  
   filtered2=(Sort(filtered2))
   return filtered2
 }

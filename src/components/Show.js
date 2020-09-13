@@ -116,27 +116,33 @@ export default function ShowAll(props) {
 
         })     
     
-  return (
-    <div className="App">
-      <table>
-        <th>index</th>
-        <th></th>
-        <th>name</th>
-        <th>address</th>
-        <th>zipcode</th>
-        <th>city</th>
-        <th>startingday</th>
-        <th></th>
-        <th>endingday</th>
-        <th></th>
-        <th>longitude</th>
-        <th>latitude</th>
-        {/* Alla oleva on koodi {letEvents} on koko ylempänä ollut koodi pläjäys */}
-        {letEvents}
-      </table>
-
-    </div>
-  );
+        return (
+          <div className="App">
+            <table>
+            <thead>
+              <tr>
+              <th>index</th>
+              <th></th>
+              <th>name</th>
+              <th>address</th>
+              <th>zipcode</th>
+              <th>city</th>
+              <th>startingday</th>
+              <th></th>
+              <th>endingday</th>
+              <th></th>
+              <th>longitude</th>
+              <th>latitude</th>
+              </tr>
+              </thead>
+              <tbody>
+              {letEvents}
+              </tbody>
+              
+            </table>
+      
+          </div>
+        );
 }
 
 
