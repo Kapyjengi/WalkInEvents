@@ -20,15 +20,14 @@ function App() {
   const [times, setTimes] = useState(0)
 
   let letEvent;
-
-
-
+  
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-    if (times < 10) {
+      if (times < 10) {
       Coords();
+      console.log(times)
       setTimes(times + 1)
-    }
+      }
   }, [times])
 
   async function fetchData(lati, long, area) {
@@ -109,15 +108,7 @@ function App() {
       fetchData(lat, lon, aarea);
     }
   }
-  const handleLongitudeChange = (event) => {
-    console.log(event.target.value)
-    setLongitude(event.target.value)
-  }
 
-  const handleLatitudeChange = (event) => {
-    console.log(event.target.value)
-    setLatitude(event.target.value)
-  }
 
   const ShowAll = () => {
     //Nollataan kaikki filtterit ja lista alkaa taas
@@ -125,8 +116,6 @@ function App() {
     setEvent(0)
     document.getElementById("name").value = ""
     document.getElementById("Paiva").value = ""
-    setLongitude(0)
-    setLatitude(0)
     setArea(1)
   }
 
@@ -155,8 +144,8 @@ function App() {
         <p><button onClick={AddArea}>+1km</button><button onClick={SubArea}>-1km</button></p>
         <ShowTagOptions events={events}/>
         area:{area}km
-        <Loading loading={loading} loaded={loaded} />
-        <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
+        <Loading loading={loading} loaded={loaded}/>
+        <Show events={events} event={event} selectedDay={selectedDay}/>
       </div>
     )
 
