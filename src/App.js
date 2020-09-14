@@ -37,14 +37,7 @@ function App() {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     }
     if (lati !== undefined && long  !== undefined){
-<<<<<<< Updated upstream
-      url = 'http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area
-    }
-
-    let data = await fetch(url, {
-=======
     let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
->>>>>>> Stashed changes
 
       method: 'GET',
       headers: {
@@ -58,11 +51,8 @@ function App() {
     setEvents(data.data);
     //console.log(data.data)
     setLoading('')
-<<<<<<< Updated upstream
-=======
     setLoaded(true)
     }
->>>>>>> Stashed changes
   }
 
    const Coords = () => {
@@ -72,12 +62,8 @@ function App() {
       });
       let lati = lat
       let long = lon
-<<<<<<< Updated upstream
-      console.log(lat, lon)
-=======
       let toDay = GetToday()
       setSelectedDay(toDay)
->>>>>>> Stashed changes
       fetchData(lati,long,area);
   }
  
