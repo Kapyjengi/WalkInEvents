@@ -11,59 +11,13 @@ export default function ShowAll(props) {
    let events = props.events
    let filted;
    //Jos päivämäärä on valittu ->
-   if (props.selectedDay !==0){
+   
         //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
        filted=SearchByDate(props.events,props.selectedDay)
-       // sortattu tiedosto laitetaan ison listan tilalle.
-       events=filted
-       // Mikäli päivän lisäksi on kirjoitettu hakukenttään jotain ->
-       if (props.event !==0) {
-         //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
-        events=(SearchByEvent(events,props.event))
-       }
-       //Mikäli päivän ja haku kentän lisäksi on laitettu etäisyyksiä niin ->
-       if (props.longitude !==0 && props.latitude !==0) {
-         //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
-        events=(SearchByLocation(props.events, props.longitude, props.latitude))
-       }
-   }
-
-   //Jos hakukenttä on valittu on valittu ->
-   if (props.event !==0) {
-      //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
-       filted=(SearchByEvent(props.events,props.event))
-       // sortattu tiedosto laitetaan ison listan tilalle.
-       events=filted
-       //Jos hakukentän lisäksi on päivämäärä valittu ->
-       if (props.selectedDay !==0){
-      //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
-         events=(SearchByDate(events,props.selectedDay))
-       }
-       //Mikäli päivän ja haku kentän lisäksi on laitettu etäisyyksiä niin ->
-       if (props.longitude !==0 && props.latitude !==0) {
-        //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
-        events=(SearchByLocation(props.events, props.longitude, props.latitude))
-       }
-   }
-
-   //Jos etäisyyttä on ronkittu ->
-   if (props.longitude !==0 && props.latitude !==0) {
-    //mennään etsimään jo kahteen kertaan sortatusta listasta hakemaan SearchByLocation -funktion kautta sopivat sijainnit
-    filted=(SearchByLocation(props.events, props.longitude, props.latitude))
-    // sortattu tiedosto laitetaan ison listan tilalle.
-    events=filted
-    //Jos etäisyysmittarin lisäksi on päivämäärä valittu ->
-    if (props.selectedDay !==0){
-      //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
-      events=(SearchByDate(events,props.selectedDay))
-    }
-    // Mikäli päivän lisäksi on kirjoitettu hakukenttään jotain ->
-    if (props.event !==0) {
-     //mennään etsimään jo sortatusta tiedostosta kaikki hakukenttään sopivat tapahtumat SearchByEvent -funktion kautta
-      events=(SearchByEvent(events,props.event))
-     }
-   }
-
+        
+       events=SearchByEvent(filted,props.event)
+        
+       
    //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
    //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/
    if (props.event==='' && props.selectedDay===0) {
@@ -113,8 +67,18 @@ export default function ShowAll(props) {
           </tr>
         )      
 
-        })     
+        })    
     
+        if (events.length===0){
+
+          return (
+            <div>
+              Sorry, no events were found.
+            </div>
+          )
+        }
+    
+        else {
         return (
           <div className="App">
             <table>
@@ -142,6 +106,7 @@ export default function ShowAll(props) {
       
           </div>
         );
+        }
 }
 
 
