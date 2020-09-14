@@ -10,7 +10,6 @@ export default function ShowAll(props) {
     
    let events = props.events
    let filted;
-
    //Jos päivämäärä on valittu ->
    if (props.selectedDay !==0){
         //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
