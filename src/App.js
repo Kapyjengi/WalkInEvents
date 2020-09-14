@@ -3,6 +3,7 @@ import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
 import Loading from './components/Loading'
+import ShowTagOptions from './components/ShowTagOptions'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
   const [times, setTimes] = useState(0);
+
 
   let letEvent;
 
@@ -137,6 +139,7 @@ function App() {
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
         <p><button onClick={AddArea}>+1km</button><button onClick={SubArea}>-1km</button></p>
+        <p><ShowTagOptions/></p>
         <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
       </div>
     )
