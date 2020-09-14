@@ -59,6 +59,7 @@ function App() {
       });
       let lati = lat
       let long = lon
+      console.log(lat, lon)
       fetchData(lati,long,area);
   }
  
@@ -79,7 +80,6 @@ function App() {
     }
   }
 
-  
   const AddArea = () =>{
     setArea(area+1)
     let aarea = area + 1
