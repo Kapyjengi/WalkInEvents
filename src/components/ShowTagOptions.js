@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
+import GetTagList from './GetTagList';
 
 
 
@@ -8,13 +9,11 @@ import makeAnimated from 'react-select/animated';
 export default function ShowTagOptions() {
     const animatedComponents = makeAnimated();
 
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
+    const options = GetTagList();
+    const [selected, setSelected] = useState([])
+    tagSelected = (tag) => {
 
-
+    }
 
     return (
             <Select
@@ -22,6 +21,8 @@ export default function ShowTagOptions() {
                 options={options}
                 components={animatedComponents}
                 isMulti
+                onChange={this.tagSelected}
+                
             />
     )
 }
