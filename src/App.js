@@ -28,8 +28,15 @@ function App() {
   }, [times])
 
   async function fetchData(lati,long,area) {
+    let url =""
+    if (lati == undefined || long == undefined) {
+      url = 'http://open-api.myhelsinki.fi/v1/events/'
+    }
     if (lati !== undefined && long  !== undefined){
-    let data = await fetch('https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
+      url = 'http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area
+    }
+
+    let data = await fetch(url, {
 
       method: 'GET',
       headers: {
@@ -43,7 +50,6 @@ function App() {
     setEvents(data.data);
     console.log(data.data)
     setLoading('')
-    }
   }
 
    const Coords = () => {

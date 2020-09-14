@@ -1,0 +1,7 @@
+ let url =""
+    if (lati == undefined || long == undefined) {
+      url = 'https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/'
+    }
+    if (lati !== undefined && long  !== undefined){
+      url = 'https://cors-anywhere.herokuapp.com/http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area
+    }
