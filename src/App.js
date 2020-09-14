@@ -19,12 +19,9 @@ function App() {
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
   const [times, setTimes] = useState(0)
-  const [ready, setReady] = useState(0);
 
   let letEvent;
   
-
-
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
       if (times < 10) {
@@ -39,9 +36,7 @@ function App() {
     if (lati == undefined || long == undefined) {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     } */
-    if (lati !== undefined && long  !== undefined && ready==0 ){
-    //Kun lati ja long sekä ready arvot täyttyvät, vaihdetaan ready arvo 1:ksi jolloin tehdään fetch vain kerran
-    setReady(1)
+    if (lati !== undefined && long  !== undefined){
     let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
 
       method: 'GET',
@@ -49,8 +44,7 @@ function App() {
         "accept": "application/json"
       }
     })
-      .then(res => {
-        
+      .then(res => { 
         return res.json();
       })
 
@@ -111,15 +105,7 @@ function App() {
       fetchData(lat,lon,aarea);
     }
   }
-  const handleLongitudeChange = (event) => {
-    console.log(event.target.value)
-    setLongitude(event.target.value)
-  }
 
-  const handleLatitudeChange = (event) => {
-    console.log(event.target.value)
-    setLatitude(event.target.value)
-  }
 
   const ShowAll = () => {
     //Nollataan kaikki filtterit ja lista alkaa taas
@@ -127,8 +113,6 @@ function App() {
     setEvent(0)
     document.getElementById("name").value = ""
     document.getElementById("Paiva").value = ""
-    setLongitude(0)
-    setLatitude(0)
     setArea(1)
   }
   
@@ -158,7 +142,7 @@ function App() {
         <p><ShowTagOptions/></p>
         area:{area}km
         <Loading loading={loading} loaded={loaded}/>
-        <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
+        <Show events={events} event={event} selectedDay={selectedDay}/>
       </div>
     )
 
