@@ -11,9 +11,7 @@ export default function ShowTagOptions() {
 
     const options = GetTagList();
     const [selected, setSelected] = useState([])
-    tagSelected = (tag) => {
-
-    }
+    //tagSelected = (tag) => {}
 
     return (
             <Select
@@ -21,7 +19,7 @@ export default function ShowTagOptions() {
                 options={options}
                 components={animatedComponents}
                 isMulti
-                onChange={this.tagSelected}
+                // onChange={this.tagSelected}
                 
             />
     )
