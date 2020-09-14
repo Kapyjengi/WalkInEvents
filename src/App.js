@@ -19,6 +19,7 @@ function App() {
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
   const [times, setTimes] = useState(0)
+  const [ready, setReady] = useState(0);
 
   let letEvent;
   
@@ -26,10 +27,11 @@ function App() {
 
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-    if (times < 10){
+      if (times < 10) {
       Coords();
+      console.log(times)
       setTimes(times + 1)
-    }
+      }
   }, [times])
 
   async function fetchData(lati,long,area) {
@@ -37,7 +39,9 @@ function App() {
     if (lati == undefined || long == undefined) {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     } */
-    if (lati !== undefined && long  !== undefined ){
+    if (lati !== undefined && long  !== undefined && ready==0 ){
+    //Kun lati ja long sekä ready arvot täyttyvät, vaihdetaan ready arvo 1:ksi jolloin tehdään fetch vain kerran
+    setReady(1)
     let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
 
       method: 'GET',
@@ -46,6 +50,7 @@ function App() {
       }
     })
       .then(res => {
+        
         return res.json();
       })
 
