@@ -3,8 +3,8 @@ import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
 import Loading from './components/Loading'
-import ShowTagOptions from './components/ShowTagOptions'
 import GetToday from './components/GetToday'
+import ShowTagOptions from './components/ShowTagOptions'
 
 function App() {
 
@@ -19,7 +19,6 @@ function App() {
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
   const [times, setTimes] = useState(0)
-
 
   let letEvent;
   
@@ -38,8 +37,8 @@ function App() {
     if (lati == undefined || long == undefined) {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     } */
-    if (lati !== undefined && long  !== undefined){
-    let data = await fetch('https://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
+    if (lati !== undefined && long  !== undefined ){
+    let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
 
       method: 'GET',
       headers: {
