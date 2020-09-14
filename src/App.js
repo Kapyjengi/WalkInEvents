@@ -38,7 +38,7 @@ function App() {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     } */
     if (lati !== undefined && long  !== undefined ){
-    let data = await fetch('https://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
+    let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
 
       method: 'GET',
       headers: {
