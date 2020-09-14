@@ -1,13 +1,14 @@
 import Sort from './Sort'
 
 export default function SearchByEvent(events, event) {
-
+  
+    
   // Funktioon tuodaan kaikki eventit mitkä paketissa on, mikäli tämä on ainut/ensimmäinen filtteri, niin events on se iso lista
   // tuodaan myös event joka on haettu tapahtumanimi
   let letEvents = "";
   //luodaan uusi taulukkomuuttuja
   let filtered = [];
-
+  if (event !== 0) {
   //käydään lista läpi ja tarkastellaan onko tapahtumalla suomalaista nimeä, jos ei niin tarkastetaan onko 
   //englantilaista nimeä ja siitä sitten ruotsin kielistä nimeä.
   letEvents = events.map((events, i) => {
@@ -35,5 +36,8 @@ export default function SearchByEvent(events, event) {
   filtered = Sort(filtered)
 
   return filtered
+}
+/// Mikäli eventtitietoa ei olla rassattu niin funktio pomppaa tänne suoraan
+return events
 }
 

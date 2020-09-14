@@ -3,6 +3,7 @@ import './App.css'
 import moment from 'moment'
 import Show from './components/Show'
 import Loading from './components/Loading'
+import GetToday from './components/GetToday'
 
 function App() {
 
@@ -12,19 +13,22 @@ function App() {
   const [longitude, setLongitude] = React.useState(0)
   const [latitude, setLatitude] = React.useState(0)
   const [loading, setLoading] = React.useState('LOADING')
+  const [loaded, setLoaded] = useState(false)
   const [lat, setLat] = useState()
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
-  const [times, setTimes] = useState(0);
+  const [times, setTimes] = useState(0)
 
   let letEvent;
+  
+
 
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-    if (times < 5) {
+    if (times < 10){
       Coords();
       setTimes(times + 1)
-      }   
+    }
   }, [times])
 
   async function fetchData(lati,long,area) {
@@ -33,10 +37,14 @@ function App() {
       url = 'http://open-api.myhelsinki.fi/v1/events/'
     }
     if (lati !== undefined && long  !== undefined){
+<<<<<<< Updated upstream
       url = 'http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area
     }
 
     let data = await fetch(url, {
+=======
+    let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter='+lati+'%2C'+long+'%2C'+area, {
+>>>>>>> Stashed changes
 
       method: 'GET',
       headers: {
@@ -48,8 +56,13 @@ function App() {
       })
 
     setEvents(data.data);
-    console.log(data.data)
+    //console.log(data.data)
     setLoading('')
+<<<<<<< Updated upstream
+=======
+    setLoaded(true)
+    }
+>>>>>>> Stashed changes
   }
 
    const Coords = () => {
@@ -59,13 +72,18 @@ function App() {
       });
       let lati = lat
       let long = lon
+<<<<<<< Updated upstream
       console.log(lat, lon)
+=======
+      let toDay = GetToday()
+      setSelectedDay(toDay)
+>>>>>>> Stashed changes
       fetchData(lati,long,area);
   }
  
 
   const ChangeDay = (event) => {
-    setSelectedDay(event.target.value)
+    setSelectedDay(event.target.value)  
   }
 
   const SeekName = (event) => {
@@ -81,12 +99,16 @@ function App() {
   }
 
   const AddArea = () =>{
+    if (area < 20) {
     setArea(area+1)
     let aarea = area + 1
+    setLoading('LOADING')
     fetchData(lat,lon,aarea);
+    }
   }
 
   const SubArea = () =>{
+    setLoading('LOADING')
     if (area > 1){
     setArea(area-1)
     let aarea = area - 1
@@ -115,14 +137,16 @@ function App() {
     document.getElementById("Paiva").value = ""
     setLongitude(0)
     setLatitude(0)
+    setArea(1)
   }
+  
 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
-  if (loading === 'LOADING') {
+  if (loading === 'LOADING' && !loaded) {
     return (
       <div className="App">
         <h1> </h1>
-        <Loading loading={loading} />
+        <Loading loading={loading} loaded={loaded} />
       </div>
     )
   } else {
@@ -131,12 +155,16 @@ function App() {
       <div className="App">
         <h1> </h1>
         <p>name: <input id="name" placeholder="event" onChange={SeekName} />
-          <input type="date" id="Paiva" onChange={ChangeDay} />
-        Longitude: <input type="text" id="Longitude" onChange={handleLongitudeChange} value={longitude} />
-        Latitude: <input type="text" id="Latitude" onChange={handleLatitudeChange} value={latitude}  />
+          <input type="date" id="Paiva" value={selectedDay} onChange={ChangeDay} />
+           <br></br>
+        Longitude: {lat} 
+        <br></br>
+        Latitude: {lon}
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
         <p><button onClick={AddArea}>+1km</button><button onClick={SubArea}>-1km</button></p>
+        area:{area}km
+        <Loading loading={loading} loaded={loaded}/>
         <Show events={events} event={event} selectedDay={selectedDay} longitude={longitude} latitude={latitude} />
       </div>
     )
