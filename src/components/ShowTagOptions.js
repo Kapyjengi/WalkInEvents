@@ -1,26 +1,31 @@
-import React, { Component, useState } from 'react';
-import Select from 'react-select'
+import React, { createRef, useState } from 'react';
+import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import GetTagList from './GetTagList';
+import SelectedTags from './SelectedTags'
+import SearchByTag from './SearchByTag'
 
 
+// {value:'Teatteri', label: 'Teatteri'}
 
+export default function ShowTagOptions(props) {
 
-export default function ShowTagOptions() {
     const animatedComponents = makeAnimated();
 
     const options = GetTagList();
-    const [selected, setSelected] = useState([])
-    //tagSelected = (tag) => {}
+    const tagSelected = (arrayOfSelectedTags) => {
+        SelectedTags(arrayOfSelectedTags)
+    }
 
     return (
+            <div>
             <Select
                 closeMenuOnSelect={false}
                 options={options}
                 components={animatedComponents}
                 isMulti
-                // onChange={this.tagSelected}
-                
+                onChange={tagSelected}
             />
+            </div>
     )
 }

@@ -1,15 +1,27 @@
 import Sort from './Sort'
+import SelectedTags from './SelectedTags'
 
-// events and selectedTags are both arrays
+
 // an event has an array of tags in event.tags
 
 //TODO: SearchByTag(events, selectedTags): get selectedTags array as prop instead of hard coded
-export default function SearchByTag(events) {
-    console.log(events)
-    //let selectedTags = ["Kuvataide","Muotoilu","Elokuvat","Kuvataide","Musiikki","Tanssi","Teatteri"]
-    let selectedTags = ["Tanssi", "General"]
-    let filtered = [];
+export default function SearchByTag(events) {    
+    //console.log('SearchByTags')
+    //console.log(events)
 
+    let filtered = [];
+    let selectedTags = SelectedTags()
+    //console.log("tags in SearByTag")
+    //console.log(selectedTags)
+    let selectedArray = []
+    //console.log(selectedTags)
+    selectedTags.forEach(element => console.log(element))
+    selectedTags.forEach(element => console.log(element.value))
+    //console.log(selectedTags)
+    // if no tags are selected, return unaltered list
+    if (Array.isArray(selectedTags) && selectedTags.length === 0) {
+        return events
+    }
 
     // for each event, if a selected tag is among the event tags, the event passes
     events.forEach(event => {
@@ -30,7 +42,8 @@ export default function SearchByTag(events) {
 
     }
 
-    console.log(filtered)
+    //console.log("Filtered list")
+    //console.log(filtered)
 
 
 

@@ -25,7 +25,7 @@ export default function ShowAll(props) {
    }
    
    // Tag filter
-   //events = SearchByTag(events)
+    events = SearchByTag(events)
 
    // letEventsista tulee lista jota aiemmin mahdollisesti jo filteröitiin ja sortattiin
     let letEvents = "";
