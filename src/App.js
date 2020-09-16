@@ -4,14 +4,13 @@ import GetToday from './components/GetToday'
 import Loading from './components/Loading'
 import Show from './components/Show'
 import ShowTagOptions from './components/ShowTagOptions'
+import Slider from './components/Slider'
 
 function App() {
 
   const [events, setEvents] = React.useState('')
   const [selectedDay, setSelectedDay] = React.useState(0)
   const [event, setEvent] = React.useState(0)
-  const [longitude, setLongitude] = React.useState(0)
-  const [latitude, setLatitude] = React.useState(0)
   const [loading, setLoading] = React.useState('LOADING')
   const [loaded, setLoaded] = useState(false)
   const [lat, setLat] = useState()
@@ -70,7 +69,6 @@ function App() {
     fetchData(lati, long, area);
   }
 
-
   const ChangeDay = (event) => {
     setSelectedDay(event.target.value)
   }
@@ -87,7 +85,9 @@ function App() {
     }
   }
 
-  const AddArea = () => {
+  // napit, jos halutaan
+
+  /* const AddArea = () => {
     if (area < 20) {
       setArea(area + 1)
       let aarea = area + 1
@@ -107,8 +107,14 @@ function App() {
       let aarea = area
       fetchData(lat, lon, aarea);
     }
-  }
+  } */
 
+  const HandleSlider = (event) => {
+    setArea(event)
+    fetchData(lat, lon, event)
+    setLoading('LOADING')
+    console.log(event)
+  }
 
   const ShowAll = () => {
     //Nollataan kaikki filtterit ja lista alkaa taas
@@ -118,7 +124,6 @@ function App() {
     document.getElementById("Paiva").value = ""
     setArea(1)
   }
-
 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   if (loading === 'LOADING' && !loaded) {
@@ -141,7 +146,7 @@ function App() {
         Latitude: {lon}
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
-        <p><button onClick={AddArea}>+1km</button><button onClick={SubArea}>-1km</button></p>
+        <Slider HandleSlider={HandleSlider} area={area}/>
         <ShowTagOptions events={events}/>
         area:{area}km
         <Loading loading={loading} loaded={loaded}/>
