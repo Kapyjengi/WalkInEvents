@@ -13,6 +13,7 @@
     "carbon-icons": "^7.0.7",
     "moment": "^2.27.0",
     "react": "^16.13.1",
+    "react-bootstrap-range-slider": "^1.2.1",
     "react-dom": "^16.13.1",
     "react-native-maps": "^0.27.1",
     "react-native-open-map": "^3.0.2",
