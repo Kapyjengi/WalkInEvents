@@ -15,18 +15,14 @@ export default function ListView() {
   const [lat, setLat] = useState()
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
-  const [times, setTimes] = useState(0)
 
   let letEvent;
   
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-      if (times < 10) {
+    //Haetaan koordinaatit
       Coords();
-      console.log(times)
-      setTimes(times + 1)
-      }
-  }, [times])
+  }, [lon,lat])
 
   async function fetchData(lati, long, area) {
 /*     let url = ""
@@ -38,7 +34,7 @@ export default function ListView() {
 
         method: 'GET',
         headers: {
-          "accept": "application/json"
+          "accept": "application/json",
         },
         //credentials: 'include',
         //mode: 'cors'
@@ -63,8 +59,10 @@ export default function ListView() {
     });
     let lati = lat
     let long = lon
+    //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
     let toDay = GetToday()
     setSelectedDay(toDay)
+    //Haetaan API
     fetchData(lati, long, area);
   }
 
@@ -84,35 +82,11 @@ export default function ListView() {
     }
   }
 
-  // napit, jos halutaan
-
-  /* const AddArea = () => {
-    if (area < 20) {
-      setArea(area + 1)
-      let aarea = area + 1
-      setLoading('LOADING')
-      fetchData(lat, lon, aarea);
-    }
-  }
-
-  const SubArea = () => {
-    setLoading('LOADING')
-    if (area > 1) {
-      setArea(area - 1)
-      let aarea = area - 1
-      fetchData(lat, lon, aarea);
-    } else {
-      setArea(1)
-      let aarea = area
-      fetchData(lat, lon, aarea);
-    }
-  } */
-
   const HandleSlider = (event) => {
     setArea(event)
     fetchData(lat, lon, event)
     setLoading('LOADING')
-    console.log(event)
+    //console.log(event)
   }
 
   const ShowAll = () => {

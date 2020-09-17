@@ -8,7 +8,7 @@ import Select from 'react-select';
 export default function SelectedTags(tagArray){
     let incomingArray = tagArray
     let selected =[]
-    if (incomingArray == undefined) {
+    if (incomingArray === undefined) {
         //console.log('Tags returned')
         return selected
     } else {

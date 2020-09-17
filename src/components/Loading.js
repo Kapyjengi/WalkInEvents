@@ -5,32 +5,27 @@ export default function Loading(props) {
 
     //const [point, setPoint] = React.useState('')
     const [times, setTimes] = React.useState(0)
-    
+//    const [point, setPoint] = React.useState('')
     // Latauksen aikana Loading sanan perään tulee pisteitä sekunnin tahtiin. 
-    let point=''
-
+    let load=props.loading;
+    let point='.';
+    
     //Mikäli tämä on ensimmäinen lataus niin lähtee pisteet rullailemaan.
-    if (!props.loaded) {
-    setTimeout(()=>{
-        
-        if (point==='...') {
-            //setPoint('.')
-            point='.'
+    if (load==='LOADING') {
+    setTimeout(()=>{    
             setTimes(times+1)
-        } else {
-        //setPoint(point+'.')
-        point=point+'.'
-        setTimes(times+1)
-
         }
-    },1000)
+    ,1000)
 }
+
+ 
+
 
     // Oletuksena on että mikäli 30 sekunttiin ei listaa ole tullut ruutuun niin meille heitetään jokin meni vikaan teksti.
     if (times < 30) {
    return (
        <div>
-           {props.loading}{point}
+           {load}
        </div>
    )
     } else {
