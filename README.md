@@ -113,6 +113,7 @@ tehdään dokumentaatioon tarpeelliset muutokset heti eikä vasta viimeisenä il
 
 hyvä dokumentaatio on asiallista aja siinä on vältetty kapulakieltä
 
+dokumentaatioo voi editoida lokaalisti editorilla tai suoraan täällä githubissa
 
 ---
 
@@ -120,11 +121,13 @@ hyvä dokumentaatio on asiallista aja siinä on vältetty kapulakieltä
 Tässä tälläinen perusohjenuora:
 
 
-## projektin nimi
+## projektin nimi isommalla otsikolla
 
 logo
 
 ja vaikkapa slogan
+
+linkki esim. herokuun
 
 
 ### description
@@ -153,6 +156,13 @@ suurempi projekti dokumentoidaan githubin omaan projektikohtaiseen wikiin
 me varmasti pärjätään tällä readme.md filulla
 
 
+### käytetty teknologia
+
+tää on mun oma lisäys 
+
+ihan vaan kurssia ajatellen mietin, että voitais listata käytetty teknologiat, paketit, tyylit jne jne.
+
+
 ### vaatimukset
 
 esim.
@@ -171,15 +181,26 @@ eli miten projekti voidaan ottaa käyttöön lokaalisti listaamalla kaikki tarvi
 
 ```
 git clone ...
+
 npm install
+
+npm start
+
+jne...
 ```
 
-koodipätkät ja komennot lisätään dokumentaatioon käärimällä haluttu block backtikkeihin
+localhost linkki
 
-`-`-`
-tällälailla, mutta muista
-poistaa viivat backtikkien välistä
-`-`-`
+
+koodipätkät ja komennot lisätään dokumentaatioon käärimällä haluttu block backtikkeihin tähän tyyliin
+
+'''
+esimerkin vuoksi
+en voinut käyttää oikeita
+backtikkejä,
+joten joudun käyttämään tälläisiä
+korvikkeita
+'''
 
 
 ### käyttö
@@ -212,11 +233,13 @@ minkä lisenssin alla projekti on?
 
 ---
 
+
 githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.github.com/features/wikis/#creating-a-readme)
 
 perustoimintojen kirjoittamisen ja muotoilun ohjeet löytyy [täältä](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
 
 A wise man once said
 > laadukas dokumentaatio on avain onneen
+
 
 ---
