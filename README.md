@@ -66,3 +66,157 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+
+
+
+---
+
+readme.md alkaa isolla ja kuvaavalla otsikolla, esimerkiksi projektin nimellä
+
+otsikoinnissa käytetään kolmea eri kokoa:
+
+tämä on
+
+# suurin
+
+tämä
+
+## keskikokoinen 
+
+ja tämä 
+
+### pienin
+
+
+```
+otsikointi tapahtuu risuaidoilla:
+# isoin
+## pienempi
+### pienin
+```
+
+---
+
+dokumentoinnin
+tl dr;
+
+dokumentaatio kertoo, että mitä
+
+otetaan dokumentaatio tosissaan ja treenataan sen tekemistä
+
+tehdään dokumentaatioon tarpeelliset muutokset heti eikä vasta viimeisenä iltana
+
+hyvä dokumentaatio on asiallista aja siinä on vältetty kapulakieltä
+
+
+---
+
+
+Tässä tälläinen perusohjenuora:
+
+
+## projektin nimi
+
+logo
+
+ja vaikkapa slogan
+
+
+### description
+
+joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tärkeys menemällä suoraan asian ytimeen
+
+
+### sisällysluettelo
+
+1. jossa
+2. listataan
+3. dokumentaation
+4. sisältö
+
+```
+1. ordered
+2. lista
+3. tehdään
+4. näin
+```
+
+lyhyessä dokumentaatiossa sisällysluettelon tarpeellisuus tulee arvioida
+
+suurempi projekti dokumentoidaan githubin omaan projektikohtaiseen wikiin
+
+me varmasti pärjätään tällä readme.md filulla
+
+
+### vaatimukset
+
+esim.
+- node.js ja versionumero
+
+```
+unordered lista tehdään lisäämällä viiva
+- sanan
+- alkuun
+```
+
+
+### asennukset ja käyttöönotto
+
+eli miten projekti voidaan ottaa käyttöön lokaalisti listaamalla kaikki tarvittavat komennot, esimerkiksi
+
+```
+git clone ...
+npm install
+```
+
+koodipätkät ja komennot lisätään dokumentaatioon käärimällä haluttu block backtikkeihin
+
+`-`-`
+tällälailla, mutta muista
+poistaa viivat backtikkien välistä
+`-`-`
+
+
+### käyttö
+
+miten sovellusta käytetään?
+
+tähän olisi hyvä lisätä screenshotteja projektin eri käyttövaiheista.
+
+
+### kontribuointi
+
+opensourcea tehtäessä ja muiden kontribuointia toivottaessa tulisi tähän, että
+
+- mitä
+- miten ja
+- miksi
+
+tarvitaankohan me tälläistä osiota, tuskin?
+
+
+### krediitit
+
+kerrotaan projektiryhmä, jaetaan krediitit ja halutessa linkitetään henkilöt esim. linkediniin ja/tai githubiin
+
+
+### lisenssi
+
+minkä lisenssin alla projekti on?
+
+
+---
+
+githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.github.com/features/wikis/#creating-a-readme)
+
+perustoimintojen kirjoittamisen ja muotoilun ohjeet löytyy [täältä](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
+
+A wise man once said
+> laadukas dokumentaatio on avain onneen
+
+---
