@@ -238,6 +238,9 @@ githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.g
 
 perustoimintojen kirjoittamisen ja muotoilun ohjeet löytyy [täältä](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
 
+tässä vois olla aika passeli [esimerkkipohja](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+
+
 A wise man once said
 > laadukas dokumentaatio on avain onneen
 
