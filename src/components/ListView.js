@@ -4,6 +4,7 @@ import Loading from './Loading'
 import Show from './Show'
 import ShowTagOptions from './ShowTagOptions'
 import Slider from './Slider'
+import axios from 'axios';
 
 export default function ListView() {
 
@@ -17,35 +18,27 @@ export default function ListView() {
   const [area, setArea] = useState(1)
 
   let letEvent;
-  
+
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
     //Haetaan koordinaatit
-      Coords();
-  }, [lon,lat])
+    Coords();
+  }, [lon, lat])
+
 
   async function fetchData(lati, long, area) {
-/*     let url = ""
-    if (lati == undefined || long == undefined) {
-      url = 'http://open-api.myhelsinki.fi/v1/events/'
-    } */
+
     if (lati !== undefined && long !== undefined) {
-      let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-        method: 'GET',
-        headers: {
-          "accept": "application/json"
-        }
-        //credentials: 'include',
-        //mode: 'cors'
-      })
+
+      // let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
+      await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(res => {
-          return res.json();
+          //console.log(res)  
+          setEvents(res.data.data)
         })
         .catch((error) => {
           console.error('Error:', error)
         })
-      setEvents(data.data);
-      //console.log(data.data)
       setLoading('')
       setLoaded(true)
     }
@@ -95,7 +88,7 @@ export default function ListView() {
     document.getElementById("name").value = ""
     document.getElementById("Paiva").value = ""
     setArea(1)
-    let areaa=1
+    let areaa = 1
     fetchData(lat, lon, areaa)
   }
 
@@ -120,13 +113,13 @@ export default function ListView() {
         Latitude: {lon}
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
-        <Slider HandleSlider={HandleSlider} area={area}/>
-        <ShowTagOptions events={events}/>
+        <Slider HandleSlider={HandleSlider} area={area} />
+        <ShowTagOptions events={events} />
         area:{area}km
-        <Loading loading={loading} loaded={loaded}/>
-        <Show events={events} event={event} selectedDay={selectedDay}/>
+        <Loading loading={loading} loaded={loaded} />
+        <Show events={events} event={event} selectedDay={selectedDay} />
       </div>
     )
 
-}
+  }
 }
