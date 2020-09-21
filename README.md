@@ -224,12 +224,12 @@ tarvitaankohan me tälläistä osiota, tuskin?
 ### krediitit
 
 kerrotaan projektiryhmä, jaetaan krediitit ja halutessa linkitetään henkilöt esim. linkediniin ja/tai githubiin
-Anton Javits
-Petja Koivu
-Olli Kuikka
-Sami Kulonpää
-Päivi Lampinen
-Jukka Lehikoinen
+- Anton Javits
+- Petja Koivu
+- Olli Kuikka
+- Sami Kulonpää
+- Päivi Lampinen
+- Jukka Lehikoinen
 
 
 ### lisenssi
