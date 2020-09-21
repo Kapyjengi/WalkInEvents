@@ -9,6 +9,7 @@ function Slider(props) {
     min='1'
     max='20'
     size='lg'
+    value={props.area}
     area={props.area}
     onChange={changeEvent => props.HandleSlider(changeEvent.target.value)}
   />

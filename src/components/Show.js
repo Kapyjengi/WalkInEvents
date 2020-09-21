@@ -29,7 +29,6 @@ export default function ShowAll(props) {
   let letEvents = "";
   letEvents = events.map((events, i) => {
 
-
     let name = events.name.fi;
     let endingday = events.event_dates.ending_day;
     let lon = events.location.lon;
@@ -55,8 +54,8 @@ export default function ShowAll(props) {
         <td> </td>
         <td>{moment(endingday).format("DD.MM.YYYY HH:mm")} </td>
         <td> </td>
-        <td>{lon.toFixed(6)}</td>
-        <td>{lat.toFixed(6)}</td>
+        <td>{lon.toFixed(7)}</td>
+        <td>{lat.toFixed(7)}</td>
       </tr>
     )
 

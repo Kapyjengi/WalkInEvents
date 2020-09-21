@@ -31,11 +31,10 @@ export default function ListView() {
     } */
     if (lati !== undefined && long !== undefined) {
       let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-
         method: 'GET',
         headers: {
-          "accept": "application/json",
-        },
+          "accept": "application/json"
+        }
         //credentials: 'include',
         //mode: 'cors'
       })
@@ -96,6 +95,8 @@ export default function ListView() {
     document.getElementById("name").value = ""
     document.getElementById("Paiva").value = ""
     setArea(1)
+    let areaa=1
+    fetchData(lat, lon, areaa)
   }
 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'

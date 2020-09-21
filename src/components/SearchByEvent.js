@@ -5,7 +5,7 @@ export default function SearchByEvent(events, event) {
     
   // Funktioon tuodaan kaikki eventit mitkä paketissa on, mikäli tämä on ainut/ensimmäinen filtteri, niin events on se iso lista
   // tuodaan myös event joka on haettu tapahtumanimi
-  let letEvents = "";
+  let letEvents = events;
   //luodaan uusi taulukkomuuttuja
   let filtered = [];
   if (event !== 0) {
@@ -34,10 +34,9 @@ export default function SearchByEvent(events, event) {
   )
   //filtteröidyt tapahtumat laitetaan vielä sorttausmyllyn läpi
   filtered = Sort(filtered)
-
   return filtered
 }
 /// Mikäli eventtitietoa ei olla rassattu niin funktio pomppaa tänne suoraan
-return events
+return letEvents
 }
 
