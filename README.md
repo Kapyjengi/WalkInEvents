@@ -234,7 +234,7 @@ minkä lisenssin alla projekti on?
 ---
 
 
-githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.github.com/features/wikis/#creating-a-readme)
+githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.github.com/features/wikis/)
 
 perustoimintojen kirjoittamisen ja muotoilun ohjeet löytyy [täältä](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
 
