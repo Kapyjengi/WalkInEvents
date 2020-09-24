@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'
 const MapView = (props) => {
 
     const [currentLocation, setCurrentLocation] = React.useState({lat: props.latitude, lng: props.longitude})
-    const [zoom, setZoom] = React.useState(12)
+    const [zoom, setZoom] = React.useState(20)
 
     return (
       <Map center={currentLocation} zoom={zoom}>

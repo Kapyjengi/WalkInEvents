@@ -3,10 +3,12 @@ import GetToday from './GetToday'
 import Loading from './Loading'
 import Show from './Show'
 import ShowTagOptions from './ShowTagOptions'
+import MapView from './MapView'
 import Slider from './Slider'
 import axios from 'axios'
 
-export default function ListView(props) {
+
+export default function ListView() {
 
   const [events, setEvents] = React.useState('')
   const [selectedDay, setSelectedDay] = React.useState(0)
@@ -19,12 +21,10 @@ export default function ListView(props) {
 
   let letEvent;
 
+  // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-    setLat(props.latitude)
-    setLon(props.longitude)
-    let toDay = GetToday()
-    setSelectedDay(toDay)
-    fetchData(props.latitude, props.longitude, area);
+    //Haetaan koordinaatit
+    Coords();
   }, [lon, lat])
 
 
@@ -34,7 +34,7 @@ export default function ListView(props) {
       // let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
       await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(res => {
-          console.log(res)  
+          //console.log(res.data.data)  
           setEvents(res.data.data)
         })
         .catch((error) => {
@@ -43,6 +43,20 @@ export default function ListView(props) {
       setLoading('')
       setLoaded(true)
     }
+  }
+
+  const Coords = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLat(position.coords.latitude)
+      setLon(position.coords.longitude)
+    });
+    let lati = lat
+    let long = lon
+    //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
+    let toDay = GetToday()
+    setSelectedDay(toDay)
+    //Haetaan API
+    fetchData(lati, long, area);
   }
 
   const ChangeDay = (event) => {
@@ -100,6 +114,7 @@ export default function ListView(props) {
         Latitude: {lon}
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
+        <MapView latitude={lat} longitude={lon} ></MapView>
         <Slider HandleSlider={HandleSlider} area={area} />
         <ShowTagOptions events={events} />
         area:{area}km
