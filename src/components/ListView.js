@@ -32,9 +32,11 @@ export default function ListView() {
     
     if (lati !== undefined && long !== undefined) {
       // let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-      await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+        
+    await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(res => {
-          //console.log(res.data.data)  
+          console.log(res.data.data)  
+          console.log(res.data)
           setEvents(res.data.data)
         })
         .catch((error) => {
