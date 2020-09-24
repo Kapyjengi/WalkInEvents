@@ -21,6 +21,9 @@ export default function App() {
       <Router>
         <NavBar />
         <Switch>
+          <Route path="/Index" >
+
+          </Route>
           <Route path="/Map" component={MapScreen}>
             <MapScreen />
           </Route>

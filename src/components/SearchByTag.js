@@ -5,7 +5,7 @@ import SelectedTags from './SelectedTags'
 // an event has an array of tags in event.tags
 
 //TODO: SearchByTag(events, selectedTags): get selectedTags array as prop instead of hard coded
-export default function SearchByTag(events) {    
+export default function SearchByTag(events) {
     //console.log('SearchByTags')
     //console.log(events)
 

@@ -2,7 +2,9 @@ import React from 'react'
 
 const ListScreen = () => {
     return (
-        <p>LISTASIVU</p>
+        <div>
+            <p>LISTASIVU</p>
+        </div>
     )
 }
 

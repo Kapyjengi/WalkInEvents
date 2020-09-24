@@ -29,36 +29,37 @@ export default function ListView() {
 
 
   async function fetchData(lati, long, area) {
-    
+
     if (lati !== undefined && long !== undefined) {
-    //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
+      //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
       let data = fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Something went wrong ...');
-        }
-      })
-      .then(data => {setEvents(data.data)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong ...');
+          }
+        })
+        .then(data => {
+          setEvents(data.data)
+          setLoading('')
+          setLoaded(true)
+        })
+        .catch(error => console.error(error));
+
+      /* await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+          .then(res => {
+  
+            console.log(res.data.data)  
+            setEvents(res.data.data)
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
         setLoading('')
         setLoaded(true)
-      })
-      .catch(error => console.error(error)); 
-        
-    /* await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
-        .then(res => {
-
-          console.log(res.data.data)  
-          setEvents(res.data.data)
-        })
-        .catch((error) => {
-          console.error('Error:', error)
-        })
-      setLoading('')
-      setLoaded(true)
-      */
-    } 
+        */
+    }
   }
 
   const Coords = () => {

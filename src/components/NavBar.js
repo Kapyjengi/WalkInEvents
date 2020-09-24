@@ -6,7 +6,7 @@ const NavBar = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#index">WalkInEvents</Navbar.Brand>
+            <Navbar.Brand href="/Index">WalkInEvents</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

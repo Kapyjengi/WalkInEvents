@@ -2,7 +2,9 @@ import React from 'react'
 
 const MapScreen = () => {
     return (
-        <p>KARTTASIVU</p>
+        <div>
+            <p>KARTTASIVU</p>
+        </div>
     )
 }
 

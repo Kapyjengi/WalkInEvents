@@ -18,7 +18,7 @@ export default function ShowTagOptions(props) {
     }
 
     return (
-            <div>
+        <div>
             <Select
                 closeMenuOnSelect={false}
                 options={options}
@@ -26,6 +26,6 @@ export default function ShowTagOptions(props) {
                 isMulti
                 onChange={tagSelected}
             />
-            </div>
+        </div>
     )
 }

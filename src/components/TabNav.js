@@ -4,7 +4,6 @@ import Tab from 'react-bootstrap/Tab'
 import MapScreen from './MapScreen'
 import ListScreen from './ListScreen'
 
-
 const TabNav = () => {
     return (
         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">

@@ -5,9 +5,9 @@ import Select from 'react-select';
 // to update selected tags, call with tagArray as parameter
 // to get tags, call without parameter
 
-export default function SelectedTags(tagArray){
+export default function SelectedTags(tagArray) {
     let incomingArray = tagArray
-    let selected =[]
+    let selected = []
     if (incomingArray === undefined) {
         //console.log('Tags returned')
         return selected
