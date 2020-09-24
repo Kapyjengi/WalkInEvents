@@ -2,7 +2,7 @@
   "name": "kartta",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://open-api.myhelsinki.fi",
+  "proxy": "http://open-api.myhelsinki.fi",
   "dependencies": {
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-knobs": "^6.0.21",
