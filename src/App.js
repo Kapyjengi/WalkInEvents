@@ -6,6 +6,8 @@ import NavBar from './components/NavBar'
 import MapScreen from './components/MapScreen'
 import ListScreen from './components/ListScreen'
 
+import TabNav from './components/TabNav'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,6 +29,7 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
+      <TabNav />
       <ListView ></ListView>
     </div >
   )
