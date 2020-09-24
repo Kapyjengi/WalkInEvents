@@ -10,7 +10,7 @@ export default function SearchByDate(events, selectedDay) {
   
   //luodaan uusi taulukkomuuttuja
   let filtered = [];
-  if (selectedDay !== 0 && events !== '') {
+  if (selectedDay !== 0 && events !== undefined) {
 
   //käydään lista läpi ja tarkastellaan onko tapahtumalla ja toivotulla päivämäärällä samatieto.
   events.map((events) => {
