@@ -165,14 +165,13 @@ ihan vaan kurssia ajatellen mietin, että voitais listata käytetty teknologiat,
 
 
 
+### käytetyt paketit
 
-
+```
 npm install leaflet
-
 npm install react-leaflet
-
 npm install react-bootstrap bootstrap
-
+```
 
 
 
