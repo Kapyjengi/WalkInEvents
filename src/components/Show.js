@@ -3,7 +3,6 @@ import '../App.css'
 import moment from 'moment'
 import SearchByDate from './SearchByDate'
 import SearchByEvent from './SearchByEvent'
-import SearchByLocation from './SearchByLocation'
 import SearchByTag from './SearchByTag'
 export default function ShowAll(props) {
 

@@ -162,6 +162,10 @@ tää on mun oma lisäys
 
 ihan vaan kurssia ajatellen mietin, että voitais listata käytetty teknologiat, paketit, tyylit jne jne.
 
+npm install leaflet
+
+npm install react-leaflet
+
 
 ### vaatimukset
 

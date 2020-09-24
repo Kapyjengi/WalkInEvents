@@ -4,9 +4,9 @@ import Loading from './Loading'
 import Show from './Show'
 import ShowTagOptions from './ShowTagOptions'
 import Slider from './Slider'
-import axios from 'axios';
+import axios from 'axios'
 
-export default function ListView() {
+export default function ListView(props) {
 
   const [events, setEvents] = React.useState('')
   const [selectedDay, setSelectedDay] = React.useState(0)
@@ -19,10 +19,12 @@ export default function ListView() {
 
   let letEvent;
 
-  // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
-    //Haetaan koordinaatit
-    Coords();
+    setLat(props.latitude)
+    setLon(props.longitude)
+    let toDay = GetToday()
+    setSelectedDay(toDay)
+    fetchData(props.latitude, props.longitude, area);
   }, [lon, lat])
 
 
@@ -33,7 +35,7 @@ export default function ListView() {
       // let data = await fetch('http://open-api.myhelsinki.fi/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
       await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(res => {
-          //console.log(res)  
+          console.log(res)  
           setEvents(res.data.data)
         })
         .catch((error) => {
@@ -42,20 +44,6 @@ export default function ListView() {
       setLoading('')
       setLoaded(true)
     }
-  }
-
-  const Coords = () => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setLat(position.coords.latitude)
-      setLon(position.coords.longitude)
-    });
-    let lati = lat
-    let long = lon
-    //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
-    let toDay = GetToday()
-    setSelectedDay(toDay)
-    //Haetaan API
-    fetchData(lati, long, area);
   }
 
   const ChangeDay = (event) => {
