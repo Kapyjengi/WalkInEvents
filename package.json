@@ -1,6 +1,6 @@
 {
   "name": "kartta",
-  "homepage": "http://kapyjengi.hithub.io/verkkokauppa",
+  "homepage": "http://kapyjengi.hithub.io/walk-in-events",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://open-api.myhelsinki.fi",
