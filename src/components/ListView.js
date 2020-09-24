@@ -32,7 +32,8 @@ export default function ListView() {
     
     if (lati !== undefined && long !== undefined) {
       // let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-      await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+        await axios.get('http://open-api.myhelsinki.fi/v1/events/?distance_filter=60.200905799999994%2C24.970845699999998%2C1')
+    // await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(res => {
           console.log(res.data.data)  
           console.log(res.data)
