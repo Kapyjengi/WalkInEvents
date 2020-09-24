@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import ListView from './components/ListView'
-<<<<<<< Updated upstream
-=======
-import MapView from './components/MapView'
->>>>>>> Stashed changes
 
 import NavBar from './components/NavBar'
 import MapScreen from './components/MapScreen'
@@ -17,15 +13,9 @@ import {
 } from "react-router-dom"
 
 export default function App() {
-  
+
   return (
     <div>
-<<<<<<< Updated upstream
-       <NavBar />
-    
-    <ListView ></ListView>
-
-=======
       <Router>
         <NavBar />
         <Switch>
@@ -37,9 +27,7 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
-      {/* <NavBar /> */}
-      <MapView latitude={lat} longitude={lon} ></MapView>
-      <ListView latitude={lat} longitude={lon}></ListView>
->>>>>>> Stashed changes
-    </div>
-  )}
+      <ListView ></ListView>
+    </div >
+  )
+}
