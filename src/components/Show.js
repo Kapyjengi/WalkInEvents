@@ -39,7 +39,12 @@ export default function ShowAll(props) {
     if (name === null) {
       name = events.name.sv
     }
-
+    
+    let startTime = new Date(events.event_dates.starting_day)
+    startTime =  moment(startTime).format("HH:mm");
+    let endTime = new Date(endingday)
+    endTime =  moment(endTime).format("HH:mm");
+    
     // Tässä määritellään mitä näytetään käyttäjälle
     return (
       <tr key={i} >
@@ -49,9 +54,9 @@ export default function ShowAll(props) {
         <td>{events.location.address.street_address} </td>
         <td>{events.location.address.postal_code} </td>
         <td>{events.location.address.locality} </td>
-        <td>{moment(events.event_dates.starting_day).format("DD.MM.YYYY HH:mm")}</td>
+        <td>{moment(events.event_dates.starting_day).format("DD.MM.YYYY")} {startTime}</td>
         <td> </td>
-        <td>{moment(endingday).format("DD.MM.YYYY HH:mm")} </td>
+        <td>{moment(endingday).format("DD.MM.YYYY")} {endTime} </td>
         <td> </td>
         <td>{lon.toFixed(7)}</td>
         <td>{lat.toFixed(7)}</td>

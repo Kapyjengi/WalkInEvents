@@ -32,7 +32,7 @@ export default function ListView() {
 
     if (lati !== undefined && long !== undefined) {
       //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-      let data = fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+      fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
         .then(response => {
           if (response.ok) {
             return response.json();

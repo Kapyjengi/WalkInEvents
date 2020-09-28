@@ -1,5 +1,5 @@
 
-export default function App() {
+export default function GetToday() {
 
     // Otetaan päivämäärästä ISOString muoto jotta saadaan datepickeriin päivämäärä näkyviin
     let date = new Date();
