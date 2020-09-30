@@ -126,12 +126,12 @@ export default function ListView() {
         <p>name: <input id="name" placeholder="event" onChange={SeekName} />
           <input type="date" id="Paiva" value={selectedDay} onChange={ChangeDay} />
           <br></br>
-        Longitude: {lat}
+        Longitude: {lon}
           <br></br>
-        Latitude: {lon}
+        Latitude: {lat}
         </p>
         <p><button onClick={ShowAll}>Show all</button></p>
-        <MapView latitude={lat} longitude={lon} ></MapView>
+        <MapView latitude={lat} longitude={lon} events={events} event={event} area={area} selectedDay={selectedDay} ></MapView>
         <Slider HandleSlider={HandleSlider} area={area} />
         <ShowTagOptions events={events} />
         area:{area}km

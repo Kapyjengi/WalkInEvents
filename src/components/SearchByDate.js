@@ -11,10 +11,10 @@ export default function SearchByDate(events, selectedDay) {
   if (selectedDay !== 0 && events !== undefined) {
 
     //käydään lista läpi ja tarkastellaan onko tapahtumalla ja toivotulla päivämäärällä samatieto.
-    events.map((events) => {
+    events.map((event) => {
 
       //tässä olisi voitu olla käyttämättä momenttia, mutta käytin sen takia että pysyy ajatus kasassa... isostring sekoitti ajatusta
-      if (moment(events.event_dates.starting_day).format("DD.MM.YYYY") === moment(selectedDay).format("DD.MM.YYYY")) {
+      if (moment(event.event_dates.starting_day).format("DD.MM.YYYY") === moment(selectedDay).format("DD.MM.YYYY")) {
 
         let date = new Date();
         date.setDate(date.getDate() + 0);
@@ -23,8 +23,8 @@ export default function SearchByDate(events, selectedDay) {
         //Mikäli etsitään eripäivän tapahtumia niin näytetään kaikki.
         if (isoDate === selectedDay) {
 
-          let startTime = new Date(events.event_dates.starting_day)
-          let endTime = new Date(events.event_dates.ending_day)
+          let startTime = new Date(event.event_dates.starting_day)
+          let endTime = new Date(event.event_dates.ending_day)
           let dateNow = new Date()
           let timeNow = dateNow.getTime()
           let diffStar = new Date()
@@ -35,10 +35,10 @@ export default function SearchByDate(events, selectedDay) {
           diffEnd = endTime - timeNow
           diffEnd = diffEnd / 1000 / 60 / 60
           if (diffStar > 0 && diffStar < 3 || diffStar < 0 && diffEnd > 0) {
-            filtered.push(events)
+            filtered.push(event)
           }
         } else {
-          filtered.push(events)
+          filtered.push(event)
         }
       }
     }
