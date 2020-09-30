@@ -7,9 +7,7 @@ import EventCard from './EventCard'
 const ListScreen = () => {
     return (
         <Container>
-            <p>LISTASIVU</p>
-
-            <EventCard/>
+            <EventCard />
         </Container>
     )
 }

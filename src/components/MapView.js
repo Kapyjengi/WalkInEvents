@@ -8,20 +8,24 @@ import MarkerClusterGroup from 'react-leaflet-markercluster'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
 import SearchByDate from './SearchByDate'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 
 const MapView = (props) => {
 
   const [zoom, setZoom] = React.useState(15)
   const location = { lat: props.latitude, lng: props.longitude }
   const iconMarkup = renderToStaticMarkup(
-  <span style={{color: 'Tomato'}}>
-    <i className='fas fa-street-view fa-3x' />
-  </span>
-)
+    <span style={{ color: 'Tomato' }}>
+      <i className='fas fa-street-view fa-3x' />
+    </span>
+  )
 
-    const customMarkerIcon = divIcon({
-      html: iconMarkup,
-    })
+  const customMarkerIcon = divIcon({
+    html: iconMarkup,
+  })
   const filteredEvents = SearchByDate(props.events, props.selectedDay)
 
   const DefaultIcon = L.icon({
@@ -40,17 +44,40 @@ const MapView = (props) => {
       <MarkerClusterGroup>
         {filteredEvents.map((event, i) => (
           <Marker key={i} position={[event.location.lat, event.location.lon]} >
-            <Popup>
-            <h4>{event.name.fi}</h4>
-            <p>{event.description.intro}</p>
-            <p>{event.location.address.street_address}</p>
-        </Popup>
+            <Popup
+              minWidth="500">
+              <Card>
+                <Card.Body>
+                  <Row style={{ paddingBottom: 20 }}>
+                    <Col xs={12} md={6}>
+                      <Card.Title>{event.name.fi}</Card.Title>
+                      <Card.Text>
+                        <p>{event.event_dates.starting_day}</p>
+                        <p>{event.location.address.street_address}</p>
+                        <p>{event.location.address.postal_code} {event.location.address.locality}</p>
+                        <p>{event.description.intro}</p>
+                      </Card.Text>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={6}>300 m</Col>
+                    <Col xs={6}>
+                      <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
+                      <Button
+                        href={event.info_url}
+                        target="_blank"
+                        variant="secondary">WWW</Button>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Popup>
           </Marker>
         ))}
-       </MarkerClusterGroup>
+      </MarkerClusterGroup>
       <Marker key={1} position={[location.lat, location.lng]} icon={customMarkerIcon} ></Marker>
-       <Circle center={[location.lat, location.lng]} radius={props.area * 1000} />
-    </Map>
+      <Circle center={[location.lat, location.lng]} radius={props.area * 1000} />
+    </Map >
   );
 }
 

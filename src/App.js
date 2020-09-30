@@ -3,10 +3,9 @@ import './App.css'
 import ListView from './components/ListView'
 
 import NavBar from './components/NavBar'
+import MainView from './components/MainView'
 import MapScreen from './components/MapScreen'
 import ListScreen from './components/ListScreen'
-
-import TabNav from './components/TabNav'
 
 import {
   BrowserRouter as Router,
@@ -20,20 +19,16 @@ export default function App() {
     <div>
       <Router>
         <NavBar />
+        <MainView />
         <Switch>
-          <Route path="/Index" >
-
+          {/*
+          Esimerkki routeroinnista filteörintinäkymään
+          <Route path="/Filters" component={Filters}>
+            <Filters />
           </Route>
-          <Route path="/Map" component={MapScreen}>
-            <MapScreen />
-          </Route>
-          <Route path="/List" component={ListScreen}>
-            <ListScreen />
-          </Route>
+          */}
         </Switch>
       </Router>
-      <TabNav />
-      <ListView ></ListView>
     </div >
   )
 }
