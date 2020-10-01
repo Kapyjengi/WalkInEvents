@@ -251,6 +251,11 @@ kerrotaan projektiryhmä, jaetaan krediitit ja halutessa linkitetään henkilöt
 
 minkä lisenssin alla projekti on?
 
+### Domain
+
+Currently we have a redirect from http://walkinevents.tech/ to our heroku build at https://walk-in-events.herokuapp.com/
+
+
 
 ---
 
