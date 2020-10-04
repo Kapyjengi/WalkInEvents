@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import moment from 'moment'
 
 const MapView = (props) => {
 
@@ -22,6 +23,7 @@ const MapView = (props) => {
       <i className='fas fa-street-view fa-3x' />
     </span>
   )
+
 
   const customMarkerIcon = divIcon({
     html: iconMarkup,
@@ -34,6 +36,7 @@ const MapView = (props) => {
   })
 
   L.Marker.prototype.options.icon = DefaultIcon
+
 
   return (
     <Map center={location} zoom={zoom}>
@@ -52,7 +55,7 @@ const MapView = (props) => {
                     <Col xs={12} md={6}>
                       <Card.Title>{event.name.fi}</Card.Title>
                       <Card.Text>
-                        <p>{event.event_dates.starting_day}</p>
+                        <p>{moment(`${event.event_dates.starting_day}`).format("MM.DD.YYYY hh:mm")}</p>
                         <p>{event.location.address.street_address}</p>
                         <p>{event.location.address.postal_code} {event.location.address.locality}</p>
                         <p>{event.description.intro}</p>
