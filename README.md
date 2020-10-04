@@ -2,21 +2,21 @@
 
 
 # WalkIn-Events
----
+
 
 > explore the events near you
 
 
 
 ## description
----
+
 
 joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tärkeys menemällä suoraan asian ytimeen
 
 
 
 ### table of contents
----
+
 
 1. tarvitaanko
 2. me
@@ -25,7 +25,7 @@ joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tä
 
 
 ## getting started
----
+
 
 just follow these simple steps to run our project!
 
@@ -34,15 +34,18 @@ just follow these simple steps to run our project!
 ### prerequisities
 
 
+
 Be sure you are running node and npm on your computer.
 
 Open command-line tool, f.e. powershell and type `node -v`
 and then `npm -v`
 
 > the output should be something like this
+
 tähän_tulee_kuva_powershellistä.png
 
 > if not
+
 just follow [these steps](https://treehouse.github.io/installation-guides/windows/node-windows.html) and then come back!
 
 
@@ -69,7 +72,7 @@ $ npm start
 
 
 ## how to use our web-app?
----
+
 tähän tehdään hienot käyttöohjeet kuvineen ja sepustuksineen
 
 
@@ -94,7 +97,7 @@ tähän olisi hyvä lisätä screenshotteja projektin eri käyttövaiheista.
 
 
 ## project group
----
+
 
 tässä ehkä jotain liirumlaarumia
 halutessa linkitys `#` merkin tilalle
@@ -109,14 +112,13 @@ halutessa linkitys `#` merkin tilalle
 
 
 ## lisenssi
----
 
 minkä lisenssin alla projekti on?
 
 
 
 ## Domain
----
+
 
 Currently we have a redirect from [walkingevents.tech](http://walkinevents.tech/) to our [heroku build](https://walk-in-events.herokuapp.com/).
 
