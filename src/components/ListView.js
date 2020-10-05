@@ -4,9 +4,8 @@ import Loading from './Loading'
 import Show from './Show'
 import ShowTagOptions from './ShowTagOptions'
 import MapView from './MapView'
-import Slider from './Slider'
-import axios from 'axios'
 import Filtteri from './Filter'
+import Fetch from './Fetch'
 
 
 export default function ListView() {
@@ -30,37 +29,13 @@ export default function ListView() {
 
 
   async function fetchData(lati, long, area) {
-
-    if (lati !== undefined && long !== undefined) {
-      //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-      fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error('Something went wrong ...');
-          }
-        })
-        .then(data => {
-          setEvents(data.data)
-          setLoading('')
-          setLoaded(true)
-        })
-        .catch(error => console.error(error));
-
-      /* await axios.get('/v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
-          .then(res => {
-  
-            console.log(res.data.data)  
-            setEvents(res.data.data)
-          })
-          .catch((error) => {
-            console.error('Error:', error)
-          })
-        setLoading('')
-        setLoaded(true)
-        */
+    let data=(Fetch(lati,long,area))
+    setEvents((await data))
+    if (events !== ''){
+    setLoading('')
+    setLoaded(true)
     }
+    
   }
 
   const Coords =() => {
