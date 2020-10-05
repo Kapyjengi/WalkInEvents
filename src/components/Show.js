@@ -17,7 +17,7 @@ export default function ShowAll(props) {
 
   //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
   //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/
-  if (props.event === '' && props.selectedDay === 0) {
+  if (props.event === 0 && props.selectedDay === 0) {
     events = props.event
   }
 

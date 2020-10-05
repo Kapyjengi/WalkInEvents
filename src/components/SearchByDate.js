@@ -34,6 +34,7 @@ export default function SearchByDate(events, selectedDay) {
           let diffEnd = new Date()
           diffEnd = endTime - timeNow
           diffEnd = diffEnd / 1000 / 60 / 60
+          // diffStar sekä diffEnd numerot ovat tunteja
           if (diffStar > 0 && diffStar < 3 || diffStar < 0 && diffEnd > 0) {
             filtered.push(event)
           }
@@ -45,6 +46,7 @@ export default function SearchByDate(events, selectedDay) {
     )
     //filtteröidyt tapahtumat laitetaan vielä sorttausmyllyn läpi
     filtered = Sort(filtered)
+
     return filtered
   }
   /// Mikäli päivämäärä on 0 niin funktio pomppaa suoraan tänne ja näyttää 

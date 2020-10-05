@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import moment from 'moment'
+import SearchByEvent from './SearchByEvent'
 
 const MapView = (props) => {
 
@@ -24,11 +25,16 @@ const MapView = (props) => {
     </span>
   )
 
-
   const customMarkerIcon = divIcon({
     html: iconMarkup,
   })
-  const filteredEvents = SearchByDate(props.events, props.selectedDay)
+  
+  let events = props.events
+  let filted;
+  filted = SearchByDate(props.events, props.selectedDay)
+  events = SearchByEvent(filted, props.event)
+
+  const filteredEvents = events
 
   const DefaultIcon = L.icon({
     iconUrl: icon,

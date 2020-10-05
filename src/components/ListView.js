@@ -6,6 +6,7 @@ import ShowTagOptions from './ShowTagOptions'
 import MapView from './MapView'
 import Slider from './Slider'
 import axios from 'axios'
+import Filtteri from './Filter'
 
 
 export default function ListView() {
@@ -19,7 +20,7 @@ export default function ListView() {
   const [lon, setLon] = useState()
   const [area, setArea] = useState(1)
 
-  let letEvent;
+  
 
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function ListView() {
     }
   }
 
-  const Coords = () => {
+  const Coords =() => {
     navigator.geolocation.getCurrentPosition(function (position) {
       setLat(position.coords.latitude)
       setLon(position.coords.longitude)
@@ -75,41 +76,26 @@ export default function ListView() {
     //Haetaan API
     fetchData(lati, long, area);
   }
-
-  const ChangeDay = (event) => {
-    setSelectedDay(event.target.value)
-  }
-
-  const SeekName = (event) => {
-    letEvent = event.target.value
-    // Mikäli hakukentässä on enemmän kuin kolme(3) merkkiä niin sitten aletaan etsimään vastaavia sanoja
-    // Muuten käy niin että hakuaika on liiiian pitkä.
-    if (letEvent.length > 2) {
-      setEvent(letEvent)
+  
+  const ShowFilters=(dayNew,eventNew,areaNew)=>{
+    areaNew=parseInt(areaNew)
+    console.log(eventNew)
+    if (dayNew !== undefined) {
+      setSelectedDay(dayNew)
     }
-    if (letEvent.length < 1) {
-      setEvent(0)
+    if (eventNew!==undefined) {
+      setEvent(eventNew)
     }
+    if (area !== areaNew){
+      console.log(area,areaNew)
+      setArea(areaNew)
+      const alueNew= areaNew
+      fetchData(lat, lon,alueNew)
+      setLoading('LOADING')
+    }
+    
   }
-
-  const HandleSlider = (event) => {
-    setArea(event)
-    fetchData(lat, lon, event)
-    setLoading('LOADING')
-    //console.log(event)
-  }
-
-  const ShowAll = () => {
-    //Nollataan kaikki filtterit ja lista alkaa taas
-    setSelectedDay(0)
-    setEvent(0)
-    document.getElementById("name").value = ""
-    document.getElementById("Paiva").value = ""
-    setArea(1)
-    let areaa = 1
-    fetchData(lat, lon, areaa)
-  }
-
+ 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   if (loading === 'LOADING' && !loaded) {
     return (
@@ -123,16 +109,8 @@ export default function ListView() {
     return (
       <div className="App">
         <h1> </h1>
-        <p>name: <input id="name" placeholder="event" onChange={SeekName} />
-          <input type="date" id="Paiva" value={selectedDay} onChange={ChangeDay} />
-          <br></br>
-        Longitude: {lon}
-          <br></br>
-        Latitude: {lat}
-        </p>
-        <p><button onClick={ShowAll}>Show all</button></p>
-        <MapView latitude={lat} longitude={lon} events={events} event={event} area={area} selectedDay={selectedDay} ></MapView>
-        <Slider HandleSlider={HandleSlider} area={area} />
+        <Filtteri ShowFilters={ShowFilters} selectedDay={selectedDay} event={event}/>
+        <MapView latitude={lat} longitude={lon} events={events} event={event} area={area} selectedDay={selectedDay} ></MapView> 
         <ShowTagOptions events={events} />
         area:{area}km
         <Loading loading={loading} loaded={loaded} />
