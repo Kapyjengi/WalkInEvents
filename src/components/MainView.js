@@ -4,6 +4,7 @@ import Tab from 'react-bootstrap/Tab'
 import MapScreen from './MapScreen'
 import ListScreen from './ListScreen'
 import ListView from './ListView'
+import TestScreen from '../tests/TestScreen'
 
 // Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
 // Pitäisikö ListView.js komponentin toiminnallisuus siirtää tälle sivulle fiksumman
@@ -19,6 +20,12 @@ const MainView = () => {
             <Tab eventKey="list" title="List">
                 <ListScreen />
             </Tab>
+
+            {/* Kommentoidaan pois */}
+            {/* <Tab eventKey="tests" title="Tests">
+                <TestScreen />
+            </Tab> */}
+
         </Tabs>
     )
 }

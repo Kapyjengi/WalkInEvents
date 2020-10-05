@@ -4,17 +4,22 @@ import makeAnimated from 'react-select/animated';
 import GetTagList from './GetTagList';
 import SelectedTags from './SelectedTags'
 import SearchByTag from './SearchByTag'
-
+import {useStore, useDispatch, connect} from 'react-redux'
+import {setTags} from '../actions/tagActions'
 
 // {value:'Teatteri', label: 'Teatteri'}
 
 export default function ShowTagOptions(props) {
+    const store = useStore()
+    connect()
 
+    
     const animatedComponents = makeAnimated();
-
-    const options = GetTagList();
+    // Muutos array[string] => array{value: string, label: string}
+    const options = store.getState().allTags;
     const tagSelected = (arrayOfSelectedTags) => {
-        SelectedTags(arrayOfSelectedTags)
+        store.dispatch(setTags(arrayOfSelectedTags))
+        console.log(store.getState().chosenTags)
     }
 
     return (

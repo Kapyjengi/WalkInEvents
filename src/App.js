@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import MainView from './components/MainView'
 import MapScreen from './components/MapScreen'
 import ListScreen from './components/ListScreen'
+import ReduxTests from './tests/ReduxTests'
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,11 @@ import {
 } from "react-router-dom"
 
 export default function App() {
+
+  // Tests in console
+  /* useEffect(() => {
+    ReduxTests()
+  }, []) */
 
   return (
     <div>
