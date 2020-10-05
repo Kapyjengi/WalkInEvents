@@ -103,7 +103,7 @@ tässä ehkä jotain liirumlaarumia
 halutessa linkitys `#` merkin tilalle
 
 - [Anton Javits](http://#)
-- [Petja Koivu](http://#)
+- [Petja Koivu](http://xd)
 - [Olli Kuikka](http://#)
 - [Sami Kulonpää](http://#)
 - [Päivi Lampinen](http://#)
