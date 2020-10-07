@@ -43,7 +43,6 @@ const MapView = (props) => {
 
   L.Marker.prototype.options.icon = DefaultIcon
 
-
   return (
     <Map center={location} zoom={zoom}>
       <TileLayer
@@ -52,7 +51,7 @@ const MapView = (props) => {
       />
       <MarkerClusterGroup>
         {filteredEvents.map((event, i) => (
-          <Marker key={i} position={[event.location.lat, event.location.lon]} >
+          <Marker key={i} position={[event.location.lat, event.location.lon]}>
             <Popup
               minWidth="500">
               <Card>
@@ -61,15 +60,15 @@ const MapView = (props) => {
                     <Col xs={12} md={6}>
                       <Card.Title>{event.name.fi}</Card.Title>
                       <Card.Text>
-                        <p>{moment(`${event.event_dates.starting_day}`).format("MM.DD.YYYY hh:mm")}</p>
-                        <p>{event.location.address.street_address}</p>
-                        <p>{event.location.address.postal_code} {event.location.address.locality}</p>
                         <p>{event.description.intro}</p>
+                        <p>{event.location.address.locality}</p>
+                        <p>Osoite: {event.location.address.street_address}</p>
+                        <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("MM.DD.YYYY HH:mm")}</p>
+                        <p>Etäisyys: { (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) } m</p>
                       </Card.Text>
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs={6}>300 m</Col>
                     <Col xs={6}>
                       <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
                       <Button
