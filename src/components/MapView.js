@@ -63,7 +63,7 @@ const MapView = (props) => {
                         <p>{event.description.intro}</p>
                         <p>{event.location.address.locality}</p>
                         <p>Osoite: {event.location.address.street_address}</p>
-                        <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("MM.DD.YYYY HH:mm")}</p>
+                        <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}</p>
                         <p>Etäisyys: { (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) } m</p>
                       </Card.Text>
                     </Col>
