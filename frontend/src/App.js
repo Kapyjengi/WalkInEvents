@@ -3,20 +3,45 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 const baseUrl = '/api/events'
-const query = '?distance_filter=60.1%2C24.9%2C8'
-
+//const query = '?distance_filter=60.1%2C24.9%2C8'
+let query;
 function App() {
-  console.log('build 0.1.5')
+  console.log('build 0.1.6')
   const [events, setEvents] = useState([]) 
+  const [latlng, setLatLng] = useState({lat:'',lon:''})
+  const [area, setArea] = useState(5)
 
+  let lat;
+  let lon;
   useEffect(() => {
-    axios
-      .get(baseUrl.concat(query))
-      .then(response => {
-        console.log('events: ', response.data)
-        setEvents(response.data)
-      })
+   Coords();
   }, [])
+
+  
+   
+  
+  async function Coords() {
+      navigator.geolocation.getCurrentPosition(function (position) {
+      setLatLng({lat:position.coords.latitude, lon:position.coords.longitude})
+      let lat = position.coords.latitude
+      let lon = position.coords.longitude
+      fetchData(lat, lon, area);
+    });
+    }
+
+  async function fetchData(lati, long, area) {
+  //const query = '?distance_filter=60.1%2C24.9%2C8'
+
+  query = '?distance_filter='+lati +'%2C'+long+'%2C'+area
+  //  axios
+   //   .get(baseUrl.concat(query))
+   await fetch(baseUrl.concat(query))
+   .then(response => response.json())
+   .then(data => setEvents(data))
+   .catch(error => console.error(error)); 
+} 
+  
+  
 
   const ShowEvents = () => {
     if (events.length > 0) {
@@ -45,11 +70,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+  
         <ShowQuery query={query} />  
         <ShowEvents />
       </header>
     </div>
   );
+
 }
 
 export default App;
