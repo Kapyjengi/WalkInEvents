@@ -6,9 +6,12 @@ import ShowTagOptions from './ShowTagOptions'
 import MapView from './MapView'
 import Filtteri from './Filter'
 import Fetch from './Fetch'
-
+import {useStore, useDispatch, connect} from 'react-redux'
+import {setUserLocation} from '../actions/locationActions'
 
 export default function ListView() {
+  const store = useStore()
+  connect()
 
   const [events, setEvents] = React.useState('')
   const [selectedDay, setSelectedDay] = React.useState(0)
@@ -42,6 +45,8 @@ export default function ListView() {
     navigator.geolocation.getCurrentPosition(function (position) {
       setLat(position.coords.latitude)
       setLon(position.coords.longitude)
+      store.dispatch(setUserLocation(position.coords.latitude, position.coords.longitude))
+      
     });
     let lati = lat
     let long = lon

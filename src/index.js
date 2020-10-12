@@ -10,8 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(firstReducer)
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
