@@ -15,4 +15,4 @@ Open folder walkin-node-backend, run "npm install" and start with "npm run build
 
 ## Deployment of full-stack solution to Heroku
 
-From walkin-node-backend run "npm run deploy" or "npm run deploy:full" in case there is recent react build included
+From walkin-node-backend run "npm run deploy" or "npm run deploy:full" in case there is recent react build to include
