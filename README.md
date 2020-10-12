@@ -10,7 +10,7 @@ Open folder walkin-react-front and start with "npm run dev". It will run server 
 
 ## Testing React app with node-backend
 
-Open folder walkin-node-backend and start with "npm run build:ui". It will build react app from folder walkin-event-front. After that run "npm start", that will start the server and serve react front at localhost:3001
+Open folder walkin-node-backend, run "npm install" and start with "npm run build:ui". It will build react app from folder walkin-event-front and add the build to node app folder. After that run "npm start", that will start the server and serve react front at localhost:3001
 
 
 ## Deployment of full-stack solution to Heroku
