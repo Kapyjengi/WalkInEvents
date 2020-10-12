@@ -1,6 +1,6 @@
-# WalkIn-Events
+# Walk-In-Events
 
-Full-stack solution, where react-build is included in node-backend and published to heroku using script in node-roject's package.json
+Full-stack solution, where react-build is included in node-backend and published to heroku using script in node-project's package.json
 
 
 ## Developing React in localhost
