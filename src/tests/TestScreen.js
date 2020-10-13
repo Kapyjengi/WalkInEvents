@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useStore, useDispatch, connect} from 'react-redux'
-import {addTag, removeTag, setTags} from '../actions/tagActions'
+import {addTag, removeTag, setTags} from '../GlobalStore/tagActions'
 
 export default function TestScreen() {
     const store = useStore()

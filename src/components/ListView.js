@@ -7,7 +7,7 @@ import MapView from './MapView'
 import Filtteri from './Filter'
 import Fetch from './Fetch'
 import {useStore, useDispatch, connect} from 'react-redux'
-import {setUserLocation} from '../actions/locationActions'
+import {setUserLocation} from '../GlobalStore/locationActions'
 
 export default function ListView() {
   const store = useStore()

@@ -5,7 +5,7 @@ import GetTagList from './GetTagList';
 import SelectedTags from './SelectedTags'
 import SearchByTag from './SearchByTag'
 import {useStore, useDispatch, connect} from 'react-redux'
-import {setTags} from '../actions/tagActions'
+import {setTags} from '../GlobalStore/tagActions'
 
 // {value:'Teatteri', label: 'Teatteri'}
 
