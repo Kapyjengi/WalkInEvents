@@ -17,4 +17,10 @@ Open folder walkin-node-backend, run "npm install" and start with "npm run build
 
 From walkin-node-backend run "npm run deploy" or "npm run deploy:full" in case there is recent react build to include // script needs fix
 
-Sub-dir deployment from repository root folder fullstack-branch: git subtree push --prefix walkin-node-backend heroku master
+### Manual deployment from root folder of fullstack branch
+
+```
+heroku login
+heroku git:remote -a walk-in-events
+git subtree push --prefix walkin-node-backend heroku master
+```
