@@ -37,6 +37,7 @@ export default function ListView() {
     if (events !== ''){
     setLoading('')
     setLoaded(true)
+    //console.log('events:',await data)
     }
     
   }
@@ -59,7 +60,7 @@ export default function ListView() {
   
   const ShowFilters=(dayNew,eventNew,areaNew)=>{
     areaNew=parseInt(areaNew)
-    console.log(eventNew)
+    //console.log(eventNew)
     if (dayNew !== undefined) {
       setSelectedDay(dayNew)
     }
@@ -67,7 +68,7 @@ export default function ListView() {
       setEvent(eventNew)
     }
     if (area !== areaNew){
-      console.log(area,areaNew)
+      //console.log(area,areaNew)
       setArea(areaNew)
       const alueNew= areaNew
       fetchData(lat, lon,alueNew)

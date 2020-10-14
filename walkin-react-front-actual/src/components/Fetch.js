@@ -15,7 +15,7 @@ if (lati !== undefined && long !== undefined) {
         }
       })
       .then(data => {
-       events = data.data
+       events = JSON.parse(data)
       })
       .catch(error => console.error(error)); 
   } 

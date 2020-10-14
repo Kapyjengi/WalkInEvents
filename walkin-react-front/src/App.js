@@ -9,17 +9,12 @@ function App() {
   console.log('build 0.1.6')
   const [events, setEvents] = useState([]) 
   const [latlng, setLatLng] = useState({lat:'',lon:''})
-  const [area, setArea] = useState(5)
+  const [area, setArea] = useState(3)
 
-  let lat;
-  let lon;
   useEffect(() => {
    Coords();
   }, [])
-
-  
-   
-  
+ 
   async function Coords() {
       navigator.geolocation.getCurrentPosition(function (position) {
       setLatLng({lat:position.coords.latitude, lon:position.coords.longitude})
@@ -41,8 +36,6 @@ function App() {
    .catch(error => console.error(error)); 
 } 
   
-  
-
   const ShowEvents = () => {
     if (events.length > 0) {
       let parsedEvents = JSON.parse(events)
@@ -70,7 +63,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-  
+        AREA: {area} km
+        
         <ShowQuery query={query} />  
         <ShowEvents />
       </header>
