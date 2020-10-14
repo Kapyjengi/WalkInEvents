@@ -89,7 +89,6 @@ export default function ListView() {
     // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
-        <h1> </h1>
         <Filtteri ShowFilters={ShowFilters} selectedDay={selectedDay} event={event}/>
         <MapView latitude={lat} longitude={lon} events={events} event={event} area={area} selectedDay={selectedDay} ></MapView> 
         <ShowTagOptions events={events} />
