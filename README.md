@@ -19,4 +19,4 @@ From walkin-node-backend run "npm run deploy" or "npm run deploy:full" in case t
 
 Sub-dir deployment from repository root folder fullstack-branch: git subtree push --prefix walkin-node-backend heroku master
 
-// testing git checkout
+// testing git checkout #2
