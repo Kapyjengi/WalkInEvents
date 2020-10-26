@@ -11,7 +11,10 @@ import TestScreen from '../tests/TestScreen'
 // arkkitehtuurin näkökulmasta? Nyt ListView tekee oikeastaan kaiken toiminnallisuuden,
 // vaikka nimensä mukaan sen pitäisi vain listata tapahtumat?
 
+
 const MainView = () => {
+
+
     return (
         <Tabs defaultActiveKey="map" id="uncontrolled-tab-example">
             <Tab eventKey="map" title="Map">
@@ -20,13 +23,12 @@ const MainView = () => {
             <Tab eventKey="list" title="List">
                 <ListScreen />
             </Tab>
-
             {/* Kommentoidaan pois */}
             <Tab eventKey="tests" title="Tests">
                 <TestScreen />
             </Tab>
-
         </Tabs>
+
     )
 }
 

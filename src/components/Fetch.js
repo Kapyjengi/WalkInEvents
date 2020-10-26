@@ -1,12 +1,14 @@
+import {setFilteredEvents } from '../GlobalStore/eventActions'
+import { connect } from 'react-redux'
+import store from '../GlobalStore/store'
 
+export default async function Fetching(lati, long, area) {
 
-export default async function Fetching(lati,long,area){
+  let events = [];
 
-let events=[];
-
-if (lati !== undefined && long !== undefined) {
+  if (lati !== undefined && long !== undefined) {
     //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-        await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+    await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -15,10 +17,11 @@ if (lati !== undefined && long !== undefined) {
         }
       })
       .then(data => {
-       events = data.data
+        events = data.data
       })
-      .catch(error => console.error(error)); 
-  } 
-return events
+      .catch(error => console.error(error));
+  }
+  
+  return events
 
 }

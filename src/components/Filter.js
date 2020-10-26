@@ -9,7 +9,7 @@ export default function Filtteri(props) {
 
   const [day, setDay] = useState(props.selectedDay)
   const [event, setEvent] = useState(props.event)
-  const [area, setArea] = useState(1)
+  const [area, setArea] = useState(10)
   const [open, setOpen] = useState(false);
 
 

@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import {useStore, useDispatch, connect} from 'react-redux'
-import {addTag, removeTag, setTags} from '../GlobalStore/tagActions'
+import { useStore, useDispatch, connect } from 'react-redux'
+import { addTag, removeTag, setTags } from '../GlobalStore/tagActions'
+import { Button } from 'react-bootstrap'
+
 
 export default function TestScreen() {
     const store = useStore()
     connect()
-    console.log('Running redux tests')
-    console.log(store.getState())
-    //store.dispatch(firstReducer('ADD_TAG','testitagi'))
-    //store.dispatch(addTag('testitagi'))
-    store.dispatch({type: 'ADD_TAG', tag: 'uusitagi1'})
-    //store.dispatch(addTag('uusitagi2'))
-    console.log(addTag('uusitagi2'))
-    store.dispatch(addTag('uusitagi2'))
-    store.dispatch(removeTag('Testitagi1'))
-    console.log('state on', store.getState())
-    store.dispatch(setTags(['SetTag1', 'SetTag2', 'SetTag3']))
-    console.log(store.getState().chosenTags)
+
+    const printState = () => {
+        console.log(store.getState().filteredEvents)
+    }
+    const printAllEvents = () => {
+        console.log(store.getState().allEvents)
+    }
+
     return (
-        "Tests here"
+        <div>
+            < Button style={{ margin: 10 }} variant="primary" onClick={printAllEvents} >
+                Print allEvents from store
+        </Button >
+
+            < Button style={{ margin: 10 }} variant="primary" onClick={printState} >
+                Print Store State
+        </Button >
+        </div>
     )
-    
+
 }

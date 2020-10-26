@@ -24,7 +24,6 @@ let initialState = {
 }
 
 function rootReducer(state = initialState, action) {
-    console.log(state)
     switch (action.type) {
         case 'ADD_TAG':
             // Yhdistetään kolme objectia: tyhjä objecti, nykyinen state ja
@@ -55,7 +54,11 @@ function rootReducer(state = initialState, action) {
         // Events
         case 'SET_ALL_EVENTS':
             return Object.assign({}, state,
-                { allEvents: action.events })
+                { allEvents: action.allEvents })
+
+        case 'SET_FILTERED_EVENTS':
+            return Object.assign({}, state,
+                { filteredEvents: action.filteredEvents })
 
         default:
             return initialState

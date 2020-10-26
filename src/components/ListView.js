@@ -8,6 +8,8 @@ import Filtteri from './Filter'
 import Fetch from './Fetch'
 import {useStore, useDispatch, connect} from 'react-redux'
 import {setUserLocation} from '../GlobalStore/locationActions'
+import GetAllEvents from '../LogicalFunctions/GetAllEvents'
+
 
 export default function ListView() {
   const store = useStore()
@@ -20,7 +22,7 @@ export default function ListView() {
   const [loaded, setLoaded] = useState(false)
   const [lat, setLat] = useState()
   const [lon, setLon] = useState()
-  const [area, setArea] = useState(1)
+  const [area, setArea] = useState(10)
 
   
 
@@ -29,16 +31,19 @@ export default function ListView() {
     //Haetaan koordinaatit
     Coords();
   }, [lon, lat])
+  useEffect(()=> {
+    GetAllEvents();
+  }, [])
 
 
   async function fetchData(lati, long, area) {
     let data=(Fetch(lati,long,area))
+    // kutsutaan funktiota, joka hakee kaikki eventit
     setEvents((await data))
     if (events !== ''){
     setLoading('')
     setLoaded(true)
     }
-    
   }
 
   const Coords =() => {
@@ -46,7 +51,7 @@ export default function ListView() {
       setLat(position.coords.latitude)
       setLon(position.coords.longitude)
       store.dispatch(setUserLocation(position.coords.latitude, position.coords.longitude))
-      
+  
     });
     let lati = lat
     let long = lon

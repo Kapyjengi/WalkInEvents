@@ -4,11 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import firstReducer from './reducers'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import store from './GlobalStore/store'
 
-const store = createStore(firstReducer)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,3 +19,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+/*  */

@@ -3,15 +3,17 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import store from '../GlobalStore/store'
+import { connect } from 'react-redux'
 
 export default function EventCard() {
+    connect()
+    let events = store.getState().filteredEvents
 
-    let mockEvents = ['One', 'Two', 'Three', 'Four']
-    let cardMockEvents = mockEvents.map((mockEvents, i) => {
-
-        let name = mockEvents;
+    let cardEvents = events.map((events, i) => {
+        let name = events.name.fi;
         let dateAndTime = 'date&time '+(i+1);
-        let place = 'place '+(i+1);
+        //let place = 'place '+(i+1);
         let address = 'address '+(i+1);
         let distance = (i+1)*100+' m';
         
@@ -21,7 +23,7 @@ export default function EventCard() {
                 <Row style={{ paddingBottom:20 }}>
                     <Col>
                         <Card.Title>{name}</Card.Title>
-                        <Card.Text>{dateAndTime}<br/>{place}<br/>{address}</Card.Text>
+                        <Card.Text>{dateAndTime}<br/>{address}</Card.Text>
                     </Col>
                 </Row>
                 <Row>
@@ -57,7 +59,7 @@ export default function EventCard() {
                     </Row>
                 </Card.Body>
             </Card>
-            {cardMockEvents}
+            {cardEvents}
         </div>
     )
 }

@@ -4,6 +4,9 @@ import moment from 'moment'
 import SearchByDate from './SearchByDate'
 import SearchByEvent from './SearchByEvent'
 import SearchByTag from './SearchByTag'
+import store from '../GlobalStore/store'
+import { connect } from 'react-redux'
+import {setFilteredEvents} from '../GlobalStore/eventActions'
 export default function ShowAll(props) {
 
 
@@ -24,6 +27,10 @@ export default function ShowAll(props) {
   // Tag filter
   events = SearchByTag(events)
 
+  // kaikki filterit käyty läpi, päivitetään store
+  connect()
+  store.dispatch(setFilteredEvents(events))
+  
   // letEventsista tulee lista jota aiemmin mahdollisesti jo filteröitiin ja sortattiin
   let letEvents = "";
   letEvents = events.map((events, i) => {
