@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import GetToday from '../LogicalFunctions/GetToday'
 import Loading from '../SharedViewComponents/Loading'
-import Show from './Show'
+import Show from './DebugginEventLister'
 import ShowTagOptions from '../SharedViewComponents/ShowTagOptions'
 import MapView from '../ViewComponents/MapView'
-import Filtteri from '../SharedViewComponents/Filter'
-import Fetch from '../LogicalFunctions/Fetch'
-import { setUserLocation } from '../GlobalStore/locationActions'
+import Filtteri from '../SharedViewComponents/FilterEvents'
+import Fetch from '../Services/FetchEventsNearUser'
+import { setUserLocation } from '../GlobalStore/LocationActions'
 import { useStore, useDispatch, connect } from 'react-redux'
-import GetAllEvents from '../LogicalFunctions/GetAllEvents'
-import GetUserPosition from '../utils/GetUserPosition'
+import GetAllEvents from '../Services/GetAllEvents'
+import GetUserPosition from '../Services/GetUserPosition'
 
 export default function ListView() {
   const store = useStore()

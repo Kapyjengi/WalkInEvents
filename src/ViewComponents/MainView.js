@@ -3,7 +3,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
-import TestScreen from '../tests/TestScreen'
+import TestScreen from '../Tests/TestScreen'
 
 // Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
 // Pitäisikö ListView.js komponentin toiminnallisuus siirtää tälle sivulle fiksumman

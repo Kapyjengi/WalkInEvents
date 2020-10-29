@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useStore, useDispatch } from 'react-redux'
 import { Button, Modal } from 'react-bootstrap'
-import Slider from './Slider'
+import Slider from './DistanceSlider'
 import ToDay from '../LogicalFunctions/GetToday'
 
 

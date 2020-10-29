@@ -1,4 +1,4 @@
-import Sort from './Sort'
+import Sort from './SortEvents'
 
 export default function SearchByEvent(events, event) {
 

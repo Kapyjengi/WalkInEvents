@@ -1,6 +1,6 @@
-import {setFilteredEvents } from '../GlobalStore/eventActions'
+import {setFilteredEvents } from '../GlobalStore/EventActions'
 import { connect } from 'react-redux'
-import store from '../GlobalStore/store'
+import store from '../GlobalStore/Store'
 
 export default async function Fetching(lati, long, area) {
 

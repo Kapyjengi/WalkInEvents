@@ -1,4 +1,4 @@
-import Sort from './Sort'
+import Sort from './SortEvents'
 
 
 // an event has an array of tags in event.tags

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStore, useDispatch, connect } from 'react-redux'
-import { addTag, removeTag, setTags } from '../GlobalStore/tagActions'
+import { addTag, removeTag, setTags } from '../GlobalStore/TagActions'
 import { Button } from 'react-bootstrap'
 
 

@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import store from '../GlobalStore/store'
+import store from '../GlobalStore/Store'
 import { connect } from 'react-redux'
 
 export default function EventCard() {

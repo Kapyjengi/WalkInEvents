@@ -1,6 +1,6 @@
-import { setAllEvents } from '../GlobalStore/eventActions'
+import { setAllEvents } from '../GlobalStore/EventActions'
 import {connect } from 'react-redux'
-import store from '../GlobalStore/store'
+import store from '../GlobalStore/Store'
 
 export default async function GetAllEvents() {
 

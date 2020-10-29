@@ -1,5 +1,5 @@
-import store from '../GlobalStore/store'
-import {setUserLocation} from '../GlobalStore/locationActions'
+import store from '../GlobalStore/Store'
+import {setUserLocation} from '../GlobalStore/LocationActions'
 
 export default function GetUserPosition() {
   let id, target, options;

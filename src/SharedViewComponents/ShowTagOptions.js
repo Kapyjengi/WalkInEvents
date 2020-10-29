@@ -4,7 +4,7 @@ import makeAnimated from 'react-select/animated';
 import GetTagList from '../LogicalFunctions/GetTagList';
 import SearchByTag from '../LogicalFunctions/SearchByTag'
 import {useStore, useDispatch, connect} from 'react-redux'
-import {setTags} from '../GlobalStore/tagActions'
+import {setTags} from '../GlobalStore/TagActions'
 
 // {value:'Teatteri', label: 'Teatteri'}
 

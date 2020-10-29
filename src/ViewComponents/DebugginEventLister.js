@@ -4,9 +4,9 @@ import moment from 'moment'
 import SearchByDate from '../LogicalFunctions/SearchByDate'
 import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SearchByTag from '../LogicalFunctions/SearchByTag'
-import store from '../GlobalStore/store'
+import store from '../GlobalStore/Store'
 import { connect } from 'react-redux'
-import {setFilteredEvents} from '../GlobalStore/eventActions'
+import {setFilteredEvents} from '../GlobalStore/EventActions'
 export default function ShowAll(props) {
 
 
