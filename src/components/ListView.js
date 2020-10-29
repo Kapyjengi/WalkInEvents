@@ -6,11 +6,9 @@ import ShowTagOptions from './ShowTagOptions'
 import MapView from './MapView'
 import Filtteri from './Filter'
 import Fetch from './Fetch'
-import {useStore, useDispatch, connect} from 'react-redux'
 import {setUserLocation} from '../GlobalStore/locationActions'
-import {setSelectedTime} from '../GlobalStore/timeActions'
+import { useStore, useDispatch, connect } from 'react-redux'
 import GetAllEvents from '../LogicalFunctions/GetAllEvents'
-
 
 export default function ListView() {
   const store = useStore()
@@ -35,7 +33,6 @@ export default function ListView() {
   useEffect(()=> {
     GetAllEvents();
   }, [])
-
 
   async function fetchData(lati, long, area) {
     let data=(Fetch(lati,long,area))
