@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap'
 
 export default function TestScreen() {
     const store = useStore()
-    connect()
+    //connect()
 
     const printState = () => {
         console.log(store.getState().filteredEvents)

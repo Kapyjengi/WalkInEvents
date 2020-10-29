@@ -7,6 +7,8 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
+import {useStore, useDispatch, connect} from 'react-redux'
+
 import SearchByDate from './SearchByDate'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -16,6 +18,8 @@ import moment from 'moment'
 import SearchByEvent from './SearchByEvent'
 
 const MapView = (props) => {
+  const store = useStore()
+  connect() // tää ei tee mitään
 
   const [zoom, setZoom] = React.useState(15)
   const location = { lat: props.latitude, lng: props.longitude }
@@ -84,7 +88,7 @@ const MapView = (props) => {
         ))}
       </MarkerClusterGroup>
       <Marker key={1} position={[location.lat, location.lng]} icon={customMarkerIcon} ></Marker>
-      <Circle center={[location.lat, location.lng]} radius={props.area * 1000} />
+      <Circle center={[location.lat, location.lng]} radius={store.getState().range * 1000} />
     </Map >
   );
 }

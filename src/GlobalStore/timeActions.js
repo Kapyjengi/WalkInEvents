@@ -4,3 +4,10 @@ export function setNow(timeNow) {
         time: timeNow
     })
 }
+
+export function setSelectedTime(selectedTime) {
+    return ({
+        type: 'SET_SELECTED_TIME',
+        time: selectedTime
+    })
+}

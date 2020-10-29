@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { useStore, useDispatch } from 'react-redux'
 import { Button, Modal } from 'react-bootstrap'
 import Slider from './Slider'
 import ToDay from './GetToday'
@@ -12,6 +12,7 @@ export default function Filtteri(props) {
   const [area, setArea] = useState(10)
   const [open, setOpen] = useState(false);
 
+  const store = useStore()
 
   let happening;
 
@@ -28,7 +29,7 @@ export default function Filtteri(props) {
   }
 
   const handleClose = () => {
-    props.ShowFilters(day, event, area);
+    props.ShowFilters(day, event, store.getState().range);
     setOpen(false);
   }
 
@@ -81,7 +82,7 @@ export default function Filtteri(props) {
           <div className="App">
             <p>name: <input id="eventos" placeholder={text} onChange={SeekName} /></p>
             <p>date: <input id="selectday" type="date" value={day} onChange={ChangeDay} /></p>
-            <Slider HandleSlider={HandleSlider} area={area} />
+            <Slider HandleSlider={HandleSlider} />
           </div>
         </Modal.Body>
 
