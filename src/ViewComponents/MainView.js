@@ -1,8 +1,7 @@
 import React from 'react'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import MapScreen from './MapScreen'
-import ListScreen from './ListScreen'
+import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
 import TestScreen from '../tests/TestScreen'
 

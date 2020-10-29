@@ -9,13 +9,13 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
 import {useStore, useDispatch, connect} from 'react-redux'
 
-import SearchByDate from './SearchByDate'
+import SearchByDate from '../LogicalFunctions/SearchByDate'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import moment from 'moment'
-import SearchByEvent from './SearchByEvent'
+import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 
 const MapView = (props) => {
   const store = useStore()

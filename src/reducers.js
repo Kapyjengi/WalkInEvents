@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import GetToday from './components/GetToday'
-import GetTagList from './components/GetTagList'
+import GetToday from './LogicalFunctions/GetToday'
+import GetTagList from './LogicalFunctions/GetTagList'
 
 //rootReducer = combineReducers({})
 /* // Jatkossa ehkä tarvittavia kenttiä: 
@@ -13,6 +13,7 @@ let initialState = {
     allTags: GetTagList(),
     filteredEvents: [],
     allEvents: [],
+    // latitude: ja  longitude: 
     userLocation: {},
     selectedTime: {},
     timeNow: GetToday(),

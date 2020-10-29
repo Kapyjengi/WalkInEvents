@@ -9,7 +9,7 @@ export default function TestScreen() {
     //connect()
 
     const printState = () => {
-        console.log(store.getState().filteredEvents)
+        console.log(store.getState())
     }
     const printAllEvents = () => {
         console.log(store.getState().allEvents)

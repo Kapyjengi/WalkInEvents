@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import ListView from './components/ListView'
 
-import NavBar from './components/NavBar'
-import MainView from './components/MainView'
-import MapScreen from './components/MapScreen'
-import ListScreen from './components/ListScreen'
-import ReduxTests from './tests/ReduxTests'
+import NavBar from './ViewComponents/NavBar'
+import MainView from './ViewComponents/MainView'
 
 import {
   BrowserRouter as Router,

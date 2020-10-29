@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -8,7 +8,9 @@ import { connect } from 'react-redux'
 
 export default function EventCard() {
     connect()
-    let events = store.getState().filteredEvents
+    //let events = store.getState().filteredEvents
+    const [events, setEvents] = useState(store.getState().filteredEvents)
+
 
     let cardEvents = events.map((events, i) => {
         let name = events.name.fi;

@@ -1,9 +1,8 @@
 import React, { createRef, useState } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import GetTagList from './GetTagList';
-import SelectedTags from './SelectedTags'
-import SearchByTag from './SearchByTag'
+import GetTagList from '../LogicalFunctions/GetTagList';
+import SearchByTag from '../LogicalFunctions/SearchByTag'
 import {useStore, useDispatch, connect} from 'react-redux'
 import {setTags} from '../GlobalStore/tagActions'
 

@@ -39,4 +39,3 @@ export default function SearchByEvent(events, event) {
   /// Mikäli eventtitietoa ei olla rassattu niin funktio pomppaa tänne suoraan
   return letEvents
 }
-

@@ -1,5 +1,4 @@
 import Sort from './Sort'
-import SelectedTags from './SelectedTags'
 
 
 // an event has an array of tags in event.tags
@@ -10,7 +9,7 @@ export default function SearchByTag(events) {
     //console.log(events)
 
     let filtered = [];
-    let selectedTags = SelectedTags()
+    let selectedTags = [1, 2, 3]
     //console.log("tags in SearByTag")
     //console.log(selectedTags)
     let selectedArray = []

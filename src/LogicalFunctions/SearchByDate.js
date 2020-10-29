@@ -1,5 +1,5 @@
 import moment from 'moment'
-import Sort from './Sort'
+import Sort from '../LogicalFunctions/Sort'
 
 export default function SearchByDate(events, selectedDay) {
 

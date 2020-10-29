@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useStore, useDispatch } from 'react-redux'
 import { Button, Modal } from 'react-bootstrap'
 import Slider from './Slider'
-import ToDay from './GetToday'
+import ToDay from '../LogicalFunctions/GetToday'
 
 
 export default function Filtteri(props) {
