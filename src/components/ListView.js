@@ -21,8 +21,7 @@ export default function ListView() {
   const [loaded, setLoaded] = useState(false)
   const [lat, setLat] = useState()
   const [lon, setLon] = useState()
-  const [area, setArea] = useState(10)
-
+  const [area, setArea] = useState(store.getState().range)
 
 
   // Sivun alkuu käytetään useEffectiä jossa ladataan lista kun sivu aukeaa
