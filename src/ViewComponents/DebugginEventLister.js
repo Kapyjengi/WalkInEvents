@@ -11,13 +11,15 @@ export default function ShowAll(props) {
 
 
   let events = props.events
-  let filted;
+  //let filted;
   //Jos päivämäärä on valittu ->
 
   //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
-  filted = SearchByDate(props.events, props.selectedDay)
+  
+  let filted = SearchByDate(props.events, props.selectedDay)
+  
   events = SearchByEvent(filted, props.event)
-
+  
   //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
   //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/
   if (props.event === 0 && props.selectedDay === 0) {
@@ -25,8 +27,8 @@ export default function ShowAll(props) {
   }
 
   // Tag filter
-  events = SearchByTag(events)
-
+  
+  //events = SearchByTag(events)
   // kaikki filterit käyty läpi, päivitetään store
   connect()
   store.dispatch(setFilteredEvents(events))

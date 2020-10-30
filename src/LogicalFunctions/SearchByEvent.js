@@ -2,7 +2,6 @@ import Sort from './SortEvents'
 
 export default function SearchByEvent(events, event) {
 
-
   // Funktioon tuodaan kaikki eventit mitkä paketissa on, mikäli tämä on ainut/ensimmäinen filtteri, niin events on se iso lista
   // tuodaan myös event joka on haettu tapahtumanimi
   let letEvents = events;
