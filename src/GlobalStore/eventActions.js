@@ -13,4 +13,11 @@ export function setFilteredEvents(events) {
         filteredEvents: events
     })
 }
+
+export function setEventSearch(eventSearch) {
+    return ({
+        type: 'SET_EVENT_SEARCH',
+        eventSearch
+    })
+}
 /*  */

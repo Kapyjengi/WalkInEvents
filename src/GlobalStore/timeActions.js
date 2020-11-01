@@ -4,3 +4,10 @@ export function setNow(timeNow) {
         time: timeNow
     })
 }
+
+export function setDate(selectedDate) {
+    return ({
+        type: 'SET_SELECTED_DATE',
+        selectedDate
+    })
+}

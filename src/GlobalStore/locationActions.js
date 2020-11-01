@@ -6,7 +6,6 @@ export function setUserLocation(lat, long) {
 }
 
 export function setLocationRange(range) {
-    console.log('range', range)
     return ({
         type: 'SET_LOCATION_RANGE',
         range

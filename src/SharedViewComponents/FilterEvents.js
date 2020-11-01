@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import { useStore, useDispatch } from 'react-redux'
+import { useStore, useDispatch, useSelector } from 'react-redux'
 import { Button, Modal } from 'react-bootstrap'
 import Slider from './DistanceSlider'
 import ToDay from '../LogicalFunctions/GetToday'
-
+import { setDate } from '../GlobalStore/TimeActions'
 
 export default function Filtteri(props) {
 
-  const [day, setDay] = useState(props.selectedDay)
+  const selectedDate = useSelector(state => state.selectedDate)
+  const dispatch = useDispatch()
+
+  const [day, setDay] = useState()
   const [event, setEvent] = useState(props.event)
   const [area, setArea] = useState(10)
   const [open, setOpen] = useState(false);
@@ -24,12 +27,8 @@ export default function Filtteri(props) {
 
   }
 
-  const ChangeDay = (event) => {
-    setDay(event.target.value)
-  }
-
   const handleClose = () => {
-    props.ShowFilters(day, event, store.getState().range);
+    props.ShowFilters(store.getState().selectedDate, event, store.getState().range);
     setOpen(false);
   }
 
@@ -81,7 +80,7 @@ export default function Filtteri(props) {
         <Modal.Body>
           <div className="App">
             <p>name: <input id="eventos" placeholder={text} onChange={SeekName} /></p>
-            <p>date: <input id="selectday" type="date" value={day} onChange={ChangeDay} /></p>
+            <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>
             <Slider HandleSlider={HandleSlider} />
           </div>
         </Modal.Body>

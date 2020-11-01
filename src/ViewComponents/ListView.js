@@ -16,7 +16,7 @@ export default function ListView() {
   connect()
 
   const [events, setEvents] = React.useState('')
-  const [selectedDay, setSelectedDay] = React.useState(0)
+  const [selectedDay, setSelectedDay] = useState(store.getState().selectedDate)
   const [event, setEvent] = React.useState(0)
   const [loading, setLoading] = React.useState('LOADING')
   const [loaded, setLoaded] = useState(false)

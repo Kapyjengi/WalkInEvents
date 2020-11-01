@@ -11,11 +11,12 @@ let initialState = {
     range: 1,
     chosenTags: [],
     allTags: GetTagList(),
+    eventSearch: [],
     filteredEvents: [],
     allEvents: [],
     // latitude: ja  longitude: 
     userLocation: {},
-    selectedTime: {},
+    selectedDate: GetToday(),
     timeNow: GetToday(),
     selectedFilters: {
         timeFilter: true,
@@ -47,9 +48,9 @@ function rootReducer(state = initialState, action) {
             return Object.assign({}, state,
                 { timeNow: action.time })
 
-        case 'SET_SELECTED_TIME':
+        case 'SET_SELECTED_DATE':
             return Object.assign({}, state,
-                { selectedTime: action.selectedTime })
+                { selectedDate: action.selectedDate })
 
         // Location
         case 'SET_USER_LOCATION':
@@ -68,6 +69,10 @@ function rootReducer(state = initialState, action) {
         case 'SET_FILTERED_EVENTS':
             return Object.assign({}, state,
                 { filteredEvents: action.filteredEvents })
+
+        case 'SET_EVENT_SEARCH':
+            return Object.assign({}, state,
+                { eventSearch: action.eventSearch })
 
         default:
             return initialState
