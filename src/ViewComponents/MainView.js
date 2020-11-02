@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
 import TestScreen from '../Tests/TestScreen'
+import { connect } from 'react-redux'
+import { useStore } from 'react-redux'
 
 // Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
 // Pitäisikö ListView.js komponentin toiminnallisuus siirtää tälle sivulle fiksumman
@@ -13,13 +15,21 @@ import TestScreen from '../Tests/TestScreen'
 
 const MainView = () => {
 
+    const [key, setKey] = useState('TabKey')
+    const [data, setData] = useState()
+    connect()
+    const store = useStore()
 
+    if (key==='List') {
+        setData(store.getState().filteredEvents)
+    }
+    
     return (
-        <Tabs defaultActiveKey="map" id="uncontrolled-tab-example">
+        <Tabs defaultActiveKey="map" id="uncontrolled-tab-example"  onSelect={(k) => setKey(k)} >
             <Tab eventKey="map" title="Map">
                 <ListView />
             </Tab>
-            <Tab eventKey="list" title="List">
+            <Tab eventKey="list" title="List"  >
                 <ListScreen />
             </Tab>
             {/* Kommentoidaan pois */}

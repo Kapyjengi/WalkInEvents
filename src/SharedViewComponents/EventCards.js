@@ -11,7 +11,7 @@ import L from 'leaflet'
 
 export default function EventCard() {
     connect()
-    
+    const store = useStore()
     //let events = store.getState().filteredEvents
     //const [events, setEvents] = useState(store.getState().filteredEvents)
     const [events, setEvents] = useState(store.getState().filteredEvents)
@@ -21,11 +21,11 @@ export default function EventCard() {
         printAllEvents()
     })
 
-    console.log('store',store.getState().filteredEvents)
+    
     
     const printAllEvents = () => {
         setEvents(store.getState().filteredEvents)
-        setLocation(store.getState().userLocation)
+        setLocation( store.getState().userLocation)
     }
 
 
@@ -70,8 +70,6 @@ export default function EventCard() {
 
     return (
         <div>
-
-            <Button onClick={printAllEvents}>NAPPI ONNEEN</Button>
             {cardEvents}
         </div>
     )

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import EventCard from './EventCards'
 
 const ListScreen = () => {
-
+    
     return (
         <Container>
         
