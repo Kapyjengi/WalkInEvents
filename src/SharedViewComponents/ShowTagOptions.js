@@ -5,13 +5,10 @@ import GetTagList from '../LogicalFunctions/GetTagList';
 import SearchByTag from '../LogicalFunctions/SearchByTag'
 import {useStore, useDispatch, connect} from 'react-redux'
 import {setTags} from '../GlobalStore/TagActions'
+import store from '../GlobalStore/Store'
 
-// {value:'Teatteri', label: 'Teatteri'}
 
 export default function ShowTagOptions(props) {
-    const store = useStore()
-    connect()
-
     
     const animatedComponents = makeAnimated();
     // Muutos array[string] => array{value: string, label: string}

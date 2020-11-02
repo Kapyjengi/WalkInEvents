@@ -11,6 +11,7 @@ let initialState = {
     range: 1,
     chosenTags: [],
     allTags: GetTagList(),
+    //tagCategoryTitles: GetTagCategoryTitles(),
     eventSearch: [],
     filteredEvents: [],
     allEvents: [],
