@@ -16,13 +16,9 @@ import { useStore } from 'react-redux'
 const MainView = () => {
 
     const [key, setKey] = useState('TabKey')
-    const [data, setData] = useState()
+    
     connect()
     const store = useStore()
-
-    if (key==='List') {
-        setData(store.getState().filteredEvents)
-    }
     
     return (
         <Tabs defaultActiveKey="map" id="uncontrolled-tab-example"  onSelect={(k) => setKey(k)} >
