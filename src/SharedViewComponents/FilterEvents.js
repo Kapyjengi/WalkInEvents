@@ -4,18 +4,18 @@ import { Button, Modal } from 'react-bootstrap'
 import Slider from './DistanceSlider'
 import ToDay from '../LogicalFunctions/GetToday'
 import { setDate } from '../GlobalStore/TimeActions'
+import { setLocationRange } from '../GlobalStore/LocationActions'
 
 export default function Filtteri(props) {
+
+  const store = useStore()
 
   const selectedDate = useSelector(state => state.selectedDate)
   const dispatch = useDispatch()
 
-  const [day, setDay] = useState()
   const [event, setEvent] = useState(props.event)
-  const [area, setArea] = useState(10)
+  const [area, setArea] = useState()
   const [open, setOpen] = useState(false);
-
-  const store = useStore()
 
   let happening;
 
@@ -50,12 +50,11 @@ export default function Filtteri(props) {
   }
 
   const Reset = () => {
-
-    setDay(ToDay())
+    dispatch(setDate(ToDay))
     setEvent(0)
     document.getElementById("eventos").value = ""
     document.getElementById("selectday").value = ""
-    setArea(1)
+    dispatch(setLocationRange(1))
   }
 
 
@@ -68,9 +67,9 @@ export default function Filtteri(props) {
 
   return (
     <div>
-      <Button style={{ margin: 10 }} variant="primary" onClick={handleClickOpen}>
-        Filters
-  </Button>
+
+      <Button variant="primary" size='sm' className='mr-4 mb-2 float-right position-absolute' 
+      style={{ 'top': '61px', 'right': '-1%' }} onClick={handleClickOpen}>Filters</Button>
 
       <Modal show={open} onClose={handleClose} >
         <Modal.Header>
