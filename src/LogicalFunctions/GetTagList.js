@@ -26,7 +26,7 @@ export default function GetTagList() {
         {categoryTitle: "Music", tags: music},
         {categoryTitle: "Dance", tags: dance},
         {categoryTitle: "Exhibitions", tags: exhibitions},
-        {categoryTitle: "Spotrs and Outdoors", tags: sports_and_outdoors},
+        {categoryTitle: "Sports and Outdoors", tags: sports_and_outdoors},
         {categoryTitle: "Fine Arts", tags: fine_arts},
         {categoryTitle: "Design", tags: design},
         {categoryTitle: "Cultural Events", tags: cultural_events},
