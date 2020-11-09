@@ -5,20 +5,20 @@ import { Nav, Navbar } from 'react-bootstrap'
 
 const NavBar = () => {
 
-        return (
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/Index">WalkInEvents</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                        {/*<Nav.Link href="/Map">Map</Nav.Link>
-                    <Nav.Link href="/List">List</Nav.Link>*/}
-                        {/* <Nav.Link >Filter</Nav.Link> */}
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        )
-  
+    return (
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand href="/Index">WalkInEvents</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="/about">About</Nav.Link>
+                    {/* ANTON JA PÄIVI! */}
+                    {/* Routerointi tehdään rivin 14 mukaan. */}
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    )
+
 
 }
 

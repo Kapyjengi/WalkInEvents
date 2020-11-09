@@ -9,6 +9,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import ShowAboutUs from './ViewComponents/About'
 
 export default function App() {
 
@@ -23,12 +24,22 @@ export default function App() {
         <NavBar />
         <MainView />
         <Switch>
-          {/*
-          Esimerkki routeroinnista filteörintinäkymään
-          <Route path="/Filters" component={Filters}>
-            <Filters />
-          </Route>
+
+          {/* 
+          ANTON JA PÄIVI HOX HOX! 
+           Poista alta kommentointi, jotta navigointi About sivulle toimii. 
+           App.js tiedosto renderöi MainView komponentin, joka renderöi ListViewn. 
+           Nyt About sivu renderöityy ListViewn alle. 
+           About.js on ViewComponents kansiossa. 
+           Uusi navbar linkki voidaan toteuttaa ylläolevan esimerkin lailla. NavBar.js komponenttiin pitää käydä lisäämässä
+          endpointia koskevat määrittelyt. 
           */}
+
+          {/* <Route path="/about" component={ShowAboutUs}>
+            <ShowAboutUs />
+          </Route> */}
+
+
         </Switch>
       </Router>
     </div >
