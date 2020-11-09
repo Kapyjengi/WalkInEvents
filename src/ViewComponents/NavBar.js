@@ -7,13 +7,12 @@ const NavBar = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/Index">WalkInEvents</Navbar.Brand>
+            <Navbar.Brand href="/">WalkInEvents</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
+                    <Nav.Link href="/">Events</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
-                    {/* ANTON JA PÄIVI! */}
-                    {/* Routerointi tehdään rivin 14 mukaan. */}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

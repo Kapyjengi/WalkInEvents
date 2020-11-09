@@ -22,23 +22,16 @@ export default function App() {
     <div>
       <Router>
         <NavBar />
-        <MainView />
+        {/* <MainView /> */}
         <Switch>
 
-          {/* 
-          ANTON JA PÄIVI HOX HOX! 
-           Poista alta kommentointi, jotta navigointi About sivulle toimii. 
-           App.js tiedosto renderöi MainView komponentin, joka renderöi ListViewn. 
-           Nyt About sivu renderöityy ListViewn alle. 
-           About.js on ViewComponents kansiossa. 
-           Uusi navbar linkki voidaan toteuttaa ylläolevan esimerkin lailla. NavBar.js komponenttiin pitää käydä lisäämässä
-          endpointia koskevat määrittelyt. 
-          */}
-
-          {/* <Route path="/about" component={ShowAboutUs}>
+          <Route path="/about" component={ShowAboutUs}>
             <ShowAboutUs />
-          </Route> */}
+          </Route>
 
+          <Route path="/" component={MainView}>
+            <MainView />
+          </Route>
 
         </Switch>
       </Router>
