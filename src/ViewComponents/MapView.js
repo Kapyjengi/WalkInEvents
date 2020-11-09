@@ -17,10 +17,10 @@ import Card from 'react-bootstrap/Card'
 import moment from 'moment'
 import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SingleCard from '../SharedViewComponents/SingleCard'
+import SearchByTag from '../LogicalFunctions/SearchByTag'
 
 const MapView = (props) => {
   const store = useStore()
-  connect() // tää ei tee mitään
 
   const [zoom, setZoom] = React.useState(15)
   const location = { lat: props.latitude, lng: props.longitude }
@@ -38,6 +38,7 @@ const MapView = (props) => {
   let filted;
   filted = SearchByDate(props.events, props.selectedDay)
   events = SearchByEvent(filted, props.event)
+  //events = SearchByTag(events)
 
   const filteredEvents = events
 

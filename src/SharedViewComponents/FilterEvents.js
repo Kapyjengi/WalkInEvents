@@ -5,6 +5,7 @@ import Slider from './DistanceSlider'
 import ToDay from '../LogicalFunctions/GetToday'
 import { setDate } from '../GlobalStore/TimeActions'
 import { setLocationRange } from '../GlobalStore/LocationActions'
+import ShowTagOptions from './ShowTagOptions'
 
 export default function Filtteri(props) {
 
@@ -81,6 +82,7 @@ export default function Filtteri(props) {
             <p>name: <input id="eventos" placeholder={text} onChange={SeekName} /></p>
             <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>
             <Slider HandleSlider={HandleSlider} />
+            <ShowTagOptions></ShowTagOptions>
           </div>
         </Modal.Body>
 

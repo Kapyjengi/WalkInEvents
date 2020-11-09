@@ -21,18 +21,18 @@ export default function GetTagList() {
     
     // each object has a title(string) and list of tags(array)
     let tagArray = [
-        {categoryTitle: "Children", tags: children},
-        {categoryTitle: "Theatre", tags: theatre},
-        {categoryTitle: "Music", tags: music},
-        {categoryTitle: "Dance", tags: dance},
-        {categoryTitle: "Exhibitions", tags: exhibitions},
-        {categoryTitle: "Sports and Outdoors", tags: sports_and_outdoors},
-        {categoryTitle: "Fine Arts", tags: fine_arts},
-        {categoryTitle: "Design", tags: design},
-        {categoryTitle: "Cultural Events", tags: cultural_events},
-        {categoryTitle: "Other Tags", tags: other_tags.concat(rare_tags)},
-        {categoryTitle: "Talks and Workshops", tags: talks_and_workshops},
-        {categoryTitle: "Online and TV", tags: online_and_tv},
+        {categoryTitle: "Children", tags: children, isChecked: true},
+        {categoryTitle: "Theatre", tags: theatre, isChecked: true},
+        {categoryTitle: "Music", tags: music, isChecked: true},
+        {categoryTitle: "Dance", tags: dance, isChecked: true},
+        {categoryTitle: "Exhibitions", tags: exhibitions, isChecked: true},
+        {categoryTitle: "Sports and Outdoors", tags: sports_and_outdoors, isChecked: true},
+        {categoryTitle: "Fine Arts", tags: fine_arts, isChecked: true},
+        {categoryTitle: "Design", tags: design, isChecked: true},
+        {categoryTitle: "Cultural Events", tags: cultural_events, isChecked: true},
+        {categoryTitle: "Talks and Workshops", tags: talks_and_workshops, isChecked: true},
+        {categoryTitle: "Online and TV", tags: online_and_tv, isChecked: true},
+        {categoryTitle: "Other Tags", tags: other_tags.concat(rare_tags), isChecked: true},
     ]
     return tagArray
 }

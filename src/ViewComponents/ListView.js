@@ -126,7 +126,6 @@ export default function ListView() {
         <h1> </h1>
         <Filtteri ShowFilters={ShowFilters} selectedDay={selectedDay} event={event} />
         <MapView latitude={lat} longitude={lon} events={events} event={event} selectedDay={selectedDay} ></MapView>
-        <ShowTagOptions events={events} />
         area:{area}km
         <Loading loading={loading} loaded={loaded} />
         <Show events={events} event={event} selectedDay={selectedDay} />
