@@ -16,6 +16,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import moment from 'moment'
 import SearchByEvent from '../LogicalFunctions/SearchByEvent'
+import SingleCard from '../SharedViewComponents/SingleCard'
 
 const MapView = (props) => {
   const store = useStore()
@@ -28,7 +29,7 @@ const MapView = (props) => {
       <i className='fas fa-street-view fa-3x' />
     </span>
   )
-
+  
   const customMarkerIcon = divIcon({
     html: iconMarkup,
   })
@@ -48,6 +49,7 @@ const MapView = (props) => {
   L.Marker.prototype.options.icon = DefaultIcon
 
   return (
+    <div>
     <Map center={location} zoom={zoom}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -58,18 +60,19 @@ const MapView = (props) => {
           <Marker key={i} position={[event.location.lat, event.location.lon]}>
             <Popup
               minWidth="500">
-              <Card>
+               <Card>
                 <Card.Body>
-                  <Row style={{ paddingBottom: 20 }}>
+                  <Row style={{ paddingBottom: 20, width:1000 }}>
                     <Col xs={12} md={6}>
-                      <Card.Title>{event.name.fi}</Card.Title>
+                      {/* <Card.Title>{event.name.fi}</Card.Title>
                       <Card.Text>
                         <p>{event.description.intro}</p>
                         <p>{event.location.address.locality}</p>
                         <p>Osoite: {event.location.address.street_address}</p>
                         <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}</p>
                         <p>Etäisyys: { (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) } m</p>
-                      </Card.Text>
+                      </Card.Text> */}
+                      <SingleCard name={event.name.fi}desc={event.description.intro}address={event.location.address.street_address}time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}distance={ (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) }></SingleCard>
                     </Col>
                   </Row>
                   <Row>
@@ -82,7 +85,8 @@ const MapView = (props) => {
                     </Col>
                   </Row>
                 </Card.Body>
-              </Card>
+              </Card> 
+
             </Popup>
           </Marker>
         ))}
@@ -90,6 +94,7 @@ const MapView = (props) => {
       <Marker key={1} position={[location.lat, location.lng]} icon={customMarkerIcon} ></Marker>
       <Circle center={[location.lat, location.lng]} radius={store.getState().range * 1000} />
     </Map >
+    </div>
   );
 }
 
