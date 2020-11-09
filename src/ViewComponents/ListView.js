@@ -29,10 +29,9 @@ export default function ListView() {
   useEffect(() => {
     //Haetaan koordinaatit
     Coords();
-  }, [lon, lat])
-  useEffect(() => {
     GetAllEvents();
-  }, [])
+  }, [lon, lat])
+
 
   async function fetchData(lati, long, area) {
     let data = (Fetch(lati, long, area))
@@ -46,7 +45,7 @@ export default function ListView() {
 
   const Coords = () => {
 
- let id, target, options;
+    let id, target, options;
 
     function success(pos) {
       let crd = pos.coords;
@@ -81,11 +80,15 @@ export default function ListView() {
     // GetUserPosition()
     let lati = store.getState().userLocation.latitude
     let long = store.getState().userLocation.longitude
+    if (lati === undefined && long === undefined) {
+      lati = lat
+      long = lon
+    }
     //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
     let toDay = GetToday()
     setSelectedDay(toDay)
     //Haetaan API
-    console.log(lati, long, area)
+    //console.log(lati, long, area)
     fetchData(lati, long, area);
   }
 
