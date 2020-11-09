@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ShowAboutUs = () => {
+
+const AboutView = () => {
 
     return (
         <div>
@@ -9,4 +10,4 @@ const ShowAboutUs = () => {
     )
 }
 
-export default ShowAboutUs
+export default AboutView

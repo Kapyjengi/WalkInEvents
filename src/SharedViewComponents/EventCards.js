@@ -16,20 +16,20 @@ export default function EventCard() {
     //const [events, setEvents] = useState(store.getState().filteredEvents)
     const [events, setEvents] = useState(store.getState().filteredEvents)
     const [location, setLocation] = useState([])
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         printAllEvents()
     })
 
-    
-    
+
+
     const printAllEvents = () => {
         setEvents(store.getState().filteredEvents)
-        setLocation( store.getState().userLocation)
+        setLocation(store.getState().userLocation)
     }
 
 
-    let cardEvents = events.map((events, i)  => {
+    let cardEvents = events.map((events, i) => {
         let name = events.name.fi;
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
@@ -58,13 +58,17 @@ export default function EventCard() {
                     <Row>
                         <Col xs={6}>{distance}</Col>
                         <Col xs={6}>
-                            <Button variant="info" style={{ marginRight: 10 }}>Show more</Button>
+                            {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
+                            {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
                             <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
 
                         </Col>
                     </Row>
                 </Card.Body>
+
             </Card>
+
+
         )
     })
 
