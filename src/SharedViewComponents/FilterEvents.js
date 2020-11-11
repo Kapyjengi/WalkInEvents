@@ -8,10 +8,10 @@ import { setLocationRange } from '../GlobalStore/LocationActions'
 import ShowTagOptions from './ShowTagOptions'
 
 export default function Filtteri(props) {
-
-  const store = useStore()
-
-  const selectedDate = useSelector(state => state.selectedDate)
+  
+  const state = useSelector(state => state)
+  const range = state.range
+  const selectedDate = state.selectedDate
   const dispatch = useDispatch()
 
   const [event, setEvent] = useState(props.event)
@@ -29,7 +29,7 @@ export default function Filtteri(props) {
   }
 
   const handleClose = () => {
-    props.ShowFilters(store.getState().selectedDate, event, store.getState().range);
+    props.ShowFilters(selectedDate, event, range);
     setOpen(false);
   }
 
@@ -91,7 +91,7 @@ export default function Filtteri(props) {
           <Button variant="danger" onClick={Reset}>Reset</Button>
 
           <Button variant="secondary" onClick={handleCancel}>Cancel</Button>
-          <Button variant="primary" onClick={handleClose}>Search</Button>
+          <Button variant="primary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
     </div>

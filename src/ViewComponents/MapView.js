@@ -7,7 +7,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
-import { useStore, useDispatch, connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import SearchByDate from '../LogicalFunctions/SearchByDate'
 import Row from 'react-bootstrap/Row'
@@ -18,12 +18,17 @@ import moment from 'moment'
 import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SingleCard from '../SharedViewComponents/SingleCard'
 import SearchByTag from '../LogicalFunctions/SearchByTag'
+import { setUserLocation } from '../GlobalStore/LocationActions'
 
-const MapView = (props) => {
-  const store = useStore()
+const MapView = () => {
+  
+  const state = useSelector(state => state)
+  const filteredEvents = state.filteredEvents
+  const range = state.range
+  const userLocation = state.userLocation
 
   const [zoom, setZoom] = React.useState(15)
-  const location = { lat: props.latitude, lng: props.longitude }
+  const location = { lat: userLocation.latitude, lng: userLocation.longitude }
   const iconMarkup = renderToStaticMarkup(
     <span style={{ color: 'Tomato' }}>
       <i className='fas fa-street-view fa-3x' />
@@ -33,14 +38,6 @@ const MapView = (props) => {
   const customMarkerIcon = divIcon({
     html: iconMarkup,
   })
-
-  let events = props.events
-  let filted;
-  filted = SearchByDate(props.events, props.selectedDay)
-  events = SearchByEvent(filted, props.event)
-  //events = SearchByTag(events)
-
-  const filteredEvents = events
 
   const DefaultIcon = L.icon({
     iconUrl: icon,
@@ -99,7 +96,7 @@ const MapView = (props) => {
           ))}
         </MarkerClusterGroup>
         <Marker key={1} position={[location.lat, location.lng]} icon={customMarkerIcon} ></Marker>
-        <Circle center={[location.lat, location.lng]} radius={store.getState().range * 1000} />
+        <Circle center={[location.lat, location.lng]} radius={range * 1000} />
       </Map >
     </div>
   );

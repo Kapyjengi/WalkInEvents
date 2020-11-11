@@ -5,10 +5,12 @@ import SearchByDate from '../LogicalFunctions/SearchByDate'
 import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SearchByTag from '../LogicalFunctions/SearchByTag'
 import store from '../GlobalStore/Store'
-import { connect } from 'react-redux'
+import { connect, useSelector, useDispatch } from 'react-redux'
 import {setFilteredEvents} from '../GlobalStore/EventActions'
 export default function ShowAll(props) {
 
+  const selectedDay = useSelector(state => state.selectedDate) 
+  const dispatch = useDispatch()
 
   let events = props.events
   //let filted;
@@ -16,13 +18,13 @@ export default function ShowAll(props) {
 
   //mennään etsimään isosta listasta kaikki tietyn päivämäärän tapahtumat SearchByDate -funktion kautta
   
-  let filted = SearchByDate(props.events, props.selectedDay)
+  let filted = SearchByDate(props.events, selectedDay)
   
   events = SearchByEvent(filted, props.event)
   
   //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
   //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/
-  if (props.event === 0 && props.selectedDay === 0) {
+  if (props.event === 0 && selectedDay === 0) {
     events = props.event
   }
 
@@ -30,8 +32,7 @@ export default function ShowAll(props) {
   
   //events = SearchByTag(events)
   // kaikki filterit käyty läpi, päivitetään store
-  connect()
-  store.dispatch(setFilteredEvents(events))
+  dispatch(setFilteredEvents(events))
   
   return (
     <div></div>

@@ -56,7 +56,7 @@ function rootReducer(state = initialState, action) {
         // Location
         case 'SET_USER_LOCATION':
             return Object.assign({}, state,
-                { userLocation: action.location })
+                { userLocation: action.userLocation })
 
         case 'SET_LOCATION_RANGE':
             return Object.assign({}, state,
