@@ -3,14 +3,18 @@ import Container from 'react-bootstrap/Container'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import EventCard from './EventCards'
+import Footer from '../SharedViewComponents/Footer'
 
 const ListScreen = () => {
     
     return (
-        <Container>
-        
-            <EventCard />
-        </Container>
+        <div>
+            <Container style={{marginBottom: 110}}>
+            
+                <EventCard />
+            </Container>
+            <Footer/>
+        </div>
     )
 }
 
