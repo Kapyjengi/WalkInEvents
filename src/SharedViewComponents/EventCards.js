@@ -4,10 +4,12 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import store from '../GlobalStore/Store'
-import { connect } from 'react-redux'
+import { connect, useSelector, useDispatch } from 'react-redux'
+import {setFilteredEvents} from '../GlobalStore/EventActions'
 import { useStore } from 'react-redux'
 import moment from 'moment'
 import L from 'leaflet'
+import NameSearch from '../LogicalFunctions/SearchByEvent'
 
 export default function EventCard() {
     connect()
@@ -16,21 +18,55 @@ export default function EventCard() {
     //const [events, setEvents] = useState(store.getState().filteredEvents)
     const [events, setEvents] = useState(store.getState().filteredEvents)
     const [location, setLocation] = useState([])
-
+    const [SearchByEvent,setSearchByEvent] = useState()
+    const [filtered, setFiltered] = useState(store.getState().filteredEvents)
+    const [word, setWord] = useState('')
+    const state = useSelector(state => state)
+    const filteredEvents = state.filteredEvents
+    
     useEffect(() => {
+   
+        if (word===''){
         printAllEvents()
+        }
     })
 
+
+   
+
+  const SeekName = (e) => {
+    let happening;
+    happening = e.target.value
+    setWord(happening)
+    filtering(happening)
+   
+
+  }
+
+  const filtering = (happening) =>{
+
+    setFiltered(filteredEvents.filter(event => event.name.fi.includes(happening)===true))
+    
+  }
 
 
     const printAllEvents = () => {
         setEvents(store.getState().filteredEvents)
         setLocation(store.getState().userLocation)
+        setFiltered(store.getState().filteredEvents)
     }
 
 
-    let cardEvents = events.map((events, i) => {
+    let cardEvents = filtered.map((events, i) => {
+        
         let name = events.name.fi;
+        if (events.name.fi === null) {
+            name=events.name.sv;
+            if (events.name.sv===null){
+                name=events.name.en
+            }
+        }
+
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
             events.location.address.postal_code + ' ' +
@@ -73,7 +109,8 @@ export default function EventCard() {
     })
 
     return (
-        <div>
+        <div className="App">
+             <p>name: <input id="eventos"  onChange={SeekName} /></p>
             {cardEvents}
         </div>
     )
