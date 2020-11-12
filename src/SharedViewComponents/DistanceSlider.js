@@ -13,15 +13,15 @@ function Slider(props) {
 
   return (
     <div>
-    <RangeSlider
-      min='1'
-      max='20'
-      size='lg'
-      tooltip='auto'
-      value={range}
-      onChange={ event => dispatch(setLocationRange(parseInt(event.target.value))) }
-    />
-  </div>
+      <RangeSlider
+        min='1'
+        max='20'
+        size='lg'
+        tooltip='auto'
+        value={range}
+        onChange={event => dispatch(setLocationRange(parseInt(event.target.value)))}
+      />
+    </div>
   )
 }
 

@@ -16,12 +16,12 @@ import { useStore } from 'react-redux'
 const MainView = () => {
 
     const [key, setKey] = useState('TabKey')
-    
+
     connect()
     const store = useStore()
-    
+
     return (
-        <Tabs defaultActiveKey="map" id="uncontrolled-tab-example"  onSelect={(k) => setKey(k)} >
+        <Tabs defaultActiveKey="map" id="uncontrolled-tab-example" onSelect={(k) => setKey(k)} >
             <Tab eventKey="map" title="Map">
                 <ListView />
             </Tab>

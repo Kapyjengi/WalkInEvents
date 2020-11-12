@@ -8,7 +8,7 @@ import { setLocationRange } from '../GlobalStore/LocationActions'
 import ShowTagOptions from './ShowTagOptions'
 
 export default function Filtteri(props) {
-  
+
   const state = useSelector(state => state)
   const range = state.range
   const selectedDate = state.selectedDate
@@ -69,10 +69,10 @@ export default function Filtteri(props) {
   return (
     <div>
 
-      <Button variant="primary" size='sm' className='mr-4 mb-2 float-right position-absolute' 
-      style={{ 'top': '61px', 'right': '-1%' }} onClick={handleClickOpen}>Filters</Button>
+      <Button variant="primary" size='sm' className='mr-4 mb-2 float-right position-absolute'
+        style={{ 'top': '61px', 'right': '-1%' }} onClick={handleClickOpen}>Filters</Button>
 
-      <Modal show={open} onClose={handleClose} >
+      <Modal show={open} onHide={handleClose} >
         <Modal.Header>
           <Modal.Title>Filters</Modal.Title>
         </Modal.Header>

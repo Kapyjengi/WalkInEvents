@@ -8,6 +8,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
 import { useSelector } from 'react-redux'
+import ToolbarFooter from '../SharedViewComponents/ToolbarFooter'
 
 import SearchByDate from '../LogicalFunctions/SearchByDate'
 import Row from 'react-bootstrap/Row'
@@ -21,7 +22,7 @@ import SearchByTag from '../LogicalFunctions/SearchByTag'
 import { setUserLocation } from '../GlobalStore/LocationActions'
 
 const MapView = () => {
-  
+
   const state = useSelector(state => state)
   const filteredEvents = state.filteredEvents
   const range = state.range
@@ -47,7 +48,7 @@ const MapView = () => {
   L.Marker.prototype.options.icon = DefaultIcon
 
   return (
-    <div>
+    <div class="mapDivContainer">
       <Map center={location} zoom={zoom}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -98,6 +99,7 @@ const MapView = () => {
         <Marker key={1} position={[location.lat, location.lng]} icon={customMarkerIcon} ></Marker>
         <Circle center={[location.lat, location.lng]} radius={range * 1000} />
       </Map >
+      <ToolbarFooter />
     </div>
   );
 }

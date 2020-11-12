@@ -14,7 +14,7 @@ import Slider from '../SharedViewComponents/DistanceSlider'
 
 
 export default function ListView() {
-  const store = useStore() 
+  const store = useStore()
   const range = useSelector(state => state.range)
   const dispatch = useDispatch()
 
@@ -131,8 +131,8 @@ export default function ListView() {
         <h1> </h1>
         <Filtteri ShowFilters={ShowFilters} event={event} />
         <MapView />
-        Range:{range}km
-        <Slider />
+        {/* Range:{range}km
+        <Slider /> */}
         <Loading loading={loading} loaded={loaded} />
         <Show events={events} event={event} />
       </div>
