@@ -59,17 +59,28 @@ $ git clone https://github.com/Kapyjengi/WalkInEvents.git
 
 ```
 
-> and then you have to install the npm packages
+> and then you have to install the npm packages:
+1) in WalkInEvents\walkin-node-backend
+```
+$ npm install
+```
+2) in WalkInEvents\react-front
 ```
 $ npm install
 ```
 
-> after the next step you're good to go! Open folder react-front and start server in background, while react app is running at localhost:3000
+> after that you're good to go! Open folder "react-front" and start server in background, while react app is running at localhost:3000. To check, if server is working, visit localhost:3001/api/events
 ```
 $ npm run dev
 ```
 
+## Deployment to Heroku
 
+From repo root run 
+```
+$ heroku login
+$ git subtree push --prefix walkin-node-backend heroku master
+```
 
 ## how to use our web-app?
 
