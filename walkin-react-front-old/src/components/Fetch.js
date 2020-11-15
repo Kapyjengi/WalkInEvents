@@ -6,7 +6,7 @@ let events=[];
 
 if (lati !== undefined && long !== undefined) {
     //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
-        await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
+        await fetch('api/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -15,7 +15,7 @@ if (lati !== undefined && long !== undefined) {
         }
       })
       .then(data => {
-       events = data.data
+       events = JSON.parse(data)
       })
       .catch(error => console.error(error)); 
   } 

@@ -37,6 +37,7 @@ export default function ListView() {
     if (events !== ''){
     setLoading('')
     setLoaded(true)
+    //console.log('events:',await data)
     }
     
   }
@@ -59,7 +60,7 @@ export default function ListView() {
   
   const ShowFilters=(dayNew,eventNew,areaNew)=>{
     areaNew=parseInt(areaNew)
-    console.log(eventNew)
+    //console.log(eventNew)
     if (dayNew !== undefined) {
       setSelectedDay(dayNew)
     }
@@ -67,7 +68,7 @@ export default function ListView() {
       setEvent(eventNew)
     }
     if (area !== areaNew){
-      console.log(area,areaNew)
+      //console.log(area,areaNew)
       setArea(areaNew)
       const alueNew= areaNew
       fetchData(lat, lon,alueNew)
@@ -88,7 +89,6 @@ export default function ListView() {
     // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
-        <h1> </h1>
         <Filtteri ShowFilters={ShowFilters} selectedDay={selectedDay} event={event}/>
         <MapView latitude={lat} longitude={lon} events={events} event={event} area={area} selectedDay={selectedDay} ></MapView> 
         <ShowTagOptions events={events} />

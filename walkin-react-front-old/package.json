@@ -2,7 +2,7 @@
   "name": "kartta",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://open-api.myhelsinki.fi",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-knobs": "^6.0.21",
@@ -35,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "cd ../walkin-node-backend && nodemon index.js",
+    "dev": "run-p server start"
   },
   "eslintConfig": {
     "extends": "react-app"
