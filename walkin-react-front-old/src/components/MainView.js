@@ -22,9 +22,9 @@ const MainView = () => {
             </Tab>
 
             {/* Kommentoidaan pois */}
-            {/* <Tab eventKey="tests" title="Tests">
+            <Tab eventKey="tests" title="Tests">
                 <TestScreen />
-            </Tab> */}
+            </Tab>
 
         </Tabs>
     )
