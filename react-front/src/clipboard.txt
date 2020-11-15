@@ -1,0 +1,181 @@
+import React from 'react';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
+import Tag, { types as typesList } from '../Tag';
+import TagSkeleton from '../Tag/Tag.Skeleton';
+import { action } from '@storybook/addon-actions/dist/preview';
+
+const props = {
+  regular: () => ({
+    type: select(
+      'Tag type (type)',
+      typesList.reduce(
+        (acc, type) => ({
+          ...acc,
+          [`${type} (${type})`]: type,
+        }),
+        {
+          Default: undefined,
+        }
+      )
+    ),
+    disabled: boolean('Disabled (disabled)', false),
+    title: text('Title (title)', 'Clear Filter'),
+  }),
+  filter() {
+    return {
+      ...this.regular(),
+      onClick: action('onClick'),
+      onClose: action('onClose'),
+    };
+  },
+};
+
+export default {
+  title: 'Tag',
+  decorators: [withKnobs],
+
+  parameters: {
+    component: Tag,
+
+    subcomponents: {
+      TagSkeleton,
+    },
+  },
+};
+
+export const _Default = () => (
+  <Tag className="some-class" {...props.regular()}>
+    {text('Content (children)', 'This is a tag')}
+  </Tag>
+);
+
+_Default.parameters = {
+  info: {
+    text: `
+        Tags are used for items that need to be labeled, categorized, or organized using keywords that describe them.
+        The example below shows how the Tag component can be used. Each type has a default message describing the type,
+        but a custom message can also be applied.
+      `,
+  },
+};
+
+export const Filter = () => (
+  <Tag className="some-class" {...props.filter()} filter>
+    {text('Content (children)', 'This is a tag')}
+  </Tag>
+);
+
+Filter.parameters = {
+  info: {
+    text: `
+        Tags are used for items that need to be labeled, categorized, or organized using keywords that describe them.
+        The example below shows how the Tag component can be used. Each type has a default message describing the type,
+        but a custom message can also be applied.
+      `,
+  },
+};
+
+export const Skeleton = () => (
+  <div>
+    <TagSkeleton />
+  </div>
+);
+
+Skeleton.storyName = 'skeleton';
+
+Skeleton.parameters = {
+  info: {
+    text: `
+      Placeholder skeleton state to use when content is loading.
+      `,
+  },
+};
+
+
+import Sort from './Sort'
+import SelectedTags from './SelectedTags'
+
+
+// an event has an array of tags in event.tags
+
+//TODO: SearchByTag(events, selectedTags): get selectedTags array as prop instead of hard coded
+export default function SearchByTag(events) {
+    //console.log('SearchByTags')
+    //console.log(events)
+
+    let filtered = [];
+    let selectedTags = SelectedTags()
+    //console.log("tags in SearByTag")
+    //console.log(selectedTags)
+    let selectedArray = []
+    //console.log(selectedTags)
+    selectedTags.forEach(element => console.log(element))
+    selectedTags.forEach(element => console.log(element.value))
+    //console.log(selectedTags)
+    // if no tags are selected, return unaltered list
+    if (Array.isArray(selectedTags) && selectedTags.length === 0) {
+        return events
+    }
+
+    // for each event, if a selected tag is among the event tags, the event passes
+    events.forEach(event => {
+        if (includesTag(event)) {
+            filtered.push(event)
+        }
+    })
+
+    // checks if an event tag is among selectedtags. Returns true if it does include 
+    function includesTag(event) {
+        let includes = false
+        if (event.tags.some(tag => {
+            return selectedTags.includes(tag.name)
+        })) {
+            includes = true
+        }
+        return includes
+
+    }
+
+    //console.log("Filtered list")
+    //console.log(filtered)
+
+
+
+    return filtered
+}
+
+
+
+
+import React, { createRef, useState } from 'react';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+import GetTagList from '../LogicalFunctions/GetTagList';
+import SearchByTag from '../LogicalFunctions/SearchByTag'
+import {useStore, useDispatch, connect} from 'react-redux'
+import {setTags} from '../GlobalStore/TagActions'
+import store from '../GlobalStore/Store'
+
+
+export default function ShowTagOptions(props) {
+    
+    const animatedComponents = makeAnimated();
+    // Muutos array[string] => array{value: string, label: string}
+    const options = store.getState().allTags;
+    const tagSelected = (arrayOfSelectedTags) => {
+        store.dispatch(setTags(arrayOfSelectedTags))
+        console.log(store.getState().chosenTags)
+    }
+
+    return (
+        <div>
+            <Select
+                closeMenuOnSelect={false}
+                options={options}
+                components={animatedComponents}
+                isMulti
+                onChange={tagSelected}
+            />
+        </div>
+    )
+}
