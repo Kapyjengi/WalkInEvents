@@ -76,7 +76,12 @@ $ npm run dev
 
 ## Deployment to Heroku
 
-From repo root run 
+> From "\walkin-node-backend" run 
+
+```
+$ npm run build:ui
+```
+> From repo root run
 ```
 $ heroku login
 $ git subtree push --prefix walkin-node-backend heroku master
