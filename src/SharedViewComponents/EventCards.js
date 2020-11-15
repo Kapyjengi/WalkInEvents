@@ -9,7 +9,7 @@ import {setFilteredEvents} from '../GlobalStore/EventActions'
 import { useStore } from 'react-redux'
 import moment from 'moment'
 import L from 'leaflet'
-import NameSearch from '../LogicalFunctions/SearchByEvent'
+
 
 export default function EventCard() {
     connect()
@@ -18,7 +18,6 @@ export default function EventCard() {
     //const [events, setEvents] = useState(store.getState().filteredEvents)
     const [events, setEvents] = useState(store.getState().filteredEvents)
     const [location, setLocation] = useState([])
-    const [SearchByEvent,setSearchByEvent] = useState()
     const [filtered, setFiltered] = useState(store.getState().filteredEvents)
     const [word, setWord] = useState('')
     const state = useSelector(state => state)
@@ -39,14 +38,21 @@ export default function EventCard() {
     happening = e.target.value
     setWord(happening)
     filtering(happening)
-   
 
   }
 
   const filtering = (happening) =>{
 
-    setFiltered(filteredEvents.filter(event => event.name.fi.includes(happening)===true))
-    
+    setFiltered(events.filter(event => {
+      let name=event.name.fi;
+        if (event.name.fi === null) {
+            name=event.name.sv;
+            if (event.name.sv===null){
+                name=event.name.en
+            }
+        }
+        return name.includes(happening)===true
+    }))
   }
 
 
@@ -59,14 +65,7 @@ export default function EventCard() {
 
     let cardEvents = filtered.map((events, i) => {
         
-        let name = events.name.fi;
-        if (events.name.fi === null) {
-            name=events.name.sv;
-            if (events.name.sv===null){
-                name=events.name.en
-            }
-        }
-
+        let name = events.name.fi; 
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
             events.location.address.postal_code + ' ' +
