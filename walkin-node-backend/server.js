@@ -23,7 +23,7 @@ app.get('/api/events', async (req, res) =>  {
         res.json(JSON.stringify(data))
       
   } else {
-    let url = 'http://open-api.myhelsinki.fi/v1/events/?limit=44'
+    let url = 'http://open-api.myhelsinki.fi/v1/events/'
     request(url, async function (error, response, body) {
       if (!error && response.statusCode == 200) {
         data = await getData(url,'filtteriOff')

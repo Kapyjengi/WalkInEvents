@@ -7,7 +7,7 @@ export default async function GetAllEvents() {
     const dispatch = useDispatch()
 
     let events = [];
-    await fetch('v1/events/')
+    await fetch('api/events/')
         .then(response => {
             if (response.ok) {
                 return response.json();
