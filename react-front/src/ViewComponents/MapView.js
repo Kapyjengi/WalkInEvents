@@ -48,7 +48,7 @@ const MapView = () => {
   L.Marker.prototype.options.icon = DefaultIcon
 
   return (
-    <div class="mapDivContainer">
+    <div className="mapDivContainer">
       <Map center={location} zoom={zoom}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
