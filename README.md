@@ -68,7 +68,10 @@ $ npm install
 ```
 $ npm install
 ```
-
+3) Install global Nodemon
+```
+npm install -g nodemon
+```
 > after that you're good to go! Open folder "react-front" and start server in background, while react app is running at localhost:3000. To check, if server is working, visit localhost:3001/api/events
 ```
 $ npm run dev
