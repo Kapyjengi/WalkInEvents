@@ -18,7 +18,7 @@ export default function SearchByTag(events) {
         selectedTags = selectedTags.concat(tagObject.tags)
     }
     })
-    console.log('Tags: ', selectedTags)
+    //console.log('Tags: ', selectedTags)
     let filtered = []
 
     // if no tags are selected, return unaltered list
