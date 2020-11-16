@@ -4,7 +4,7 @@ import store from '../GlobalStore/Store'
 
 export default async function GetAllEvents() {
 
-    const dispatch = useDispatch()
+    //const dispatch = useDispatch()
 
     let events = [];
     await fetch('api/events/')
@@ -19,8 +19,9 @@ export default async function GetAllEvents() {
             events = data.data
         })
         .catch(error => console.error(error));
-    dispatch(setAllEvents(events))
-    return events
+
+    store.dispatch(setAllEvents(events))
+    //return events
 
 
 

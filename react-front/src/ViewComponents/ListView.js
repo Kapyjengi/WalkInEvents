@@ -11,7 +11,7 @@ import { useStore, useDispatch, connect, useSelector } from 'react-redux'
 import GetAllEvents from '../Services/GetAllEvents'
 import GetUserPosition from '../Services/GetUserPosition'
 import Slider from '../SharedViewComponents/DistanceSlider'
-
+import {setAllEvents} from '../GlobalStore/EventActions'
 
 export default function ListView() {
   const store = useStore()
@@ -36,6 +36,11 @@ export default function ListView() {
       fetchData(lat, lon, range);
     }
   }, [lon, lat, range])
+
+  useEffect(()=> {
+    // haetaan kaikki eventit storeen
+    GetAllEvents()
+  }, [])
 
 
   async function fetchData(lati, long, area) {

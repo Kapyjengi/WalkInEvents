@@ -15,7 +15,7 @@ let initialState = {
     eventSearch: [],
     filteredEvents: [],
     allEvents: [],
-    // latitude: ja  longitude: 
+    // is set by GetUserPosition during runtime
     userLocation: {},
     selectedDate: GetToday(),
     timeNow: GetToday(),

@@ -1,26 +1,24 @@
-import Sort from './SortEvents'
-import { useStore, useDispatch, connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
-// an event has an array of tags in event.tags
+// Takes input of events array. 
+// Ouputs array of events that include one of selected tags.
 
-//TODO: SearchByTag(events, selectedTags): get selectedTags array as prop instead of hard coded
 export default function SearchByTag(events) {
 
-    console.log("Filtering by tag")
-    const dispatch = useDispatch()
     const selectedTagsInCategories = useSelector(state => state.allTags)
 
     let selectedTags= []
     selectedTagsInCategories.forEach(tagObject => {
-        selectedTags.concat(tagObject.tags)
-        console.log('No. of tags: ', selectedTags.length)
+        if(tagObject.isChecked) {
+        selectedTags = selectedTags.concat(tagObject.tags)
+    }
     })
-    //console.log('Filtering with', selectedTags)
+    console.log('Tags: ', selectedTags)
     let filtered = []
+
     // if no tags are selected, return unaltered list
     if (Array.isArray(selectedTags) && selectedTags.length === 0) {
-        console.log("returning unaltered events")
         return events
     }
 
