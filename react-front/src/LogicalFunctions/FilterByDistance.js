@@ -6,7 +6,7 @@ import DistanceBetweenPoints from './DistanceBetweenPoints';
 
 export default function FilterByDistance(events) {
 
-    console.log("incoming events: ", events.length)
+    //console.log("incoming events: ", events.length)
 
 
 
