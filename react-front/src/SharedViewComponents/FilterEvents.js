@@ -6,6 +6,7 @@ import ToDay from '../LogicalFunctions/GetToday'
 import { setDate } from '../GlobalStore/TimeActions'
 import { setLocationRange } from '../GlobalStore/LocationActions'
 import ShowTagOptions from './ShowTagOptions'
+import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
 export default function Filtteri(props) {
 
@@ -31,6 +32,8 @@ export default function Filtteri(props) {
   const handleClose = () => {
     props.ShowFilters(selectedDate, event, range);
     setOpen(false);
+
+    RunEventFilters()
   }
 
   const handleCancel = () => {
