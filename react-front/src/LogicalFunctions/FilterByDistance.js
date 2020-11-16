@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import DistanceBetweenPoints from './DistanceBetweenPoints'
+import store from '../GlobalStore/Store';
+import DistanceBetweenPoints from './DistanceBetweenPoints';
 
 // Takes input of event array, gets range and users location from store
 // Outputs array of events that are within range
 
 export default function FilterByDistance(events) {
 
-    
+    //console.log("incoming events: ", events.length)
 
-    const range = useSelector(state => state.range)
-    const userLocation = useSelector(state => state.userLocation)
+
+
+    const range = store.getState().range
+    const userLocation = store.getState().userLocation
 
     function isInRange(event) {
-        // (lat1, lon1, lat2, lon2)
-        let distance = DistanceBetweenPoints(event.location.lat, event.location.long, 
+        let distance = DistanceBetweenPoints(event.location.lat, event.location.lon,
             userLocation.latitude, userLocation.longitude)
         if (distance <= range) {
             return true
@@ -32,5 +32,5 @@ export default function FilterByDistance(events) {
     })
 
     return filtered
-    
+
 }

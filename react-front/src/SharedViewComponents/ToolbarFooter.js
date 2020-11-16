@@ -5,6 +5,7 @@ import { setDate } from '../GlobalStore/TimeActions'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import InfoFooter from './InfoFooter'
+import { Container } from "react-bootstrap";
 
 
 
@@ -17,15 +18,17 @@ export default function ToolbarFooter() {
 
     return (
         <div className="toolbarfooter">
-            <Row>
-                <Col xs={12} md={8}>
-                    Range: {range} km
-            <Slider />
-                </Col>
-                <Col xs={12} md={4}>
-                    <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>
-                </Col>
-            </Row>
+            <Container fluid={true}>
+                <Row>
+                    <Col xs={12} md={8}>
+                        Range: {range} km
+                <Slider />
+                    </Col>
+                    <Col xs={12} md={4}>
+                        <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>
+                    </Col>
+                </Row>
+            </Container>
             <InfoFooter />
         </div>
     )
