@@ -12,6 +12,7 @@ import GetAllEvents from '../Services/GetAllEvents'
 import GetUserPosition from '../Services/GetUserPosition'
 import Slider from '../SharedViewComponents/DistanceSlider'
 import {setAllEvents} from '../GlobalStore/EventActions'
+import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
 export default function ListView() {
   const store = useStore()
@@ -35,7 +36,14 @@ export default function ListView() {
       Coords();
       fetchData(lat, lon, range);
     }
-  }, [lon, lat, range])
+  }, 
+  [lon, lat])
+  //[lon, lat, range])
+
+  // Rangen muuttamine laukaisee filtteröinnin
+  useEffect(() => {
+    RunEventFilters()
+  }, [range])
 
   useEffect(()=> {
     // haetaan kaikki eventit storeen

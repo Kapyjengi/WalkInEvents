@@ -38,6 +38,7 @@ export default function SearchByDate(events, selectedDay) {
           diffEnd = endTime - timeNow
           diffEnd = diffEnd / 1000 / 60 / 60
           // diffStar sekä diffEnd numerot ovat tunteja
+        
           if (diffStar > 0 && diffStar < 3 || diffStar < 0 && diffEnd > 0) {
             filtered.push(event)
           }
