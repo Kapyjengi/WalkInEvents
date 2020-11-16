@@ -34,5 +34,6 @@ export default function GetTagList() {
         {categoryTitle: "Online and TV", tags: online_and_tv, isChecked: true},
         {categoryTitle: "Other Tags", tags: other_tags.concat(rare_tags), isChecked: true},
     ]
+    
     return tagArray
 }

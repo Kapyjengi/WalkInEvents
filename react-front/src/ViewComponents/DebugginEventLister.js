@@ -21,6 +21,7 @@ export default function ShowAll(props) {
   let filted = SearchByDate(props.events, selectedDay)
   
   events = SearchByEvent(filted, props.event)
+  events = SearchByTag(events)
   
   //Mikäli käyttäjä on nollannut hakukentän ja päivämääräkentän niin isolista laitetaan filteröidynlistan päälle
   //Tämä ei toistaiseksi vaikuta mitenkään latitude/longitude muokkauksiin :/

@@ -1,13 +1,7 @@
-import React, { createRef, useState } from 'react';
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
-import GetTagList from '../LogicalFunctions/GetTagList';
-import SearchByTag from '../LogicalFunctions/SearchByTag'
-import { useStore, useDispatch, connect, useSelector } from 'react-redux'
-import { setTags } from '../GlobalStore/TagActions'
-import store from '../GlobalStore/Store'
-import Form from 'react-bootstrap/Form'
-import Container from 'react-bootstrap/Container'
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTags } from '../GlobalStore/TagActions';
 
 
 export default function ShowTagOptions() {
@@ -16,15 +10,11 @@ export default function ShowTagOptions() {
     const dispatch = useDispatch()
     const [uselessState, setUselessState] = useState(0)
 
-    //console.log(options)
-
     function boxChecked(event) {
-        //console.log(event.target.checked)
         let tagID = options.findIndex(tag => tag.categoryTitle == event.target.id)
         let tagsCopy = options
         tagsCopy[tagID] = {...tagsCopy[tagID], isChecked: event.target.checked}
         dispatch(setTags(tagsCopy))
-        //console.log(event.target.id)
         setUselessState(uselessState+1)
     }
 
@@ -43,7 +33,6 @@ export default function ShowTagOptions() {
                             label={tag.categoryTitle}
                             onChange={boxChecked}
                             checked={getTagStatus(tag)}
-                            //onClick={boxChecked}
                         />
                     </div>
                 ))}
