@@ -58,11 +58,13 @@ const MapView = () => {
           {filteredEvents.map((event, i) => (
             <Marker key={i} position={[event.location.lat, event.location.lon]}>
               <Popup>
+
+                {/*
                 <Card>
                   <Card.Body>
                     <Row style={{ paddingBottom: 20 }}>
                       <Col xs={12} md={12}>
-                        {/* <Card.Title>{event.name.fi}</Card.Title>
+                         <Card.Title>{event.name.fi}</Card.Title>
                       <Card.Text>
                         <p>{event.description.intro}</p>
                         <p>{event.location.address.locality}</p>
@@ -78,19 +80,19 @@ const MapView = () => {
                           distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0)}
                           infoUrl={event.info_url}>
                         </SingleCard>
-                      </Col>
+                      {/*</Col>
                     </Row>
                     <Row>
                       <Col xs={6}>
-                        {/* <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
+                         <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
                         <Button
                           href={event.info_url}
                           target="_blank"
-                          variant="secondary">WWW</Button> */}
+                          variant="secondary">WWW</Button> 
                       </Col>
                     </Row>
                   </Card.Body>
-                </Card>
+                </Card>*/}
 
               </Popup>
             </Marker>

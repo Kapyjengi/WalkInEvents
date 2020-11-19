@@ -14,6 +14,18 @@ body .leaflet-popup-content {
   line-height: 1.4;
 }
 
+body .leaflet-container a.leaflet-popup-close-button {
+  top: 17px;
+  right: 14px;
+  padding: 4px 4px 0 0;
+  width: 18px;
+  height: 14px;
+  font: 25px/14px Tahoma, Verdana, sans-serif;
+  color: #c3c3c3;
+  font-weight: bold;
+  background: transparent;
+}
+
 .infofooter {
   margin-top: 0;
   padding: .5rem 0 .1rem 0;

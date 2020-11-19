@@ -10,7 +10,7 @@ const ListScreen = () => {
         <div>
             <Container style={{ marginBottom: 110 }}>
 
-                <EventCard />
+                <EventCard style={{ marginTop: 10 }} />
             </Container>
            
         </div>
