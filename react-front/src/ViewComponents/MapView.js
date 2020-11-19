@@ -78,7 +78,7 @@ const MapView = () => {
                           address={event.location.address.street_address}
                           time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
                           distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0)}
-                          infoUrl={event.info_url}>
+                          info_url={event.info_url}>
                         </SingleCard>
                       {/*</Col>
                     </Row>
