@@ -6,6 +6,7 @@ import ListView from './ListView'
 import TestScreen from '../Tests/TestScreen'
 import Filtteri from '../SharedViewComponents/FilterEvents'
 import { Row, Col, Container, Nav } from "react-bootstrap";
+import InfoFooter from '../SharedViewComponents/InfoFooter'
 
 
 // Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
@@ -58,6 +59,7 @@ const MainView = () => {
             </Row>
             </Tab.Container>
         </Container>
+        <InfoFooter />
       </>
 
     )

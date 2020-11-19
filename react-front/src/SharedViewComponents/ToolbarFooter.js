@@ -31,7 +31,6 @@ export default function ToolbarFooter() {
                     </Col>
                 </Row>
             </Container>
-            <InfoFooter />
         </div>
     )
 }
