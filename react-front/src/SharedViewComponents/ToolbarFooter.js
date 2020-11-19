@@ -20,9 +20,11 @@ export default function ToolbarFooter() {
         <div className="toolbarfooter">
             <Container fluid={true}>
                 <Row>
-                    <Col xs={12} md={8}>
-                        Range: {range} km
-                <Slider />
+                    <Col xs={3} md={1}>
+                        <p className="range-slider-p">Range: {range} km</p>
+                    </Col>
+                    <Col xs={9} md={7}>
+                        <Slider />
                     </Col>
                     <Col xs={12} md={4}>
                         <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>

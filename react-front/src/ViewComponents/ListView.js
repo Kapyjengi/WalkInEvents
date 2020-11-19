@@ -116,7 +116,6 @@ export default function ListView() {
     // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
-        <h1> </h1>
         <MapView />
         {/* Range:{range}km
         <Slider /> */}

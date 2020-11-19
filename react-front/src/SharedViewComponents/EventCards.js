@@ -76,7 +76,7 @@ export default function EventCard() {
 
     return (
         <div className="App">
-            <p>name: <input id="eventos" onChange={SeekName} /></p>
+             <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>
             {cardEvents}
         </div>
     )
