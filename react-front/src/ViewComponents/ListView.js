@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import GetToday from '../LogicalFunctions/GetToday'
-import Loading from '../SharedViewComponents/Loading'
-import Show from './DebugginEventLister'
-import ShowTagOptions from '../SharedViewComponents/ShowTagOptions'
-import MapView from '../ViewComponents/MapView'
-import Filtteri from '../SharedViewComponents/FilterEvents'
-import Fetch from '../Services/FetchEventsNearUser'
+import { useDispatch, useSelector, useStore } from 'react-redux'
 import { setUserLocation } from '../GlobalStore/LocationActions'
-import { useStore, useDispatch, connect, useSelector } from 'react-redux'
-import GetAllEvents from '../Services/GetAllEvents'
-import GetUserPosition from '../Services/GetUserPosition'
-import Slider from '../SharedViewComponents/DistanceSlider'
-import {setAllEvents} from '../GlobalStore/EventActions'
+import GetToday from '../LogicalFunctions/GetToday'
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
+import Fetch from '../Services/FetchEventsNearUser'
+import GetAllEvents from '../Services/GetAllEvents'
+import Loading from '../SharedViewComponents/Loading'
+import MapView from '../ViewComponents/MapView'
 
 export default function ListView() {
   const store = useStore()
@@ -127,7 +121,7 @@ export default function ListView() {
         {/* Range:{range}km
         <Slider /> */}
         <Loading loading={loading} loaded={loaded} />
-        <Show events={events} event={event} />
+        {/* <Show events={events} event={event} /> */}
       </div>
     )
 
