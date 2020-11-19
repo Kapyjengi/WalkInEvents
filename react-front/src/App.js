@@ -22,17 +22,13 @@ export default function App() {
     <div>
       <Router>
         <NavBar />
-        {/* <MainView /> */}
         <Switch>
-
-          <Route path="/about" component={ShowAboutUs}>
-            <ShowAboutUs />
-          </Route>
-
-          <Route path="/" component={MainView}>
-            <MainView />
-          </Route>
-
+          <Route path="/about" component={ShowAboutUs} />
+          {/*  <ShowAboutUs />
+          </Route> */}
+          <Route path="/" component={MainView} />
+          {/* <MainView />
+          </Route> */}
         </Switch>
       </Router>
     </div >
