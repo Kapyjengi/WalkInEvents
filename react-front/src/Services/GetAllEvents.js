@@ -1,7 +1,5 @@
-import { setAllEvents } from '../GlobalStore/EventActions'
-import { useDispatch } from 'react-redux'
-import store from '../GlobalStore/Store'
-
+import { setAllEvents } from '../GlobalStore/EventActions';
+import store from '../GlobalStore/Store';
 export default async function GetAllEvents() {
 
     //const dispatch = useDispatch()
@@ -22,8 +20,6 @@ export default async function GetAllEvents() {
 
     store.dispatch(setAllEvents(events))
     //return events
-
-
 
 
 }/*  */

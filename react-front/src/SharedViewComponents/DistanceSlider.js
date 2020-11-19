@@ -9,6 +9,7 @@ import RangeSlider from 'react-bootstrap-range-slider'
 function Slider(props) {
 
   const range = useSelector(state => state.range)
+  const tooltipTxt = `Range${range}`
   const dispatch = useDispatch()
 
   return (
@@ -17,8 +18,10 @@ function Slider(props) {
         min='1'
         max='20'
         size='lg'
-        tooltip='auto'
+        tooltip='on'
+        tooltipPlacement='top'
         value={range}
+        tooltipLabel={range => `${range} km`}
         onChange={event => dispatch(setLocationRange(parseInt(event.target.value)))}
       />
     </div>

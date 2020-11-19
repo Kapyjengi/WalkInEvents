@@ -21,7 +21,7 @@ export default function SingleCard(props) {
     }
 
     return (
-        <Card style={{ marginTop: 10 }} bg='light'>
+        <Card bg='light'>
             <Card.Body>
                 <Row style={{ paddingBottom: 20 }}>
                     <Col >

@@ -1,71 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import L from 'leaflet'
+import moment from 'moment'
+import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import { useSelector } from 'react-redux'
+import { setEventSearch } from '../GlobalStore/EventActions'
 import store from '../GlobalStore/Store'
-import { connect, useSelector, useDispatch } from 'react-redux'
-import {setFilteredEvents} from '../GlobalStore/EventActions'
-import { useStore } from 'react-redux'
-import moment from 'moment'
-import L from 'leaflet'
-
+import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
 export default function EventCard() {
-    connect()
-    const store = useStore()
-    //let events = store.getState().filteredEvents
-    //const [events, setEvents] = useState(store.getState().filteredEvents)
-    const [events, setEvents] = useState(store.getState().filteredEvents)
-    const [location, setLocation] = useState([])
-    const [filtered, setFiltered] = useState(store.getState().filteredEvents)
-    const [word, setWord] = useState('')
+
     const state = useSelector(state => state)
-    const filteredEvents = state.filteredEvents
-    
-    useEffect(() => {
-   
-        if (word===''){
-        printAllEvents()
-        }
-    })
+    const userLocation = state.userLocation
+    const location = { lat: userLocation.latitude, lng: userLocation.longitude }
+    const filtered = state.filteredEvents
 
-
-   
-
-  const SeekName = (e) => {
-    let happening;
-    happening = e.target.value
-    setWord(happening)
-    filtering(happening)
-
-  }
-
-  const filtering = (happening) =>{
-
-    setFiltered(events.filter(event => {
-      let name=event.name.fi;
-        if (event.name.fi === null) {
-            name=event.name.sv;
-            if (event.name.sv===null){
-                name=event.name.en
-            }
-        }
-        return name.includes(happening)===true
-    }))
-  }
-
-
-    const printAllEvents = () => {
-        setEvents(store.getState().filteredEvents)
-        setLocation(store.getState().userLocation)
-        setFiltered(store.getState().filteredEvents)
+    const SeekName = (e) => {
+        let keyWord = e.target.value
+        store.dispatch(setEventSearch(keyWord))
+        RunEventFilters()
     }
 
+    function getName(event) {
+        let nameToReturn = event.name.fi
+        if (event.name.fi === null) {
+            nameToReturn = event.name.sv;
+            if (event.name.sv === null) {
+                nameToReturn = event.name.en
+            }
+        }
+        return nameToReturn
+    }
 
     let cardEvents = filtered.map((events, i) => {
-        
-        let name = events.name.fi; 
+
+        let name = getName(events);
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
             events.location.address.postal_code + ' ' +
@@ -78,8 +49,7 @@ export default function EventCard() {
             buttonColor = "secondary"
         }
 
-        let distance = L.latLng(location.latitude, location.longitude).distanceTo(L.latLng(events.location.lat, events.location.lon)).toFixed(0) + ' m';
-
+        let distance = L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)).toFixed(0) + " m" 
 
         return (
             <Card key={i} style={{ marginTop: 10 }} bg='light'>
@@ -100,16 +70,13 @@ export default function EventCard() {
                         </Col>
                     </Row>
                 </Card.Body>
-
             </Card>
-
-
         )
     })
 
     return (
         <div className="App">
-             <p>name: <input id="eventos"  onChange={SeekName} /></p>
+             <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>
             {cardEvents}
         </div>
     )
