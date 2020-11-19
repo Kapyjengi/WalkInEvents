@@ -38,6 +38,9 @@ body .leaflet-popup-content {
   padding: .4rem 0;
 }
 
+.toolbarfooter .range-slider__wrap {
+  z-index: 1000;
+}
 .toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on,
 .toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label,
 .toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__arrow {
