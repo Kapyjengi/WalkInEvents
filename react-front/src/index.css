@@ -38,6 +38,18 @@ body .leaflet-popup-content {
   padding: .4rem 0;
 }
 
+.toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on,
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label,
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__arrow {
+  opacity: 1;
+}
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label {
+  background-color: #0023d7;
+}
+.toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--top .range-slider__tooltip__arrow::before {
+  border-top-color: #0023d7;
+}
+
 .tabnav-row {
   background-color: rgb(235, 235, 235);
   padding: 5px;
