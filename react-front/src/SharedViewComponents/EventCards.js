@@ -49,7 +49,7 @@ export default function EventCard() {
             buttonColor = "secondary"
         }
 
-        let distance = L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)).toFixed(0)
+        let distance = L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)).toFixed(0) + " m" 
 
         return (
             <Card key={i} style={{ marginTop: 10 }} bg='light'>
