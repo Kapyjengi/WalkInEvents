@@ -110,6 +110,25 @@ export default function ListView() {
     fetchData(lati, long, area);
   }
 
+  const ShowFilters = (dayNew, eventNew, areaNew) => {
+    areaNew = parseInt(areaNew)
+    console.log(eventNew)
+    if (dayNew !== undefined) {
+      setSelectedDay(dayNew)
+    }
+    if (eventNew !== undefined) {
+      setEvent(eventNew)
+    }
+    if (area !== areaNew) {
+      console.log(area, areaNew)
+      setArea(areaNew)
+      const alueNew = areaNew
+      fetchData(lat, lon, alueNew)
+      setLoading('LOADING')
+    }
+
+  }
+
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   if (loading === 'LOADING' && !loaded) {
     return (
@@ -123,6 +142,7 @@ export default function ListView() {
     return (
       <div className="App">
         <h1> </h1>
+        <Filtteri ShowFilters={ShowFilters} event={event} />
         <MapView />
         {/* Range:{range}km
         <Slider /> */}

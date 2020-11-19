@@ -4,8 +4,8 @@ import Tab from 'react-bootstrap/Tab'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
 import TestScreen from '../Tests/TestScreen'
-import Filtteri from '../SharedViewComponents/FilterEvents'
-
+import { connect } from 'react-redux'
+import { useStore } from 'react-redux'
 
 // Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
 // Pitäisikö ListView.js komponentin toiminnallisuus siirtää tälle sivulle fiksumman
@@ -16,6 +16,9 @@ import Filtteri from '../SharedViewComponents/FilterEvents'
 const MainView = () => {
 
     const [key, setKey] = useState('TabKey')
+
+    connect()
+    const store = useStore()
 
     return (
         <Tabs defaultActiveKey="map" id="uncontrolled-tab-example" onSelect={(k) => setKey(k)} >
