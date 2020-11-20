@@ -2,7 +2,6 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Node.js app to Azure Web App - walk-in-events
-working-directory: walkin-node-backend
 
 on:
   push:
@@ -22,10 +21,11 @@ jobs:
         node-version: '12.13.0'
 
     - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
+      run: 
+        working-directory: walkin-node-backend |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
