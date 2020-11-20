@@ -13,6 +13,10 @@ const { getData } = require('./fetch')
 
 let data;
 
+/* app.get('/', (req, res) => {
+  res.send('W-I-E!')
+}) */
+
 app.get('/api/events', async (req, res) =>  {
   if (req.query.distance_filter) {
     let distance_filter = encodeURIComponent(req.query.distance_filter)
