@@ -7,6 +7,7 @@ import Fetch from '../Services/FetchEventsNearUser'
 import GetAllEvents from '../Services/GetAllEvents'
 import Loading from '../SharedViewComponents/Loading'
 import MapView from '../ViewComponents/MapView'
+import FetchEventsNearUser from '../Services/FetchEventsNearUser'
 //import GetUserPosition from '../Services/GetUserPosition'
 
 export default function ListView() {
@@ -42,6 +43,7 @@ export default function ListView() {
 
   useEffect(()=> {
     // haetaan kaikki eventit storeen
+    FetchEventsNearUser()
     GetAllEvents()
   }, [])
 
