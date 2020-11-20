@@ -7,6 +7,7 @@ import Fetch from '../Services/FetchEventsNearUser'
 import GetAllEvents from '../Services/GetAllEvents'
 import Loading from '../SharedViewComponents/Loading'
 import MapView from '../ViewComponents/MapView'
+//import GetUserPosition from '../Services/GetUserPosition'
 
 export default function ListView() {
   const store = useStore()
@@ -28,10 +29,10 @@ export default function ListView() {
     //Haetaan koordinaatit
     if (navigator.geolocation) {
       Coords();
-      fetchData(lat, lon, range);
+   
     }
   }, 
-  [lon, lat])
+  [])
   //[lon, lat, range])
 
   // Rangen muuttamine laukaisee filtteröinnin
@@ -49,31 +50,34 @@ export default function ListView() {
     let data = (Fetch(lati, long, area))
     // kutsutaan funktiota, joka hakee kaikki eventit
     setEvents((await data))
-    if (events !== '') {
-      setLoading('')
-      setLoaded(true)
-    }
+      setLoading(await '')
+      setLoaded(await true)
+      console.log(await events)
   }
 
-  const Coords = () => {
+  const Coords = async() => {
 
     let id, target, options;
 
-    function success(pos) {
-      let crd = pos.coords;
+   async function success(pos) {
+      let crd =await pos.coords;
       if (target.latitude !== crd.latitude && target.longitude !== crd.longitude) {
         setLat(crd.latitude)
         setLon(crd.longitude)
-        dispatch(setUserLocation(crd.latitude, crd.longitude))
+        dispatch(setUserLocation(await crd.latitude, crd.longitude))
+        afterLocation()
         navigator.geolocation.clearWatch(id);
       }
     }
 
     function error(err) {
+    
       //console.warn('ERROR(' + err.code + '): ' + err.message);
       setLat(60.1733244)
       setLon(24.9410248)
-      dispatch(setUserLocation(lat, lon))
+      dispatch(setUserLocation(60.1733244, 24.9410248))
+      afterLocation()
+      navigator.geolocation.clearWatch(id);
     }
 
     target = {
@@ -88,41 +92,45 @@ export default function ListView() {
     };
 
     id = navigator.geolocation.watchPosition(success, error, options);
-
-    // GetUserPosition()
-    let lati = store.getState().userLocation.latitude
-    let long = store.getState().userLocation.longitude
+  }
+    async function afterLocation(){
+     //GetUserPosition()
+    
+    let lati =await store.getState().userLocation.latitude
+    let long =await store.getState().userLocation.longitude
+    
     if (lati === undefined && long === undefined) {
       lati = lat
       long = lon
     }
+    
+    
     //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
     let toDay = GetToday()
     setSelectedDay(toDay)
     //Haetaan API
     //console.log(lati, long, area)
-    fetchData(lati, long, area);
+    if (lati===undefined && long ===undefined){
+      lati = 20.1733244
+      long = 24.9410248
+      
+    } 
+    fetchData(await lati, long, area);
+    
   }
 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
-  if (loading === 'LOADING' && !loaded) {
-    return (
-      <div className="App">
-        <h1> </h1>
-        <Loading loading={loading} loaded={loaded} />
-      </div>
-    )
-  } else {
+  
     // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
-        <MapView />
+        {loading==='' ? (<MapView />) : (<div>ei ladattu</div>) }
         {/* Range:{range}km
         <Slider /> */}
-        <Loading loading={loading} loaded={loaded} />
+        {/* <Loading loading={loading} loaded={loaded} /> */}
         {/* <Show events={events} event={event} /> */}
       </div>
     )
 
-  }
+  
 }

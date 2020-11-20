@@ -6,7 +6,6 @@ export default async function Fetching(lati, long, area) {
 
   let events = [];
 
-  if (lati !== undefined && long !== undefined) {
     //   let data = await fetch('v1/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area, {
    let data = await fetch('/api/events/?distance_filter=' + lati + '%2C' + long + '%2C' + area)
       let response = data;
@@ -15,7 +14,3 @@ export default async function Fetching(lati, long, area) {
       
       return events
   }
-  
-  
-
-}
