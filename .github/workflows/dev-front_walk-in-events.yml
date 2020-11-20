@@ -9,7 +9,6 @@ on:
       - dev-front
 
 jobs:
-  working-directory: walkin-node-backend 
   build-and-deploy:
     runs-on: windows-latest
 
@@ -22,10 +21,11 @@ jobs:
         node-version: '12.13.0'
 
     - name: npm install, build, and test
+      working-directory: walkin-node-backend 
       run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+        npm install
+        npm run build --if-present
+        npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
