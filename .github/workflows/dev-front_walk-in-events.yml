@@ -7,13 +7,14 @@ on:
   push:
     branches:
       - dev-front
+    workingDirectory: walkin-node-backend
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
 
     steps:
-    - workingDirectory: walkin-node-backend
+    #- workingDirectory: walkin-node-backend
     #- run: cd..
     #- run: cd walkin-node-backend/
     - uses: actions/checkout@master
