@@ -10,11 +10,12 @@ on:
 
 jobs:
   build-and-deploy:
+    workingDirectory: walkin-node-backend
     runs-on: windows-latest
 
     steps:
-    - run: cd..
-    - run: cd walkin-node-backend/
+    #- run: cd..
+    #- run: cd walkin-node-backend/
     - uses: actions/checkout@master
 
     - name: Set up Node.js version
