@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - dev-front
-    workingDirectory: walkin-node-backend
+    workingDirectory: walkin-node-backend/
 
 jobs:
   build-and-deploy:
