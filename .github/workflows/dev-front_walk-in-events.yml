@@ -3,13 +3,15 @@
 
 name: Build and deploy Node.js app to Azure Web App - walk-in-events
 
+before_script:
+  cd walkin-node-backend
+  
 on:
   push:
     branches:
       - dev-front
 
 jobs:
-  working-directory: walkin-node-backend
   build-and-deploy:
     runs-on: windows-latest
 
