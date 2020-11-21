@@ -10,7 +10,7 @@ on:
 
 jobs:
   before_install:
-    cd walkin-node-backend
+    run: cd walkin-node-backend
   build-and-deploy:
     runs-on: windows-latest
 
