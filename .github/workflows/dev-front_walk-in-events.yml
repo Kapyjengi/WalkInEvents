@@ -10,10 +10,10 @@ on:
 
 jobs:
   build-and-deploy:
-    workingDirectory: walkin-node-backend
     runs-on: windows-latest
 
     steps:
+    - workingDirectory: walkin-node-backend
     #- run: cd..
     #- run: cd walkin-node-backend/
     - uses: actions/checkout@master
