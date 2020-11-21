@@ -19,6 +19,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.13.0'
+      before_install: 
+        - cd walkin-node-backend/
 
     - name: npm install, build, and test
     - workingDirectory: walkin-node-backend
