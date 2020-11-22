@@ -24,15 +24,13 @@ jobs:
     
     - name: npm install front-end
       run: npm install
-    
-    - name: Build fron-end
-      run: npm run build:ui
+  
 
   build-and-deploy-backend:
     runs-on: windows-latest
 
     steps:
-    
+
     - uses: actions/checkout@master
 
     - name: Set up Node.js version
@@ -42,6 +40,9 @@ jobs:
 
     - name: npm install
       run: npm install
+
+    - name: Build fron-end
+      run: npm run build:ui
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
