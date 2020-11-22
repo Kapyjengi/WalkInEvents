@@ -24,7 +24,7 @@ jobs:
       run: npm install
 
     - name: npm install front
-      run: cd react-front
+      uses: cd react-front
       run: npm install
 
     - name: npm build:ui
