@@ -1,22 +1,18 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - walk-in-events
+name: Build and deploy Node.js app to Azure Web App - wie-dev
 
 on:
   push:
     branches:
-      - dev-front
-    workingDirectory: walkin-node-backend/
+      - release-dev
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
 
     steps:
-    #- workingDirectory: walkin-node-backend
-    #- run: cd..
-    #- run: cd walkin-node-backend/
     - uses: actions/checkout@master
 
     - name: Set up Node.js version
@@ -24,16 +20,13 @@ jobs:
       with:
         node-version: '12.13.0'
 
-    - name: npm install, build, and test
-    # - workingDirectory: walkin-node-backend
-      run: |
-        npm install
-
+    - name: npm install
+      run: npm install
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'walk-in-events'
+        app-name: 'wie-dev'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4a24ba1a62fd4e209c4a3b33847cef98 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fe210901a08f480983681aed107819be }}
         package: .
