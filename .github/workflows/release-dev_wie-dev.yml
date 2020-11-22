@@ -9,7 +9,29 @@ on:
       - release-dev
 
 jobs:
-  build-and-deploy:
+
+   build-react-fron:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.13.0'
+
+    - name: npm install front-end
+      run: npm install
+      working-directory: react-front
+
+    - name: Build fron-end
+      run: npm run build:ui
+      working-directory: react-front
+
+
+
+  build-and-deploy-backend b:
     runs-on: windows-latest
 
     steps:
