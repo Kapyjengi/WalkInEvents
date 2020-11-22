@@ -23,10 +23,12 @@ jobs:
     - name: npm install
       run: npm install
 
-    - name: npm build:ui
+    - name: npm install front
       run: cd react-front
       run: npm install
-      run: npm run build:ui  
+
+    - name: npm build:ui
+      run: npm run build:ui    
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
