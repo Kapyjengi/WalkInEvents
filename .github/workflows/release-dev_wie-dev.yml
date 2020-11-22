@@ -23,8 +23,10 @@ jobs:
     - name: npm install
       run: npm install
 
+    - name: change dir
+      run: cd react-front
+
     - name: npm install front
-      uses: cd react-front
       run: npm install
 
     - name: npm build:ui
