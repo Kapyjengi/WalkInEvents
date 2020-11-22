@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const request = require('request');
 const cors = require('cors')
+const path = require('path')
 
 // Mahdollistetaan yhteys react-frontin ja node-sovelluksen välillä
 app.use(cors())
