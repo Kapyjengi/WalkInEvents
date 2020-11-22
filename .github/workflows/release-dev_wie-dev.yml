@@ -23,11 +23,9 @@ jobs:
     - name: npm install
       run: npm install
 
-    - name: change dir
-
     - name: npm install front
-        workingDirectory: react-front/
-        run: npm install
+      workingDirectory: react-front
+      run: npm install
 
     - name: npm build:ui
       run: npm run build:ui    
