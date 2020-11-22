@@ -31,9 +31,9 @@ jobs:
 
     - name: change dir to root
       run: cd..
-       
+
     - name: npm build:ui
-      run: npm build:ui    
+      run: npm run build:ui    
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
