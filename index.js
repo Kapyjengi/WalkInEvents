@@ -39,8 +39,6 @@ app.get('/api/events', async (req, res) => {
 })
 
 app.get('/about', function (req, res) {
-  //res.send('testing /about page routing')
-  res.render('AboutUs')
 })
 
 
