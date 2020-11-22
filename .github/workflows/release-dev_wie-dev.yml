@@ -24,13 +24,10 @@ jobs:
       run: npm install
 
     - name: change dir
-      run: cd react-front
 
     - name: npm install front
+      workingDirectory: react-front
       run: npm install
-
-    - name: change dir to root
-      run: cd..
 
     - name: npm build:ui
       run: npm run build:ui    
