@@ -29,6 +29,9 @@ jobs:
     - name: npm install front
       run: npm install
 
+    - name: change dir to root
+      run: cd..
+       
     - name: npm build:ui
       run: npm build:ui    
 
