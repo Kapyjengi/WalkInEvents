@@ -38,7 +38,16 @@ app.get('/api/events', async (req, res) => {
   }
 })
 
-app.get('/about', function (req, res) {
+/* app.get('/about', function (req, res) {
+  res.send('fixing the /about page routing')
+}) */
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'react-front/public/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
 })
 
 
