@@ -6,8 +6,8 @@ name: Build and deploy Node.js app to Azure Web App - walk-in-events
 on:
   push:
     branches:
-      - dev-front
-    workingDirectory: walkin-node-backend/
+      - release-dev
+    # workingDirectory: walkin-node-backend/
 
 jobs:
   build-and-deploy:
