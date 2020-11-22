@@ -24,6 +24,8 @@ jobs:
       run: npm install
 
     - name: npm build:ui
+      run: cd react-front
+      run: npm install
       run: npm run build:ui  
 
     - name: 'Deploy to Azure Web App'
