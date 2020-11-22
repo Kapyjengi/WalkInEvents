@@ -10,8 +10,10 @@ on:
 
 jobs:
 
-   build-react-fron:
-    runs-on: windows-latest
+   build-react-front:
+
+   defaults:
+    working-directory: react-front
 
     steps:
     - uses: actions/checkout@master
@@ -23,11 +25,10 @@ jobs:
 
     - name: npm install front-end
       run: npm install
-      workingDirectory: react-front
 
     - name: Build fron-end
       run: npm run build:ui
-      workingDirectory: react-front
+
 
 
 
