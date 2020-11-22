@@ -75,6 +75,7 @@ const MapView = () => {
                         <SingleCard
                           name={event.name.fi}
                           desc={event.description.intro}
+                          fullDesc={event.description.body}
                           address={event.location.address.street_address}
                           time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
                           distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0)}
