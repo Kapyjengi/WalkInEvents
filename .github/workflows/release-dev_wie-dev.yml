@@ -23,11 +23,11 @@ jobs:
 
     - name: npm install front-end
       run: npm install
-      working-directory: react-front
+      workingDirectory: react-front
 
     - name: Build fron-end
       run: npm run build:ui
-      working-directory: react-front
+      workingDirectory: react-front
 
 
 
