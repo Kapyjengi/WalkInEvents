@@ -9,6 +9,24 @@ on:
       - release-dev
 
 jobs:
+   build-and-deploy-client:
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.13.0'
+
+    - name:  NPM install
+      run: npm install
+      working-directory: ./react-front
+
+    - name:  Run client build
+      run: npm run build
+      working-directory: ./react-front
 
   build-and-deploy-backend:
     runs-on: windows-latest
