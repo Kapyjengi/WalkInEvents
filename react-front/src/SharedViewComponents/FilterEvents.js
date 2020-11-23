@@ -11,10 +11,6 @@ export default function Filtteri(props) {
     RunEventFilters()
   }
 
-  const handleCancel = () => {
-    setOpen(false);
-  }
-
   const handleClickOpen = () => {
     setOpen(true);
   }
@@ -36,7 +32,6 @@ export default function Filtteri(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCancel}>Cancel</Button>
           <Button variant="primary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>

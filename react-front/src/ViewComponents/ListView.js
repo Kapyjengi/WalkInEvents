@@ -43,7 +43,7 @@ export default function ListView() {
 
   useEffect(()=> {
     // haetaan kaikki eventit storeen
-    FetchEventsNearUser()
+    //FetchEventsNearUser()
     GetAllEvents()
   }, [])
 
