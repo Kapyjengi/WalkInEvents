@@ -25,7 +25,7 @@ jobs:
       working-directory: ./react-front
 
     - name:  Run client build
-      run: npm run build
+      run: npm run build:ui
       working-directory: ./react-front
 
   build-and-deploy-backend:
