@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import InfoFooter from './InfoFooter'
 import { Container } from "react-bootstrap";
-
+import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
 
 export default function ToolbarFooter() {
@@ -15,6 +15,10 @@ export default function ToolbarFooter() {
     const range = state.range
     const selectedDate = state.selectedDate
     const dispatch = useDispatch()
+    const changeDateAndRunFilters = (event) => {
+        dispatch(setDate(event.target.value))
+        RunEventFilters()
+    }
 
     return (
         <div className="toolbarfooter">
@@ -27,7 +31,8 @@ export default function ToolbarFooter() {
                         <Slider />
                     </Col>
                     <Col xs={12} md={4}>
-                        <p>date: <input id="selectday" type="date" value={selectedDate} onChange={event => dispatch(setDate(event.target.value))} /></p>
+                        <p>date: <input id="selectday" type="date" value={selectedDate} 
+                        onChange={event => changeDateAndRunFilters(event)} /></p>
                     </Col>
                 </Row>
             </Container>
