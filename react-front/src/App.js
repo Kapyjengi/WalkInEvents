@@ -10,13 +10,9 @@ import {
   Route
 } from "react-router-dom"
 import ShowAboutUs from './ViewComponents/About'
-
+import InstructionsView from './ViewComponents/InstructionsView'
 export default function App() {
 
-  // Tests in console
-  /* useEffect(() => {
-    ReduxTests()
-  }, []) */
 
   return (
     <div>
@@ -24,11 +20,8 @@ export default function App() {
         <NavBar />
         <Switch>
           <Route path="/about" component={ShowAboutUs} />
-          {/*  <ShowAboutUs />
-          </Route> */}
+          <Route path="/instructions" component={InstructionsView} />
           <Route path="/" component={MainView} />
-          {/* <MainView />
-          </Route> */}
         </Switch>
       </Router>
     </div >

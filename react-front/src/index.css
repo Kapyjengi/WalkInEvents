@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6em;
 }
 
 code {
@@ -88,4 +96,24 @@ body .leaflet-container a.leaflet-popup-close-button {
 
 .search-p {
   padding-top: 1rem;
+}
+
+.textpage {
+  margin: 1.3em 0 2em 0;
+}
+
+.textpage h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #222;
+  margin-top: 1rem;
+}
+
+.textpage h1 span {
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 350px) {
+  .textpage h1 {
+    font-size: 1.8em;
+  }
 }

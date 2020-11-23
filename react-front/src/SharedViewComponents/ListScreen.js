@@ -8,7 +8,7 @@ const ListScreen = () => {
 
     return (
         <div>
-            <Container style={{ marginBottom: 110 }}>
+            <Container>
 
                 <EventCard style={{ marginTop: 10 }} />
             </Container>
