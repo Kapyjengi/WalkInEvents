@@ -14,10 +14,6 @@ const { getData } = require('./fetch')
 
 let data;
 
-/* app.get('/', (req, res) => {
-  res.send('W-I-E!')
-}) */
-
 app.get('/api/events', async (req, res) => {
   if (req.query.distance_filter) {
     let distance_filter = encodeURIComponent(req.query.distance_filter)
@@ -39,10 +35,6 @@ app.get('/api/events', async (req, res) => {
   }
 })
 
-/* app.get('/about', function (req, res) {
-  res.send('fixing the /about page routing')
-}) */
-
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'), function (err) {
     if (err) {
@@ -51,10 +43,7 @@ app.get('/*', function (req, res) {
   })
 })
 
-
-
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
-
