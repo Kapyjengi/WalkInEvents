@@ -53,6 +53,8 @@ body .leaflet-container a.leaflet-popup-close-button {
 .toolbarfooter .range-slider__wrap {
   z-index: 1000;
 }
+.react-datepicker-popper { z-index: 100000 !important }
+
 .toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on,
 .toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label,
 .toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__arrow {
