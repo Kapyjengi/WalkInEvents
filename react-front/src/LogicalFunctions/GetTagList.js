@@ -32,7 +32,9 @@ export default function GetTagList() {
         {categoryTitle: "Cultural Events", tags: cultural_events, isChecked: true},
         {categoryTitle: "Talks and Workshops", tags: talks_and_workshops, isChecked: true},
         {categoryTitle: "Online and TV", tags: online_and_tv, isChecked: true},
-        {categoryTitle: "Other Tags", tags: other_tags.concat(rare_tags), isChecked: true},
+        // Other tags is on by default. Most events contain a tag from the "other tags" category. 
+        // Consider turning off
+        {categoryTitle: "Rare and Other Topics", tags: other_tags.concat(rare_tags), isChecked: true},
     ]
     
     return tagArray

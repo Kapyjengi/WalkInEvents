@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTags } from '../GlobalStore/TagActions';
+import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
 
 export default function ShowTagOptions() {
@@ -16,6 +17,7 @@ export default function ShowTagOptions() {
         tagsCopy[tagID] = {...tagsCopy[tagID], isChecked: event.target.checked}
         dispatch(setTags(tagsCopy))
         setUselessState(uselessState+1)
+        RunEventFilters()
     }
 
     function getTagStatus(tag) {

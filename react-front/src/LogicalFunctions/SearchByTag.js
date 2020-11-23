@@ -17,9 +17,9 @@ export default function SearchByTag(events) {
     })
     let filtered = []
 
-    // if no tags are selected, return unaltered list
+    // if no tags are selected, return empty list
     if (Array.isArray(selectedTags) && selectedTags.length === 0) {
-        return events
+        return []
     }
 
     // for each event, if a selected tag is among the event tags, the event passes
