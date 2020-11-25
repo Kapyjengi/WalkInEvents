@@ -9,7 +9,7 @@ on:
       - release-dev
 
 jobs:
-   build-and-deploy-client:
+  build-and-deploy-client:
     runs-on: windows-latest
     steps:
 
