@@ -8,6 +8,7 @@ const NavLinks = () => (
     <>
         <Nav.Link href="/">Events</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
+        <Nav.Link href="/instructions">Instructions</Nav.Link>
     </>
 )
 

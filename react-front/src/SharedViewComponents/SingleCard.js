@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import parse from 'html-react-parser'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -6,12 +7,14 @@ import Card from 'react-bootstrap/Card'
 
 export default function SingleCard(props) {
 
+    const [readMore,setReadMore]=useState(false);
+
     let name = props.name;
     let dateAndTime = props.time
     let address = props.address
     let desc = props.desc
+    let fullDesc = parse(props.fullDesc)
     let distance = props.distance
-
     let infoUrl = props.info_url;
     let disable = false;
     let buttonColor = "primary"
@@ -19,6 +22,7 @@ export default function SingleCard(props) {
         disable = true
         buttonColor = "secondary"
     }
+    const readMorelinkName = readMore?'Read Less << ':'Read More >> '
 
     return (
         <Card bg='light'>
@@ -27,7 +31,13 @@ export default function SingleCard(props) {
                     <Col >
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{dateAndTime}<br />{address}</Card.Text>
-                        <Card.Text>{desc}</Card.Text>
+                        <Card.Text>
+                          {desc}
+                          {readMore && fullDesc}
+                          <a className="read-more-link" onClick={()=> { setReadMore(!readMore) }}>
+                              <strong>{readMorelinkName}</strong>
+                          </a>
+                        </Card.Text>
                     </Col>
                 </Row>
                 <Row>
