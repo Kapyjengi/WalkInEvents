@@ -1,15 +1,54 @@
-ml    build-react-front:
-      defaults:
-        working-directory: react-front
-    
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - wie-dev
+
+on:
+  push:
+    branches:
+      - release-dev
+
+jobs:
+  build-and-deploy-client:
+    runs-on: windows-latest
     steps:
-    
+
     - uses: actions/checkout@master
-    
+
     - name: Set up Node.js version
       uses: actions/setup-node@v1
-   #   with:
-   #     node-version: '12.13.0'
-   # 
-   # - name: npm install front-end
-   #   run: npm install
+      with:
+        node-version: '12.13.0'
+
+    - name: NPM install
+      run: npm install
+      # working-directory: ./react-front
+      uses: ./react-front
+
+    - name: Run client build
+      run: npm run build:ui
+      # working-directory: ./react-front
+      uses: ./react-front
+
+  build-and-deploy-backend:
+    needs: build-and-deploy-client
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.13.0'
+
+    - name: npm install
+      run: npm install
+
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'wie-dev'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fe210901a08f480983681aed107819be }}
+        package: .
