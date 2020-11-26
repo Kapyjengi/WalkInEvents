@@ -1,3 +1,4 @@
+import { filter } from 'async'
 import L from 'leaflet'
 import moment from 'moment'
 import React from 'react'
@@ -76,7 +77,7 @@ export default function EventCard() {
 
     return (
         <div className="App">
-             <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>
+            {filtered.length > 0 ? ( <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>):(<p></p>)}
             {cardEvents}
         </div>
     )
