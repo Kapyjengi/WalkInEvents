@@ -27,13 +27,13 @@ jobs:
       # uses: ./react-front
 
     - name: Run client build
-      run: npm run build:ui
+      run: npm run build:dummy
       # run: ./react-front npm run build:ui
       working-directory: ./react-front
       # uses: ./react-front
 
   build-and-deploy-backend:
-    # needs: build-and-deploy-client
+    needs: build-and-deploy-client
     runs-on: windows-latest
     steps:
 
