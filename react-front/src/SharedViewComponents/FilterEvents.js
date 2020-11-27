@@ -10,7 +10,6 @@ export default function Filtteri(props) {
   const [open, setOpen] = useState(false);
   const numberOfFilteredEvents = state.filteredEvents.length
   
-
   const handleClose = () => {
     setOpen(false);
     RunEventFilters()
@@ -26,7 +25,7 @@ export default function Filtteri(props) {
   return (
     <div className="button-container">
 
-      <Button variant="primary" size='sm' className="d-block d-md-none float-right" onClick={handleClickOpen}>Filters</Button>
+      <Button variant="primary" size='sm' className={props.css + " float-right"} onClick={handleClickOpen}>Filters</Button>
 
       <Modal show={open} onHide={handleClose} >
         <Modal.Header>

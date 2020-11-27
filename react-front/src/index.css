@@ -22,6 +22,10 @@ body .leaflet-popup-content {
   line-height: 1.4;
 }
 
+.mapDivContainer {
+  margin-top: 1rem;
+}
+
 body .leaflet-container a.leaflet-popup-close-button {
   top: 17px;
   right: 14px;
@@ -35,27 +39,26 @@ body .leaflet-container a.leaflet-popup-close-button {
 }
 
 .infofooter {
-  margin-top: 0;
-  padding: .5rem 0 .1rem 0;
-  background-color: rgb(196 196 196);
-  /* position: fixed; */
+  margin-top: 1rem;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: rgb(255, 255, 255);
   bottom: 0;
   left: 0;
   width: 100%;
-  /* max-height: 100px; */
   text-align: center;
-  border-top: 2px solid #939393;
+  border-top: 2px solid #e6e6e6;
 }
 
 .infofooter p {
   font-size: .85em;
-  color: rgb(59, 59, 59);
+  color: rgb(171, 171, 171);
 }
 
 .toolbarfooter {
   background-color: rgb(247, 247, 247);
-  border-top: 1px solid black;
+  border-top: 2px solid #f1f1f1;
   padding: .4rem 0;
+  margin-top: 1rem;
 }
 
 .toolbarfooter .range-slider__wrap {
@@ -77,15 +80,50 @@ body .leaflet-container a.leaflet-popup-close-button {
 
 .tabnav-row {
   background-color: rgb(235, 235, 235);
-  padding: 5px;
 }
 
-.btn-heading-container {
+.tabnav-row h5 {
+  padding: 0rem 1rem 0 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.tabnav-row .nav .nav-link {
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+.tabnav-row .nav .nav-link.active {
+  border-bottom: 3px solid #008dfe;
+}
+
+.btn-heading-container-closed {
   padding-top: .5rem;
+  margin: 0;
+  background: rgb(235, 235, 235);
+}
+.btn-heading-container-open {
+  padding: 0.7rem 0 0.6rem 1rem;
+  margin: 0;
+  background: #dedede;
+  padding-top: 1.05rem;
 }
 
-.nav-link {
-  padding: .7rem 1rem;
+.close-sidebar {
+  margin-top: -0.225rem;
+}
+
+.close-sidebar a {
+  margin-top: -0.225rem;
+  padding: 1rem;
+}
+
+.filterEventsSidebar {
+  padding: 1.3rem 0 3em 1rem;
+}
+.btn-heading-container-open .nav-link {
+  padding: .0.7rem 1rem 0.2rem 1rem;
   text-transform: uppercase;
 }
 

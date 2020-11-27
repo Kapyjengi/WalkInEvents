@@ -24,10 +24,11 @@ export default function FilterEventsSidebar(props) {
   }
 
   return (
-    <div>
+    <div className="filterEventsSidebar">
       <p>Showing {numberOfFilteredEvents} events.</p>
       <ShowTagOptions />
-      <Button variant="secondary" onClick={checkOrUncheckAll}>Check/Uncheck All</Button>  
+      <Button variant="secondary" onClick={checkOrUncheckAll}>Check/Uncheck All</Button>
+    
     </div>
   )
 }
