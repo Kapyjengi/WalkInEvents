@@ -80,6 +80,10 @@ body .leaflet-container a.leaflet-popup-close-button {
   padding: 5px;
 }
 
+.btn-heading-container {
+  padding-top: .5rem;
+}
+
 .nav-link {
   padding: .7rem 1rem;
   text-transform: uppercase;

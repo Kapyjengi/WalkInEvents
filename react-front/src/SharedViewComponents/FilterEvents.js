@@ -24,9 +24,9 @@ export default function Filtteri(props) {
   }
 
   return (
-    <div>
+    <div className="button-container">
 
-      <Button variant="primary" size='sm' className='ml-auto mr-2' onClick={handleClickOpen}>Filters</Button>
+      <Button variant="primary" size='sm' className="d-block d-md-none float-right" onClick={handleClickOpen}>Filters</Button>
 
       <Modal show={open} onHide={handleClose} >
         <Modal.Header>

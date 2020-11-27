@@ -47,14 +47,14 @@ const MainView = () => {
                 </Nav.Item>
                 </Nav>
             </Col>
-            <Col xs={3} className='btn-heading-container'>
+            <Col xs={3}>
                 {/* <Button className='d-block d-sm-none'>filters</Button> */}
                 <FilterEventsButton />
-                <h5 className='d-none d-md-block'>Filters</h5>
+                <h5 className='d-none d-sm-block'>Filters</h5>
             </Col>
             </Row>
             <Row>
-            <Col sm={12} md={9}>
+            <Col xs={12} sm={9}>
                 <Tab.Content>
                 <Tab.Pane eventKey="first">
                     <ListView />
@@ -64,7 +64,7 @@ const MainView = () => {
                 </Tab.Pane>
                 </Tab.Content>
             </Col>
-            <Col md={3} className='d-none d-md-block'>
+            <Col sm={3} className='d-none d-sm-block'>
             <FilterEventsSidebar/>
             {/* <p>Showing {numberOfFilteredEvents} events.</p> */}
             {/* <ShowTagOptions></ShowTagOptions> */}

@@ -22,7 +22,7 @@ const NavBar = () => {
                 <NavLinks />
             </Nav>
         </Navbar.Collapse>
-        <Filtteri />
+        {/* <Filtteri /> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
             <Nav className="d-lg-none">
