@@ -29,6 +29,8 @@ jobs:
       # run: npm run build:ui
       # run: ./react-front npm run build:dummy
       run: npm run build
+      env:
+        CI: false
       working-directory: ./react-front
       # uses: ./react-front
 
