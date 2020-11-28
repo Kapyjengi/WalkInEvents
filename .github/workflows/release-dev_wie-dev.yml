@@ -45,7 +45,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: ls before
-      run: ls -a
+      run: ls
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
@@ -64,7 +64,7 @@ jobs:
         name: build   
         
     - name: ls after
-      run: ls -a
+      run: ls
     
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
