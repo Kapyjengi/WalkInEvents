@@ -47,6 +47,9 @@ jobs:
     - name: npm install
       run: npm install
 
+    - name: Copy build folder
+      run: npm run copy-build-folder
+
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
