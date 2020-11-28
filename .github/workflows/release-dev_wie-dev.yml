@@ -44,6 +44,9 @@ jobs:
 
     - uses: actions/checkout@master
 
+    - name: ls before
+      run: echo ls
+
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
@@ -58,7 +61,10 @@ jobs:
     - name: Download a single artifact
       uses: actions/download-artifact@v2
       with:
-        name: build    
+        name: build   
+        
+    - name: ls before
+      run: echo ls
     
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
