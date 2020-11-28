@@ -31,11 +31,11 @@ jobs:
       working-directory: ./react-front
 
     - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v2
-    with:
-      name: build
-      path: build
-      retention-days: 5
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build
+        # retention-days: 5
 
   build-client-and-deploy-server:
     needs: build-client
@@ -56,9 +56,9 @@ jobs:
     #  run: npm run copy-build-folder
 
     - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: build    
+      uses: actions/download-artifact@v2
+      with:
+        name: build    
     
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
