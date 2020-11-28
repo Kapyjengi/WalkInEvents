@@ -52,7 +52,7 @@ jobs:
     - name: Copy build folder
       uses: canastro/copy-action@0.0.2
       with:
-        source: react-front/build/.
+        source: react-front/build
         target: build
         # flags: '-r' 
       # run: npm run copy-build-folder
