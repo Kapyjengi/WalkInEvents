@@ -54,7 +54,7 @@ jobs:
       with:
         source: react-front/build/.
         target: build
-        flags: '-r' 
+        # flags: '-r' 
       # run: npm run copy-build-folder
 
     - name: 'Deploy to Azure Web App'
