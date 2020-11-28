@@ -20,26 +20,26 @@ jobs:
       with:
         node-version: '12.13.0'
 
-   # - name: NPM install client
-   #   run: npm install
-   #   working-directory: ./react-front
-      # uses: ./react-front
+    - name: NPM install client
+      run: npm install
+      working-directory: ./react-front
+      #  uses: ./react-front
 
-   # - name: Run client build
+    - name: Run client build
       # run: npm run build:ui
       # run: ./react-front npm run build:dummy
-   #   run: npm run build
-   #   env:
-   #     CI: false
-   #   working-directory: ./react-front
+      run: npm run build
+      env:
+        CI: false
+      working-directory: ./react-front
       # uses: ./react-front
 
     - name: NPM install server
       run: npm install
 
-  #  - name: Copy build folder
+    - name: Copy build folder
       # uses: canastro/copy-action@0.0.2
-  #    run: npm run copy-build-folder
+      run: npm run copy-build-folder
       # with:
         # source: react-front/build
         # target: build
