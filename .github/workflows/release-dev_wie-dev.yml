@@ -28,7 +28,7 @@ jobs:
     - name: Run client build
       # run: npm run build:ui
       # run: ./react-front npm run build:dummy
-      run: npm run build:dummy
+      run: npm run build
       working-directory: ./react-front
       # uses: ./react-front
 
