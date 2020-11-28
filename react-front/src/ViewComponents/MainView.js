@@ -45,7 +45,7 @@ const MainView = () => {
                 {sidebarOn == false &&
                 <Col xs={3} className="btn-heading-container-closed">
                   <Button
-                    className={"d-none d-md-block float-right"}
+                    className={"d-none d-md-block float-right filters-btn"}
                     onClick={onClickToggle}>
                     Filters
                   </Button>
@@ -54,7 +54,7 @@ const MainView = () => {
                 }
                 {sidebarOn == true &&
                 <Col xs={3} className="btn-heading-container-open">
-                  <FilterEventsButton css={"d-block d-md-none"} />
+                  <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
                   <h5 className="d-none d-md-inline">Filters</h5>
                   <a href="#"
                     className="d-none d-md-inline float-right close-sidebar"

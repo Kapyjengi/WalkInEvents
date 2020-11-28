@@ -112,7 +112,7 @@ body .leaflet-container a.leaflet-popup-close-button {
 }
 
 .btn-heading-container-closed {
-  padding-top: .5rem;
+  padding-top: 1.05rem 1rem .6rem 1rem;
   margin: 0;
   background: rgb(235, 235, 235);
 }
@@ -120,7 +120,16 @@ body .leaflet-container a.leaflet-popup-close-button {
   padding: 1.05rem 1rem .6rem 1rem;
   margin: 0;
   background: #dedede;
-  padding-top: 1.05rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-heading-container-open {
+    background: rgb(235, 235, 235);
+  }
+}
+
+.filters-btn {
+  margin: 0.6rem 0.7rem 0 0;
 }
 
 .btn-heading-container-open .nav-link {
