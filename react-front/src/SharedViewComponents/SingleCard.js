@@ -41,7 +41,7 @@ export default function SingleCard(props) {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6}>{distance} m</Col>
+                    <Col xs={6}>{distance}</Col>
                     <Col xs={6}>
                         {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
                         {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}

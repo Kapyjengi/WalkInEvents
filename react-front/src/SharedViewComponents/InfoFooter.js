@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container, Nav, Button } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 
 export default function InfoFooter() {
     return (

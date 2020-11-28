@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Map, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -9,17 +9,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
 import { useSelector } from 'react-redux'
 import ToolbarFooter from '../SharedViewComponents/ToolbarFooter'
-
-import SearchByDate from '../LogicalFunctions/SearchByDate'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import moment from 'moment'
-import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SingleCard from '../SharedViewComponents/SingleCard'
-import SearchByTag from '../LogicalFunctions/SearchByTag'
-import { setUserLocation } from '../GlobalStore/LocationActions'
 
 const MapView = () => {
 
@@ -78,7 +69,7 @@ const MapView = () => {
                           fullDesc={event.description.body}
                           address={event.location.address.street_address}
                           time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
-                          distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0)}
+                          distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon)) / 1000).toFixed(2) + ' km '}
                           info_url={event.info_url}>
                         </SingleCard>
                       {/*</Col>

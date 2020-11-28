@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setDate } from '../GlobalStore/TimeActions'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import InfoFooter from './InfoFooter'
 import { Container } from "react-bootstrap";
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 
@@ -37,9 +36,6 @@ export default function ToolbarFooter() {
         <div className="toolbarfooter">
             <Container fluid={true}>
                 <Row>
-                    <Col xs={3} md={1}>
-                        <p className="range-slider-p">Range: {range} km</p>
-                    </Col>
                     <Col xs={9} md={7}>
                         <Slider />
                     </Col>

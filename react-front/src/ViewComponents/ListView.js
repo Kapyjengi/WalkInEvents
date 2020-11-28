@@ -7,7 +7,6 @@ import Fetch from '../Services/FetchEventsNearUser'
 import GetAllEvents from '../Services/GetAllEvents'
 import Loading from '../SharedViewComponents/Loading'
 import MapView from '../ViewComponents/MapView'
-import FetchEventsNearUser from '../Services/FetchEventsNearUser'
 //import GetUserPosition from '../Services/GetUserPosition'
 
 export default function ListView() {
@@ -126,7 +125,7 @@ export default function ListView() {
     // API Rest on ladattu kokonaan ja näytetään koko lista.
     return (
       <div className="App">
-        {loading==='' ? (<MapView />) : (<div>ei ladattu</div>) }
+        {loading==='' ? (<MapView />) : (<div>Loading</div>) }
         {/* Range:{range}km
         <Slider /> */}
         {/* <Loading loading={loading} loaded={loaded} /> */}
