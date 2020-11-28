@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy-client:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@master
@@ -36,7 +36,7 @@ jobs:
 
   build-and-deploy-backend:
     needs: build-and-deploy-client
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@master
