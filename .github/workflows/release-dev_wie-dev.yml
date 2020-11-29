@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: react-front
+        working-directory: ./react-front
 
     steps:
 
