@@ -11,20 +11,17 @@ on:
 jobs:
   build-client:
     runs-on: windows-latest
-    defaults:
-      run:
-        working-directory: ./react-front
-
     steps:
 
     - uses: actions/checkout@master
 
-  #  - name: Cache dependencies
-  #    uses: actions/cache@v2
-  #    with:
-  #      path: |
-  #        **/node_modules
-  #      key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      working-directory: ./react-front
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
@@ -33,23 +30,23 @@ jobs:
 
     - name: NPM install client
       run: npm install
-     # working-directory: ./react-front
+      working-directory: ./react-front
 
     - name: NPM run tests
       run: npm run test
-    #  working-directory: ./react-front
+      working-directory: ./react-front
 
     - name: Run client build
       run: npm run build
       env:
         CI: false
-    #  working-directory: ./react-front
+      working-directory: ./react-front
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
         name: build
-        path: ./WalkInEnents/react-front/build
+        path: react-front/build
         # retention-days: 5
 
   build-client-and-deploy-server:
@@ -63,7 +60,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          **/node_modules
+          **/react-front/node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: ls before
