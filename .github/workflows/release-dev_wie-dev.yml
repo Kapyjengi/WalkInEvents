@@ -56,7 +56,7 @@ jobs:
 
     - uses: actions/checkout@master
 
-    - name: ls before
+    - name: List files before artifact download
       run: ls
 
     - name: Set up Node.js version
@@ -73,7 +73,7 @@ jobs:
         name: build 
         path: build/  
         
-    - name: ls after
+    - name: List files after download
       run: ls
     
     - name: 'Deploy to Azure Web App'
