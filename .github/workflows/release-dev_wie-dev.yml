@@ -30,10 +30,6 @@ jobs:
       run: npm install
       working-directory: ./react-front
 
-    #- name: NPM run tests
-    #  run: npm run test
-    #  working-directory: ./react-front
-
     - name: Run the tests and generate coverage report
       run: npm test -- --coverage
       working-directory: ./react-front
@@ -52,21 +48,13 @@ jobs:
       with:
         name: build
         path: react-front/build
-        # retention-days: 5
 
-  build-client-and-deploy-server:
+  install-server-and-deploy-all:
     needs: build-client
     runs-on: windows-latest
     steps:
 
     - uses: actions/checkout@master
-      
-    #- name: Cache dependencies
-    #  uses: actions/cache@v2
-    #  with:
-    #    path: |
-    #      **/node_modules
-    #    key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: ls before
       run: ls
@@ -78,9 +66,6 @@ jobs:
 
     - name: NPM install server
       run: npm install
-
-    #- name: Copy build folder
-    #  run: npm run copy-build-folder
 
     - name: Download a single artifact
       uses: actions/download-artifact@v2
