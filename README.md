@@ -1,3 +1,4 @@
+![Build and deploy to Azure Web App](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20deploy%20Node.js%20app%20to%20Azure%20Web%20App%20-%20wie-dev/badge.svg)
 
 
 
