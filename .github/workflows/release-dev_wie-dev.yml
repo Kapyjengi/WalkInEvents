@@ -55,12 +55,12 @@ jobs:
 
     - uses: actions/checkout@master
       
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: |
-          **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+    #- name: Cache dependencies
+    #  uses: actions/cache@v2
+    #  with:
+    #    path: |
+    #      **/node_modules
+    #    key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: ls before
       run: ls
