@@ -2,7 +2,6 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and test React-client, build and deploy Node.js to Azure Web App
-
 on:
   push:
     branches:
