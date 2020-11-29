@@ -47,10 +47,9 @@ jobs:
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
-      working-directory: ./WalkInEnents
       with:
         name: build
-        path: build
+        path: ./WalkInEnents/react-front/build
         # retention-days: 5
 
   build-client-and-deploy-server:
