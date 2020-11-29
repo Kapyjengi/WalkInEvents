@@ -15,6 +15,14 @@ jobs:
 
     - uses: actions/checkout@master
 
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      working-directory: ./react-front
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
@@ -47,6 +55,14 @@ jobs:
     steps:
 
     - uses: actions/checkout@master
+      
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      working-directory: ./react-front
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: ls before
       run: ls
