@@ -47,6 +47,7 @@ jobs:
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
+      working-directory: ./WalkInEnents
       with:
         name: build
         path: build
