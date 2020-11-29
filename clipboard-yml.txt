@@ -57,8 +57,11 @@ jobs:
 
 
 
-
+----------------------------
 2 jobs: (copy doesn't work)
+----------------------------
+
+
 
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
@@ -118,6 +121,67 @@ jobs:
         target: build
         # flags: '-r' 
       # run: npm run copy-build-folder
+
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'wie-dev'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fe210901a08f480983681aed107819be }}
+        package: .
+
+
+-----------------------------
+1 job: Deployment unsuccesful
+-----------------------------
+
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - wie-dev
+
+on:
+  push:
+    branches:
+      - release-dev
+
+jobs:
+  build-client-and-deploy-server:
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.13.0'
+
+    - name: NPM install client
+      run: npm install
+      working-directory: ./react-front
+      # uses: ./react-front
+
+    - name: Run client build
+      # run: npm run build:ui
+      # run: ./react-front npm run build:dummy
+      run: npm run build
+      env:
+        CI: false
+      working-directory: ./react-front
+      # uses: ./react-front
+
+    - name: NPM install server
+      run: npm install
+
+    - name: Copy build folder
+      # uses: canastro/copy-action@0.0.2
+      run: npm run copy-build-folder
+      # with:
+        # source: react-front/build
+        # target: build
+        # flags: '-r' 
+      
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2

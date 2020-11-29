@@ -12,7 +12,7 @@ export const NavLinks = () => (
     </>
 )
 
-const NavBar = () => {
+export const NavBar = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="secondary" bg="dark" variant="dark" className="justify-content-end">
