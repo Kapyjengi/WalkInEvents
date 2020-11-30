@@ -1,8 +1,5 @@
 import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
-import Filtteri from '../SharedViewComponents/FilterEvents'
-
-
 
 export const NavLinks = () => (
     <>
@@ -22,7 +19,6 @@ export const NavBar = () => {
                     <NavLinks />
                 </Nav>
             </Navbar.Collapse>
-            {/* <Filtteri /> */}
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
                 <Nav className="d-lg-none">
@@ -31,8 +27,6 @@ export const NavBar = () => {
             </Navbar.Collapse>
         </Navbar>
     )
-
-
 }
 
 export default NavBar;
