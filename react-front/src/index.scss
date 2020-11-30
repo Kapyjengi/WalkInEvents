@@ -1,6 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
 
+
+$primary: #F97316;
+$primaryhover: #DB6615;
+$secondary: #ff4136;
+$toolbarBg: #EDF4FF;
+$secondarytoolbarBg: #D6E6FF;
+
+$bodyfontfamily: 'Open Sans', sans-serif;
+$headingsfontfamily: 'Montserrat', sans-serif;
+
+
+body .btn-primary {
+  background-color: #F97316;
+  color: white;
+  border: 2px solid #F97316;
+  border-radius: 20px;
+}
+body .btn-secondary {
+  background-color: rgba(255, 255, 255, $alpha: 0);
+  color: #F97316;
+  border: 2px solid #F97316;
+  border-radius: 25px;
+}
+body .btn-primary:hover, body .btn-secondary:hover {
+  background-color: $primaryhover;
+  border-color: $primaryhover;
+}
+
+body .btn:not(:disabled):not(.disabled).active,
+
+
+body .btn-primary:not(:disabled):not(.disabled).active,
+body .btn-secondary:not(:disabled):not(.disabled).active {
+  background-color: $primary;
+  border-color: 5px solid rgba(249, 115, 22, 0.47);
+  color: #A34809;
+}
+
+body button.btn-primary:not(:disabled):not(.disabled).active,
+body button.btn:not(:disabled):not(.disabled):focus,
+body button.btn-primary:not(:disabled):not(.disabled):focus,
+button.btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #FFF !important;
+  background-color: #A34809 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
+}
+
+body button.btn-secondary:not(:disabled):not(.disabled).active,
+body button.btn:not(:disabled):not(.disabled):focus,
+body button.btn-secondary:not(:disabled):not(.disabled):focus,
+button.btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color:  #A34809!important;
+  background-color: #f7f7f7!important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
+  border-color: $primaryhover;
+}
+
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
@@ -9,7 +66,7 @@ body {
 }
 
 body p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $bodyfontfamily;
   line-height: 1.6em;
 }
 
@@ -84,7 +141,7 @@ body .leaflet-container a.leaflet-popup-close-button {
 }
 
 .tabnav-row {
-  background-color: rgb(235, 235, 235);
+  background-color: $toolbarBg;
 }
 
 .tabnav-row h5 {
@@ -119,12 +176,12 @@ body .leaflet-container a.leaflet-popup-close-button {
 .btn-heading-container-closed {
   padding-top: 1.05rem 1rem .6rem 1rem;
   margin: 0;
-  background: rgb(235, 235, 235);
+  background: $toolbarBg;
 }
 .btn-heading-container-open {
   padding: 1.05rem 1rem .6rem 1rem;
   margin: 0;
-  background: #dedede;
+  background: $secondarytoolbarBg;
 }
 
 @media only screen and (max-width: 767px) {
@@ -160,7 +217,7 @@ body .leaflet-container a.leaflet-popup-close-button {
 }
 
 .textpage h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $headingsfontfamily;
   color: #222;
   margin-top: 1rem;
 }
