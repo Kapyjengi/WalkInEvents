@@ -25,7 +25,7 @@ export default function SearchByTag(events) {
     }
 
     // for each event, if a selected tag is among the event tags, the event passes
-    if (events != undefined) {
+    if (events !== undefined) {
         events.forEach(event => {
             if (includesTag(event)) {
                 filtered.push(event)
