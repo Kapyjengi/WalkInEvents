@@ -2,6 +2,7 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from "react";
 import Slider from '../SharedViewComponents/DistanceSlider'
+import { Calendar3 } from 'react-bootstrap-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { setDate } from '../GlobalStore/TimeActions'
 import Row from 'react-bootstrap/Row'
@@ -33,7 +34,8 @@ export default function ToolbarFooter() {
     }
     const ExampleCustomInput = ({ value, onClick }) => (
         <Button color="primary" onClick={onClick}>
-          {value}
+          {value} 
+          <Calendar3 color="white" size={15} className="calendar-icon"/>
         </Button>
       );
 
