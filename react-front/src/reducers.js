@@ -8,7 +8,7 @@ searchLocation,
 
 */
 let initialState = {
-    range: 1,
+    range: 3,
     chosenTags: [],
     allTags: GetTagList(),
     //tagCategoryTitles: GetTagCategoryTitles(),
