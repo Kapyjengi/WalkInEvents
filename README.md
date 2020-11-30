@@ -1,6 +1,5 @@
 ![CI/CD](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20test%20React-client,%20build%20and%20deploy%20Node.js%20to%20Azure%20Web%20App/badge.svg)
 
-[![codecov](https://codecov.io/gh/Kapyjengi/WalkInEvents/branch/release-dev/graph/badge.svg?token=BWCX7B3D2V)](https://codecov.io/gh/Kapyjengi/WalkInEvents)
 
 
 
