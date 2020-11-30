@@ -5,9 +5,7 @@ import GetToday from '../LogicalFunctions/GetToday'
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
 import Fetch from '../Services/FetchEventsNearUser'
 import GetAllEvents from '../Services/GetAllEvents'
-import Loading from '../SharedViewComponents/Loading'
 import MapView from '../ViewComponents/MapView'
-//import GetUserPosition from '../Services/GetUserPosition'
 
 export default function ListView() {
   const store = useStore()
@@ -16,7 +14,6 @@ export default function ListView() {
 
   const [events, setEvents] = React.useState('')
   const [selectedDay, setSelectedDay] = useState(store.getState().selectedDate)
-  const [event, setEvent] = React.useState(0)
   const [loading, setLoading] = React.useState('LOADING')
   const [loaded, setLoaded] = useState(false)
   const [lat, setLat] = useState()
@@ -30,8 +27,8 @@ export default function ListView() {
     if (navigator.geolocation) {
       Coords();
     }
-  }, 
-  [])
+  },
+    [])
   //[lon, lat, range])
 
   // Rangen muuttamine laukaisee filtteröinnin
@@ -39,7 +36,7 @@ export default function ListView() {
     RunEventFilters()
   }, [range])
 
-  useEffect(()=> {
+  useEffect(() => {
     // haetaan kaikki eventit storeen
     //FetchEventsNearUser()
     GetAllEvents()
@@ -50,17 +47,17 @@ export default function ListView() {
     let data = (Fetch(lati, long, area))
     // kutsutaan funktiota, joka hakee kaikki eventit
     setEvents((await data))
-      setLoading(await '')
-      setLoaded(await true)
-      console.log(await events)
+    setLoading(await '')
+    setLoaded(await true)
+    console.log(await events)
   }
 
-  const Coords = async() => {
+  const Coords = async () => {
 
     let id, target, options;
 
-   async function success(pos) {
-      let crd =await pos.coords;
+    async function success(pos) {
+      let crd = await pos.coords;
       if (target.latitude !== crd.latitude && target.longitude !== crd.longitude) {
         setLat(crd.latitude)
         setLon(crd.longitude)
@@ -71,8 +68,6 @@ export default function ListView() {
     }
 
     function error(err) {
-    
-      //console.warn('ERROR(' + err.code + '): ' + err.message);
       setLat(60.1733244)
       setLon(24.9410248)
       dispatch(setUserLocation(60.1733244, 24.9410248))
@@ -93,44 +88,35 @@ export default function ListView() {
 
     id = navigator.geolocation.watchPosition(success, error, options);
   }
-    async function afterLocation(){
-     //GetUserPosition()
-    
-    let lati =await store.getState().userLocation.latitude
-    let long =await store.getState().userLocation.longitude
-    
+  async function afterLocation() {
+
+    let lati = await store.getState().userLocation.latitude
+    let long = await store.getState().userLocation.longitude
+
     if (lati === undefined && long === undefined) {
       lati = lat
       long = lon
     }
-    
-    
+
     //Haetaan funktion kautta päivämäärä joka muutetaan isomuotoon.
     let toDay = GetToday()
     setSelectedDay(toDay)
     //Haetaan API
-    //console.log(lati, long, area)
-    if (lati===undefined && long ===undefined){
+    if (lati === undefined && long === undefined) {
       lati = 20.1733244
       long = 24.9410248
-      
-    } 
+    }
     fetchData(await lati, long, area);
-    
+
   }
 
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
-  
-    // API Rest on ladattu kokonaan ja näytetään koko lista.
-    return (
-      <div className="App">
-        {loading==='' ? (<MapView />) : (<div>Loading</div>) }
-        {/* Range:{range}km
-        <Slider /> */}
-        {/* <Loading loading={loading} loaded={loaded} /> */}
-        {/* <Show events={events} event={event} /> */}
-      </div>
-    )
+  // API Rest on ladattu kokonaan ja näytetään koko lista.
+  return (
+    <div className="App">
+      {loading === '' ? (<MapView />) : (<div>Loading</div>)}
+    </div>
+  )
 
-  
+
 }
