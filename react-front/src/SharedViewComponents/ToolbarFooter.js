@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Container } from "react-bootstrap";
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
+import Button from 'react-bootstrap/Button'
 
 
 export default function ToolbarFooter() {
@@ -30,7 +31,11 @@ export default function ToolbarFooter() {
         dispatch(setDate(isoDate))
         RunEventFilters()
     }
-
+    const ExampleCustomInput = ({ value, onClick }) => (
+        <Button color="primary" onClick={onClick}>
+          {value}
+        </Button>
+      );
 
     return (
         <div className="toolbarfooter">
@@ -42,7 +47,7 @@ export default function ToolbarFooter() {
                     <Col xs={12} md={4}>
                         {/* <p>date: <input id="selectday" type="date" value={selectedDate} 
                         onChange={event => changeDateAndRunFilters(event)} /></p>*/} 
-                      <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} />
+                      <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} customInput={<ExampleCustomInput />}/>
                     </Col>
                 </Row>
             </Container>

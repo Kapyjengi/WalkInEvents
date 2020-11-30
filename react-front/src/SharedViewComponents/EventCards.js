@@ -76,7 +76,7 @@ export default function EventCard() {
 
     return (
         <div className="App">
-            {filtered.length > 0 ? ( <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>):(<p></p>)}
+            {filtered.length > 0 ? ( <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>):(<p>No events to show :( Please widen range or filters.</p>)}
             {cardEvents}
         </div>
     )
