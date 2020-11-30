@@ -4,6 +4,8 @@ import store from '../GlobalStore/Store'
 // Takes input of events array. 
 // Ouputs array of events that include one of selected tags.
 
+// Map ja filter-funktioiden käyttäminen.
+
 export default function SearchByTag(events) {
 
     const selectedTagsInCategories = store.getState().allTags

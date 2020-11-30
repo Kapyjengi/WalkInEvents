@@ -29,7 +29,6 @@ export default function ListView() {
     //Haetaan koordinaatit
     if (navigator.geolocation) {
       Coords();
-   
     }
   }, 
   [])
