@@ -7,7 +7,6 @@ import RangeSlider from 'react-bootstrap-range-slider'
 function Slider(props) {
 
   const range = useSelector(state => state.range)
-  const tooltipTxt = `Range${range}`
   const dispatch = useDispatch()
 
   return (
