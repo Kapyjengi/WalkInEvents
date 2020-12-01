@@ -24,34 +24,28 @@ body .btn-secondary {
   border: 2px solid #F97316;
   border-radius: 25px;
 }
-body .btn-primary:hover, body .btn-secondary:hover {
+body .btn-primary:hover {
   background-color: $primaryhover;
   border-color: $primaryhover;
 }
-
-body .btn:not(:disabled):not(.disabled).active,
-
-
-body .btn-primary:not(:disabled):not(.disabled).active,
-body .btn-secondary:not(:disabled):not(.disabled).active {
-  background-color: $primary;
-  border-color: 5px solid rgba(249, 115, 22, 0.47);
-  color: #A34809;
+body .btn-secondary:hover {
+  background-color: #f7f7f7;
+  border-color: $secondary;
+  color: $secondary;
 }
 
 body button.btn-primary:not(:disabled):not(.disabled).active,
-body button.btn:not(:disabled):not(.disabled):focus,
 body button.btn-primary:not(:disabled):not(.disabled):focus,
 button.btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
   color: #FFF !important;
   background-color: #A34809 !important;
+  border-color: $primaryhover;
   box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
 }
 
 body button.btn-secondary:not(:disabled):not(.disabled).active,
-body button.btn:not(:disabled):not(.disabled):focus,
 body button.btn-secondary:not(:disabled):not(.disabled):focus,
-button.btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+button.btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
   color:  #A34809!important;
   background-color: #f7f7f7!important;
   box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
@@ -186,7 +180,7 @@ body .leaflet-container a.leaflet-popup-close-button {
 
 @media only screen and (max-width: 767px) {
   .btn-heading-container-open {
-    background: rgb(235, 235, 235);
+    background: $toolbarBg;
   }
 }
 
