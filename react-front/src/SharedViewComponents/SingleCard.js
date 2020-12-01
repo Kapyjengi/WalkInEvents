@@ -28,7 +28,7 @@ export default function SingleCard(props) {
         <Card bg='light'>
             <Card.Body>
                 <Row style={{ paddingBottom: 20 }}>
-                    <Col >
+                    <Col className="single-card">
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{dateAndTime}<br />{address}</Card.Text>
                         <Card.Text>

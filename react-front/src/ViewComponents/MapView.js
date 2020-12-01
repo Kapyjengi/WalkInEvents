@@ -50,43 +50,15 @@ const MapView = () => {
           {filteredEvents.map((event, i) => (
             <Marker key={i} position={[event.location.lat, event.location.lon]}>
               <Popup>
-
-                {/*
-                <Card>
-                  <Card.Body>
-                    <Row style={{ paddingBottom: 20 }}>
-                      <Col xs={12} md={12}>
-                         <Card.Title>{event.name.fi}</Card.Title>
-                      <Card.Text>
-                        <p>{event.description.intro}</p>
-                        <p>{event.location.address.locality}</p>
-                        <p>Osoite: {event.location.address.street_address}</p>
-                        <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}</p>
-                        <p>Etäisyys: { (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) } m</p>
-                      </Card.Text> */}
-                        <SingleCard
-                          name={event.name.fi}
-                          desc={event.description.intro}
-                          fullDesc={event.description.body}
-                          address={event.location.address.street_address}
-                          time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
-                          distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon)) / 1000).toFixed(2) + ' km '}
-                          info_url={event.info_url}>
-                        </SingleCard>
-                      {/*</Col>
-                    </Row>
-                    <Row>
-                      <Col xs={6}>
-                         <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
-                        <Button
-                          href={event.info_url}
-                          target="_blank"
-                          variant="secondary">WWW</Button> 
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>*/}
-
+                <SingleCard
+                  name={event.name.fi}
+                  desc={event.description.intro}
+                  fullDesc={event.description.body}
+                  address={event.location.address.street_address}
+                  time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
+                  distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon)) / 1000).toFixed(2) + ' km '}
+                  info_url={event.info_url}>
+                </SingleCard>
               </Popup>
             </Marker>
           ))}
