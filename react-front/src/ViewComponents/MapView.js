@@ -19,7 +19,7 @@ const MapView = () => {
   const range = state.range
   const userLocation = state.userLocation
 
-  const [zoom, setZoom] = React.useState(15)
+  const [zoom, setZoom] = React.useState(13)
   const location = { lat: userLocation.latitude, lng: userLocation.longitude }
   const iconMarkup = renderToStaticMarkup(
     <span style={{ color: 'Tomato' }}>
@@ -38,9 +38,10 @@ const MapView = () => {
 
   L.Marker.prototype.options.icon = DefaultIcon
 
+
   return (
     <div className="mapDivContainer">
-      <Map center={location} zoom={zoom}>
+      <Map center={location} zoom={zoom} dragging="!L.Browser.mobile" tap="!L.Browser.mobile">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
