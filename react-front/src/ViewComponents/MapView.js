@@ -41,7 +41,7 @@ const MapView = () => {
 
   return (
     <div className="mapDivContainer">
-      <Map center={location} zoom={zoom} dragging="!L.Browser.mobile" tap="!L.Browser.mobile">
+      <Map center={location} zoom={zoom} dragging={!L.Browser.mobile} tap={!L.Browser.mobile}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
