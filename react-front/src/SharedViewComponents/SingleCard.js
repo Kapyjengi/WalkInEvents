@@ -47,7 +47,7 @@ export default function SingleCard(props) {
                         {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
                         
                         {disable === false &&
-                          <Button href={infoUrl} target="_blank" variant={buttonColor}>WWW</Button>
+                          <Button href={infoUrl} target="_blank" variant={buttonColor} className="float-right">WWW</Button>
                         }
                     </Col>
                     

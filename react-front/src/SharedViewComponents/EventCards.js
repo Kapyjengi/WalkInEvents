@@ -52,33 +52,40 @@ export default function EventCard() {
         let distance = (L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)) / 1000).toFixed(2) + ' km ' 
 
         return (
-            <Card key={i} style={{ marginTop: 10 }} bg='light'>
-                <Card.Body>
-                    <Row style={{ paddingBottom: 20 }}>
-                        <Col>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Text>{dateAndTime}<br />{address}</Card.Text>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={6}>{distance}</Col>
-                        <Col xs={6}>
-                        {disable === false &&
-                        
-                            <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
-                        }
 
-                        </Col>
-                    </Row>
-                </Card.Body>
-            </Card>
+          <Col md={10}>
+              <Card key={i} style={{ marginTop: 10 }} bg='light'>
+                  <Card.Body>
+                      <Row style={{ paddingBottom: 20 }}>
+                          <Col>
+                              <Card.Title>{name}</Card.Title>
+                              <Card.Text>{dateAndTime}<br />{address}</Card.Text>
+                          </Col>
+                      </Row>
+                      <Row>
+                          <Col xs={6}>{distance}</Col>
+                          <Col xs={6}>
+                          {disable === false &&
+                          
+                              <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable} className="float-right">WWW</Button>
+                          }
+
+                          </Col>
+                      </Row>
+                  </Card.Body>
+              </Card>
+            </Col>
+          
         )
     })
 
     return (
         <div className="App">
+          <Row className="justify-content-md-center">
+            
             {filtered.length > 0 ? ( <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>):(<p>No events to show :( Please widen range or filters.</p>)}
             {cardEvents}
+          </Row>
         </div>
     )
 }
