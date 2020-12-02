@@ -43,10 +43,14 @@ export default function SingleCard(props) {
                 <Row>
                     <Col xs={6}>{distance}</Col>
                     <Col xs={6}>
-                        {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
+                      {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
                         {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
-                        <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
+                        
+                        {disable === false &&
+                          <Button href={infoUrl} target="_blank" variant={buttonColor}>WWW</Button>
+                        }
                     </Col>
+                    
                 </Row>
 
             </Card.Body>

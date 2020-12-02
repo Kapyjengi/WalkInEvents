@@ -63,9 +63,10 @@ export default function EventCard() {
                     <Row>
                         <Col xs={6}>{distance}</Col>
                         <Col xs={6}>
-                            {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
-                            {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
+                        {disable === false &&
+                        
                             <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
+                        }
 
                         </Col>
                     </Row>
