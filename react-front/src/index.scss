@@ -73,6 +73,16 @@ body .leaflet-popup-content {
   line-height: 1.4;
 }
 
+.card-body-scrollable {
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  color: gray;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
 .mapDivContainer {
   margin-top: 1rem;
 }
