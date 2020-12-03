@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux'
 import GetToday from './LogicalFunctions/GetToday'
 import GetTagList from './LogicalFunctions/GetTagList'
 
