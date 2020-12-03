@@ -1,6 +1,6 @@
 import L from 'leaflet'
 import moment from 'moment'
-import React, { useState } from 'react'
+import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
@@ -17,7 +17,7 @@ export default function EventCard() {
     const userLocation = state.userLocation
     const location = { lat: userLocation.latitude, lng: userLocation.longitude }
     const filtered = state.filteredEvents
-    const [readMore, setReadMore] = useState(false);
+
 
     const SeekName = (e) => {
         let keyWord = e.target.value
@@ -35,26 +35,13 @@ export default function EventCard() {
         }
         return nameToReturn
     }
-    function getDesc(event) {
-        let descToReturn = event.desc.fi
-        if (event.desc.fi === null) {
-            descToReturn = event.desc.sv;
-            if (event.desc.sv === null) {
-                descToReturn = event.desc.en
-            }
-        }
-        return descToReturn
-    }
 
     let cardEvents = filtered.map((events, i) => {
         let name = getName(events);
-        //let desc = getDesc(events);
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
             events.location.address.postal_code + ' ' +
             events.location.address.locality;
-        // let fullDesc = parse(events.fullDesc)
-        let fullDesc = events.fullDesc
         let infoUrl = events.info_url;
         let disable = false;
         let buttonColor = "primary"
