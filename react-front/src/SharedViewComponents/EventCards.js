@@ -18,7 +18,6 @@ export default function EventCard() {
     const location = { lat: userLocation.latitude, lng: userLocation.longitude }
     const filtered = state.filteredEvents
     const [readMore, setReadMore] = useState(false);
-    const readMorelinkName = readMore ? 'Read Less << ' : 'Read More >> '
 
     const SeekName = (e) => {
         let keyWord = e.target.value
@@ -37,15 +36,15 @@ export default function EventCard() {
         return nameToReturn
     }
     function getDesc(event) {
-      let descToReturn = event.desc.fi
-      if (event.desc.fi === null) {
-          descToReturn = event.desc.sv;
-          if (event.desc.sv === null) {
-              descToReturn = event.desc.en
-          }
-      }
-      return descToReturn
-  }
+        let descToReturn = event.desc.fi
+        if (event.desc.fi === null) {
+            descToReturn = event.desc.sv;
+            if (event.desc.sv === null) {
+                descToReturn = event.desc.en
+            }
+        }
+        return descToReturn
+    }
 
     let cardEvents = filtered.map((events, i) => {
         console.log("Events from map-function: ", events)
@@ -68,56 +67,56 @@ export default function EventCard() {
             buttonColor = "secondary"
         }
 
-        let distance = (L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)) / 1000).toFixed(2) + ' km ' 
+        let distance = (L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)) / 1000).toFixed(2) + ' km '
 
         return (
 
-          <Col md={10}>
-              <Card key={i} bg='light' className="event-cards-card">
-                  <Card.Body>
-                      <Row style={{ paddingBottom: 20 }}>
-                          <Col>
-                              <Card.Title><h4>{name}</h4></Card.Title>
-                              <Card.Text><p>{dateAndTime}<br />{address}</p></Card.Text>
-                              <Card.Text>
-                                <input type="checkbox" class="read-more-state" id={i} />
-                                <div className="read-more-wrap">
-                                  <p>{events.description.intro}</p>
-                                   
-                                  <div className="read-more-target">
-                                    
-                                    {parse(events.description.body)}
-                                  
-                                  </div>
-                                </div>
-                                <label for={i} className="read-more-trigger"></label>
-                             </Card.Text>
-                          </Col>
-                      </Row>
-                      <Row>
-                          <Col xs={6} className="align-middle"><p><strong>{distance}</strong></p></Col>
-                          <Col xs={6}>
-                          {disable === false &&
-                          
-                              <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable} className="float-right">WWW</Button>
-                          }
+            <Col md={10}>
+                <Card key={i} bg='light' className="event-cards-card">
+                    <Card.Body>
+                        <Row style={{ paddingBottom: 20 }}>
+                            <Col>
+                                <Card.Title><h4>{name}</h4></Card.Title>
+                                <Card.Text><p>{dateAndTime}<br />{address}</p></Card.Text>
+                                <Card.Text>
+                                    <input type="checkbox" class="read-more-state" id={i} />
+                                    <div className="read-more-wrap">
+                                        <p>{events.description.intro}</p>
 
-                          </Col>
-                      </Row>
-                  </Card.Body>
-              </Card>
+                                        <div className="read-more-target">
+
+                                            {parse(events.description.body)}
+
+                                        </div>
+                                    </div>
+                                    <label for={i} className="read-more-trigger"></label>
+                                </Card.Text>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={6} className="align-middle"><p><strong>{distance}</strong></p></Col>
+                            <Col xs={6}>
+                                {disable === false &&
+
+                                    <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable} className="float-right">WWW</Button>
+                                }
+
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
             </Col>
-          
+
         )
     })
 
     return (
         <div className="App">
-          <Row className="justify-content-md-center">
-            
-            {filtered.length > 0 ? ( <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>):(<p>No events to show :( Please widen range or filters.</p>)}
-            {cardEvents}
-          </Row>
+            <Row className="justify-content-md-center">
+
+                {filtered.length > 0 ? (<p className="search-p">Search: <input id="eventos" onChange={SeekName} /></p>) : (<p>No events to show :( Please widen range or filters.</p>)}
+                {cardEvents}
+            </Row>
         </div>
     )
 }
