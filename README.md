@@ -10,7 +10,7 @@
 
 
 <p>
-<img alt="Walk-In Events" src="https://imgur.com/a/yNlZI6U">
+<img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
 </p>
 
 
