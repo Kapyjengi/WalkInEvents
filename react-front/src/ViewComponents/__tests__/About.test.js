@@ -22,12 +22,12 @@ afterEach(() => {
 
 
 describe('About', () => {
-    it('renders the correct content', () => {
+    it('renders the correct content with correct header', () => {
         act(() => {
             render(<AboutView />, container)
         })
         // about sivu renderöidään kokonaisuudessaan divin sisään
-        // ja verrataan saatua dataa toBe()-funktioon kovakoodattuun dataan
-        expect(container.textContent).toBe("About Walk-In-EventsWalk-In-Events on sovellus, joka näyttää käyttäjälle häntä lähellä olevia tapahtumia. Tapahtumat haetaan Helsinki Open APIsta. Tapahtumatietojen oikeuksien haltija on Helsingin kaupungin kanslia. Tiedoille on määritelty BY-lisenssi. Kyseinen sovellus on Haaga-Helian Ohjelmistoprojekti II -opintojaksolla Käpy-tiimin toteuttama ryhmätyö. Sovellus perustuu avoimeen lähdekoodiin. Repositoriomme on julkinen. Koodit ja tekninen dokumentaatio löytyvät GitHubista.Copyright (c) 2020 Walk-In-Events. v:0.1.1")
+        const AboutHeader = "About Walk-In-Events"
+        expect(container.textContent).toContain(AboutHeader)
     })
 })
