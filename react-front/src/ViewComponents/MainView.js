@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-// poista
-//import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import { X } from 'react-bootstrap-icons'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
-import { Row, Col, Container, Nav, Button } from "react-bootstrap"
+import { Row, Col, Container, Nav } from "react-bootstrap"
 import InfoFooter from '../SharedViewComponents/InfoFooter'
 import FilterEventsButton from '../SharedViewComponents/FilterEvents'
 import FilterEventsSidebar from '../SharedViewComponents/FilterEventsSidebar'
@@ -29,9 +26,9 @@ const MainView = () => {
               </Nav>
             </Col>
             <Col xs={3} className="btn-heading-container-open">
-                  <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
-                  <h5 className="d-none d-md-inline">Filters</h5>
-             </Col>
+              <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
+              <h5 className="d-none d-md-inline">Filters</h5>
+            </Col>
           </Row>
           <Row>
             <Col sm={12} md={9}>
@@ -46,7 +43,7 @@ const MainView = () => {
             </Col>
             <Col md={3} className='d-none d-md-block'>
               <FilterEventsSidebar />
-            </Col>     
+            </Col>
           </Row>
         </Tab.Container>
         <InfoFooter />
