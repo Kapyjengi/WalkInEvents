@@ -16,13 +16,7 @@ export default function ToolbarFooter() {
 
     const [startDate, setStartDate] = useState(new Date());
     const state = useSelector(state => state)
-    const range = state.range
-    const selectedDate = state.selectedDate
     const dispatch = useDispatch()
-    const changeDateAndRunFilters = (event) => {
-        dispatch(setDate(event.target.value))
-        RunEventFilters()
-    }
 
     const onChanged = (e) => {
         let date = e
@@ -34,10 +28,10 @@ export default function ToolbarFooter() {
     }
     const ExampleCustomInput = ({ value, onClick }) => (
         <Button color="primary" onClick={onClick}>
-          {value} 
-          <Calendar3 color="white" size={15} className="calendar-icon"/>
+            {value}
+            <Calendar3 color="white" size={15} className="calendar-icon" />
         </Button>
-      );
+    );
 
     return (
         <div className="toolbarfooter">
@@ -48,8 +42,8 @@ export default function ToolbarFooter() {
                     </Col>
                     <Col xs={12} md={4}>
                         {/* <p>date: <input id="selectday" type="date" value={selectedDate} 
-                        onChange={event => changeDateAndRunFilters(event)} /></p>*/} 
-                      <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} customInput={<ExampleCustomInput />}/>
+                        onChange={event => changeDateAndRunFilters(event)} /></p>*/}
+                        <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} customInput={<ExampleCustomInput />} />
                     </Col>
                 </Row>
             </Container>
