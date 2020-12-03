@@ -101,7 +101,7 @@ The project takes JSON data from an open API. If you want to use this as a base 
 - Location(coordinates, or use a geocoding tool with an address)
 - Start time
 
-You could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field youre lacking in your data, either disable the functionality in the code or generate empty fields.
+For the lightest implementation, you could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field youre lacking in your data, either disable the functionality in the code or generate empty fields.
 
 ### The structure of the relevant fields in the event-object we use from Helsinki-API:
 
@@ -150,7 +150,7 @@ halutessa linkitys `#` merkin tilalle
 
 - [Anton Javits](http://#)
 - [Petja Koivu](http://xd)
-- [Olli Kuikka](http://#)
+- [Olli Kuikka](https://github.com/pineappletea)
 - [Sami Kulonpää](http://#)
 - [Päivi Lampinen](http://#)
 - [Jukka Lehikoinen](http://#)

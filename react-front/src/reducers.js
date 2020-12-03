@@ -1,4 +1,3 @@
-import GetToday from './LogicalFunctions/GetToday'
 import GetTagList from './LogicalFunctions/GetTagList'
 import GetToday from './LogicalFunctions/GetToday'
 
