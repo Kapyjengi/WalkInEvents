@@ -73,24 +73,29 @@ export default function EventCard() {
         return (
 
           <Col md={10}>
-              <Card key={i} style={{ marginTop: 10 }} bg='light'>
+              <Card key={i} bg='light' className="event-cards-card">
                   <Card.Body>
                       <Row style={{ paddingBottom: 20 }}>
                           <Col>
-                              <Card.Title>{name}</Card.Title>
-                              <Card.Text>{dateAndTime}<br />{address}</Card.Text>
+                              <Card.Title><h4>{name}</h4></Card.Title>
+                              <Card.Text><p>{dateAndTime}<br />{address}</p></Card.Text>
                               <Card.Text>
-                                <h6>{events.description.intro}</h6> 
-                                <div className="card-body-scrollable">
+                                <input type="checkbox" class="read-more-state" id={i} />
+                                <div className="read-more-wrap">
+                                  <p>{events.description.intro}</p>
+                                   
+                                  <div className="read-more-target">
+                                    
+                                    {parse(events.description.body)}
                                   
-                                  {parse(events.description.body)}
-                                
+                                  </div>
                                 </div>
+                                <label for={i} className="read-more-trigger"></label>
                              </Card.Text>
                           </Col>
                       </Row>
                       <Row>
-                          <Col xs={6}>{distance}</Col>
+                          <Col xs={6} className="align-middle"><p><strong>{distance}</strong></p></Col>
                           <Col xs={6}>
                           {disable === false &&
                           
