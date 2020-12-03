@@ -34,9 +34,9 @@ export default function SingleCard(props) {
                         <Card.Text>
                             {desc}
                             {readMore && fullDesc}
-                            <a className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
+                            <p className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
                                 <strong>{readMorelinkName}</strong>
-                            </a>
+                            </p>
                         </Card.Text>
                     </Col>
                 </Row>
