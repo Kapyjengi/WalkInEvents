@@ -47,16 +47,12 @@ export default function EventCard() {
     }
 
     let cardEvents = filtered.map((events, i) => {
-        console.log("Events from map-function: ", events)
-        console.log("Events.description.intro from map-function: ", events.description.intro)
-        console.log("Events.description.body from map-function: ", events.description.body)
         let name = getName(events);
         //let desc = getDesc(events);
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
             events.location.address.postal_code + ' ' +
             events.location.address.locality;
-        //let desc = events.desc
         // let fullDesc = parse(events.fullDesc)
         let fullDesc = events.fullDesc
         let infoUrl = events.info_url;
