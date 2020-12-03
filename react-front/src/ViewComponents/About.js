@@ -7,7 +7,7 @@ const AboutView = () => {
     return (
         <>
             <Container className="textpage">
-                <h1>About <span>Walk-In-Events</span></h1>
+                <h1>About<span>Walk-In-Events</span></h1>
                 <p>Walk-In-Events is an application, which shows all the events near the user.
                 All the events and their information comes from an open api, which is provided by the City of Helsinki.</p>
                 <p>All rights are reserved for Helsinki city's council. The license for all the information provided by Helsinki, is a BY-license. 

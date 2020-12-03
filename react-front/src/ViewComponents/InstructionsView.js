@@ -18,7 +18,7 @@ const InstructionsView = () => {
                 The events are shown in the map through pins.
                 By clicking the pin, the events information pops up.
                 All the events can be seen on the list tab aswell as the map tab.
-                There is a search bar on the list tab with which you can filter from the events shown by their names.</p>
+                There is a search bar on the list tab with which you can filter from the events shown by their names. </p>
             </Container>
             <Footer />
         </>
