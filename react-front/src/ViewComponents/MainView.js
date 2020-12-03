@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Tab from 'react-bootstrap/Tab'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
@@ -8,7 +8,6 @@ import FilterEventsButton from '../SharedViewComponents/FilterEvents'
 import FilterEventsSidebar from '../SharedViewComponents/FilterEventsSidebar'
 
 const MainView = () => {
-
 
   return (
     <>
@@ -49,7 +48,6 @@ const MainView = () => {
         <InfoFooter />
       </Container>
     </>
-
   )
 }
 
