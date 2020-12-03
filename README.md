@@ -9,12 +9,16 @@
 > explore the events near you
 
 
+<p>
+<img alt="Walk-In Events" src="https://imgur.com/a/yNlZI6U">
+</p>
 
-## description
 
+## Description
 
-joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tärkeys menemällä suoraan asian ytimeen
+Walk-in Events was made to answers the question "What events in Helsinki could I go to right now?"
 
+The project provides a way to view events from the [Helsinki Open API](http://open-api.myhelsinki.fi/). Events are filtered and then displayed as markers on a map and as a list. The filters we use are: time, distance to user, topic(tags) and when using the search-field, by name of event.
 
 
 ### table of contents
@@ -114,7 +118,53 @@ localhost linkki
 miten sovellusta käytetään?
 tähän olisi hyvä lisätä screenshotteja projektin eri käyttövaiheista.
 
+## Modifying the code to take other event data
 
+The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have **at least** these fields: 
+
+- Name/Description
+- Location(coordinates, or use a geocoding tool with an address)
+- Start time
+
+For the lightest implementation, you could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field youre lacking in your data, either disable the functionality in the code or generate empty fields.
+
+### The structure of the relevant fields in the event-object we use from Helsinki-API:
+
+```
+{
+    "name": {
+        "fi": "<Finnish>", 
+        "en": "<English>",
+        "sv": "<Swedish>"
+    },
+    "info_url": "<Link to event organizers page>",
+    "location": {
+        "lat": 60,
+        "long": 25,
+        "streeet_address": "",
+        "postal_code": "",
+        "locality": ""
+    },
+    "description": {
+        "intro": "<Title>",
+        "body": ""
+    },
+    "tags": [
+        {
+            "name": "<Tag name, we use these for filtering>"
+        }
+    ],
+    "event_dates": {
+        "starting_day": "2020-11-07T12:00:00.000Z",
+        "ending_day": "2020-11-07T12:00:00.000Z"
+    }
+}
+
+```
+
+The tag categories were made by hand and are hardcoded into LogicalFunctions/GetTagList.js. They probably wont be useful for your data, but you can use it as a base for your own division.
+
+Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
 
 ## project group
@@ -125,7 +175,7 @@ halutessa linkitys `#` merkin tilalle
 
 - [Anton Javits](http://#)
 - [Petja Koivu](http://xd)
-- [Olli Kuikka](http://#)
+- [Olli Kuikka](https://github.com/pineappletea)
 - [Sami Kulonpää](http://#)
 - [Päivi Lampinen](http://#)
 - [Jukka Lehikoinen](http://#)
