@@ -12,11 +12,6 @@ import FilterEventsSidebar from '../SharedViewComponents/FilterEventsSidebar'
 
 const MainView = () => {
 
-  const [sidebarOn, setSidebarOn] = useState(true)
-
-  const onClickToggle = () => {
-    setSidebarOn(!sidebarOn)
-  }
 
   return (
     <>
@@ -33,62 +28,25 @@ const MainView = () => {
                 </Nav.Item>
               </Nav>
             </Col>
-            <>
-              {sidebarOn === false &&
-                <Col xs={3} className="btn-heading-container-closed">
-                  <Button
-                    className={"d-none d-md-block float-right filters-btn"}
-                    onClick={onClickToggle}>
-                    Filters
-                  </Button>
-                  <FilterEventsButton css={"d-block d-md-none"} />
-                </Col>
-              }
-              {sidebarOn === true &&
-                <Col xs={3} className="btn-heading-container-open">
+            <Col xs={3} className="btn-heading-container-open">
                   <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
                   <h5 className="d-none d-md-inline">Filters</h5>
-                  <a href="#"
-                    className="d-none d-md-inline float-right close-sidebar"
-                    onClick={onClickToggle}>
-                    <X color="gray" size={27} />
-                  </a>
-                </Col>
-              }
-            </>
+             </Col>
           </Row>
           <Row>
-            {sidebarOn === false &&
-              <>
-                <Col sm={12} md={12}>
-                  <Tab.Content>
-                    <Tab.Pane eventKey="map">
-                      <ListView />
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="list">
-                      <ListScreen />
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Col>
-              </>
-            }
-            {sidebarOn === true &&
-              <>
-                <Col sm={12} md={9}>
-                  <Tab.Content>
-                    <Tab.Pane eventKey="map">
-                      <ListView />
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="list">
-                      <ListScreen />
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Col>
-                <Col md={3} className='d-none d-md-block'>
-                  <FilterEventsSidebar />
-                </Col>
-              </>
-            }
+            <Col sm={12} md={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="map">
+                  <ListView />
+                </Tab.Pane>
+                <Tab.Pane eventKey="list">
+                  <ListScreen />
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+            <Col md={3} className='d-none d-md-block'>
+              <FilterEventsSidebar />
+            </Col>     
           </Row>
         </Tab.Container>
         <InfoFooter />
