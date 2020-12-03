@@ -8,12 +8,12 @@ const AboutView = () => {
         <>
             <Container className="textpage">
                 <h1>About <span>Walk-In-Events</span></h1>
-                <p>Walk-In-Events on sovellus, joka näyttää käyttäjälle häntä lähellä olevia tapahtumia.
-                    Tapahtumat haetaan Helsinki Open APIsta. Tapahtumatietojen oikeuksien haltija on Helsingin kaupungin kanslia. 
-                    Tiedoille on määritelty BY-lisenssi. 
-                    Kyseinen sovellus on Haaga-Helian Ohjelmistoprojekti II -opintojaksolla Käpy-tiimin toteuttama ryhmätyö. </p>
-                <p>Sovellus perustuu avoimeen lähdekoodiin. Repositoriomme on julkinen. Koodit ja tekninen dokumentaatio löytyvät 
-                    <a href='https://github.com/Kapyjengi/WalkInEvents'> GitHubista</a>.</p>
+                <p>Walk-In-Events is an application, which shows all the events near the user.
+                All the events and their information comes from an open api, which is provided by the City of Helsinki.</p>
+                <p>All rights are reserved for Helsinki city's council. The license for all the information provided by Helsinki, is a BY-license. 
+                Walk-In-Events is an application, created by Käpy-team for a course at Haaga-Helia.</p>
+                <p>Our application is built on open source data. The repository for this project is public. You can find the code and documentation from our: 
+                    <a href='https://github.com/Kapyjengi/WalkInEvents'> Github</a>.</p>
                 <p></p>
             </Container>
             <Footer />
