@@ -1,5 +1,6 @@
 import React from 'react'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, Image } from 'react-bootstrap'
+import logo from '../wie-logo.png'
 
 export const NavLinks = () => (
     <>
@@ -19,6 +20,7 @@ export const NavBar = () => {
                     <NavLinks />
                 </Nav>
             </Navbar.Collapse>
+            <Image placeholder="LOGO" src={logo} height={30} ></Image>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
                 <Nav className="d-lg-none">

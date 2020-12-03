@@ -8,17 +8,17 @@ const InstructionsView = () => {
         <>
             <Container className="textpage">
                 <h1>How to use</h1>
-                <p>Kun sovellus käynnistetään, se hakee käyttäjän sijainnin. 
-                    Jos paikannus on pois päältä tai paikannus ei onnistu, 
-                    sovellus näyttää oletussijaintina Helsingin keskustan.</p>
-                <p>Oletuksena sovellus näyttää tapahtumia kilometrin säteellä. 
-                    Etäisyyttä ja päivämäärää, joiden mukaan tapahtumia tarkastellaan, 
-                    voi muuttaa kartan alapuolella olevista valikoista.</p>
-                <p>Jos tapahtumia löytyy valitulta etäisyydeltä, sovellus näyttää ne pinneinä kartalla. 
-                    Pinniä klikkaamalla tapahtuman tiedot avautuvat popup-ikkunassa. 
-                    Kaikki tapahtumia voi myös tarkastella listana List -välilehdellä.
-                    Sieltä tapahtumia voi rajata myös käyttämällä vapaata sanahakua tapahtuman nimestä</p>
-                <p>Tapahtumia voi myös rajata sen tyypin mukaan käyttämällä toimintoa Filters.</p>
+                <p>On starting the application, it asks the location of the user. 
+                If the user grants access to the location information, then the application shows the location on a map.
+                Otherwise the application will show the user on a default location, which is the center of Helsinki.
+                By default the application will display events on a 1km radius and today.</p>
+                <p>Our application has a number of ways for modifying the search results. Radius can be changed from the slider beneath the map, also the date picker is found underneath the map.
+                There is also a sidebar for filters from which the different tags can be changed.</p>
+                <p>If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events. 
+                The events are shown in the map through pins.
+                By clicking the pin, the events information pops up.
+                All the events can be seen on the list tab aswell as the map tab.
+                There is a search bar on the list tab with which you can filter from the events shown by their names.</p>
             </Container>
             <Footer />
         </>
