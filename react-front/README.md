@@ -93,7 +93,53 @@ localhost linkki
 miten sovellusta käytetään?
 tähän olisi hyvä lisätä screenshotteja projektin eri käyttövaiheista.
 
+## Modifying the code to take other event data
 
+The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have **at least** these fields: 
+
+- Name/Description
+- Location(coordinates, or use a geocoding tool with an address)
+- Start time
+
+You could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field youre lacking in your data, either disable the functionality in the code or generate empty fields.
+
+### The structure of the relevant fields in the event-object we use from Helsinki-API:
+
+```
+{
+    "name": {
+        "fi": "<Finnish>", 
+        "en": "<English>",
+        "sv": "<Swedish>"
+    },
+    "info_url": "<Link to event organizers page>",
+    "location": {
+        "lat": 60,
+        "long": 25,
+        "streeet_address": "",
+        "postal_code": "",
+        "locality": ""
+    },
+    "description": {
+        "intro": "<Title>",
+        "body": ""
+    },
+    "tags": [
+        {
+            "name": "<Tag name, we use these for filtering>"
+        }
+    ],
+    "event_dates": {
+        "starting_day": "2020-11-07T12:00:00.000Z",
+        "ending_day": "2020-11-07T12:00:00.000Z"
+    }
+}
+
+```
+
+The tag categories were made by hand and are hardcoded into LogicalFunctions/GetTagList.js. They probably wont be useful for your data, but you can use it as a base for your own division.
+
+Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
 
 ## project group
