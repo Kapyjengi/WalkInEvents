@@ -8,14 +8,14 @@
 
 
 
-## description
+## Description
+
+Walk-in Events was made to answers the question "What events in Helsinki could I go to right now?"
+
+The project provides a way to view events from the [Helsinki Open API](http://open-api.myhelsinki.fi/). Events are filtered and then displayed as markers on a map and as a list. The filters we use are: time, distance to user, topic(tags) and when using the search-field, by name of event.
 
 
-joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tärkeys menemällä suoraan asian ytimeen
-
-
-
-### table of contents
+### Table of contents
 
 
 1. tarvitaanko
@@ -24,10 +24,10 @@ joka on tiivis, informatiivinen ja jossa kerrotaan projektin perusidea sekä tä
 
 
 
-## getting started
+## Getting started
 
 
-just follow these simple steps to run our project!
+Just follow these simple steps to run our project!
 
 
 
