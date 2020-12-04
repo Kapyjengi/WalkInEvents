@@ -1,6 +1,6 @@
 import React from 'react'
 import { Nav, Navbar, Image } from 'react-bootstrap'
-import logo from '../wie-logo.png'
+import logo from '../SharedViewComponents/wie-logo.png'
 
 export const NavLinks = () => (
     <>
@@ -13,14 +13,15 @@ export const NavLinks = () => (
 export const NavBar = () => {
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="secondary" bg="dark" variant="dark" className="justify-content-end">
-            <Navbar.Brand className="mr-auto" href="/">WalkInEvents</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg">
+            <Navbar.Brand href="/"><Image alt="WIE" className="wie-logo" src={logo} height={30} ></Image></Navbar.Brand>
+            <p className="tagline d-none d-md-block">Explore the events near you!</p>
             <Navbar.Collapse id="responsive-navbar-nav2" className="justify-content-end ml-3 d-none d-lg-block">
-                <Nav className="mr-auto">
+                <Nav className="">
                     <NavLinks />
                 </Nav>
             </Navbar.Collapse>
-            <Image placeholder="LOGO" src={logo} height={30} ></Image>
+            
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
                 <Nav className="d-lg-none">

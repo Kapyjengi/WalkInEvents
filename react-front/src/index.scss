@@ -68,6 +68,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+body .navbar {
+  background-color: #5375A9;
+  padding: 0;
+  align-items: normal;
+  justify-content: normal;
+}
+
+body .navbar-brand {
+  background-color: #436394;
+  padding-top: 1rem;
+  padding-right: 1.3rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.3rem;
+}
+.wie-logo {
+  height: 30px;
+}
+
+.tagline {
+  color: #143362;
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 1.2rem;
+}
+body .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
 body .leaflet-popup-content {
   margin: 0px 0px !important;
   line-height: 1.4;
