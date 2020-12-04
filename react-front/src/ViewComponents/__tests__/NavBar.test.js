@@ -31,7 +31,7 @@ function renderWithRedux(
     }
 }
 
-describe('NavBar', () => {
+/* describe('NavBar', () => {
     it('renders with redux', () => { renderWithRedux(<NavBar />) })
     it('brand is named correctly', () => {
         const { getByText } = renderWithRedux(<NavBar />)
@@ -41,7 +41,7 @@ describe('NavBar', () => {
         const { getByText } = renderWithRedux(<NavBar />)
         fireEvent.click(getByText('WalkInEvents'))
     })
-})
+}) */
 
 describe('NavLinks', () => {
     test('renders with redux', () => { renderWithRedux(<NavLinks />) })
