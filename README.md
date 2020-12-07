@@ -1,13 +1,10 @@
 ![CI/CD](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20test%20React-client,%20build%20and%20deploy%20Node.js%20to%20Azure%20Web%20App/badge.svg)
 
-
-
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 # WalkIn-Events
 
-
 > explore the events near you
-
 
 <p>
 <img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
@@ -29,13 +26,9 @@ Be sure you are running node and npm on your computer.
 
 Open command-line tool, f.e. powershell and type `node -v` and then `npm -v`
 
-> the output should be something like this
+<img alt="powershell - npm and node versions" src="https://i.imgur.com/z63jbCR.jpeg">
 
-<img alt="powershell - npm and node versions" src="https://imgur.com/a/EKJpvDL">
-
-> if not
-
-just follow [these steps](https://treehouse.github.io/installation-guides/windows/node-windows.html) and then come back!
+If you don't have node and/or npm installed on you computer just follow [these steps](https://treehouse.github.io/installation-guides/windows/node-windows.html) and then come back!
 
 ### Installation
 
@@ -114,17 +107,15 @@ The tag categories were made by hand and are hardcoded into LogicalFunctions/Get
 
 Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
-## project group
+## Project group
+This project was part of Software Project II -course in Haaga-Helia University of Applied Sciences.
 
-tässä ehkä jotain liirumlaarumia
-halutessa linkitys `#` merkin tilalle
-
-- [Anton Javits](http://#)
-- [Petja Koivu](http://xd)
+- [Anton Javits](https://github.com/AntonJavits)
+- [Petja Koivu](https://github.com/bgh312)
 - [Olli Kuikka](https://github.com/pineappletea)
-- [Sami Kulonpää](http://#)
-- [Päivi Lampinen](http://#)
-- [Jukka Lehikoinen](http://#)
+- [Sami Kulonpää](https://github.com/samikul)
+- [Päivi Lampinen](https://github.com/PaiviL)
+- [Jukka Lehikoinen](https://github.com/JukkaLehikoinen)
 
 ## Licence
 
