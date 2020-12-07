@@ -13,22 +13,11 @@
 <img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
 </p>
 
-
 ## Description
 
 Walk-in Events was made to answers the question "What events in Helsinki could I go to right now?"
 
 The project provides a way to view events from the [Helsinki Open API](http://open-api.myhelsinki.fi/). Events are filtered and then displayed as markers on a map and as a list. The filters we use are: time, distance to user, topic(tags) and when using the search-field, by name of event.
-
-
-### table of contents
-
-
-1. tarvitaanko
-2. me
-3. tätä?
-
-
 
 ## Getting started
 
@@ -66,8 +55,6 @@ $ npm install
 ```
 $ npm install -g nodemon
 ```
-> After these you're good to go!
-
 4. Run build in \WalkInEvents\react-front
 ```
 $ npm run dev
@@ -127,9 +114,7 @@ The tag categories were made by hand and are hardcoded into LogicalFunctions/Get
 
 Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
-
 ## project group
-
 
 tässä ehkä jotain liirumlaarumia
 halutessa linkitys `#` merkin tilalle
@@ -141,25 +126,10 @@ halutessa linkitys `#` merkin tilalle
 - [Päivi Lampinen](http://#)
 - [Jukka Lehikoinen](http://#)
 
-
-
-## lisenssi
+## Licence
 
 minkä lisenssin alla projekti on?
 
-
-
 ## Domain
 
-
-Currently we have a redirect from [walkingevents.tech](http://walkinevents.tech/) to our [heroku build](https://walk-in-events.herokuapp.com/).
-
-
-
----
-githubin omat readme.md dokumentointiohjeet löytyy [täältä](https://guides.github.com/features/wikis/)
-
-perustoimintojen kirjoittamisen ja muotoilun ohjeet löytyy [täältä](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
-
-tässä vois olla aika passeli [esimerkkipohja](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
----
+https://wie-dev.azurewebsites.net/instructions
