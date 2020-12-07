@@ -4,6 +4,8 @@
 # WalkIn-Events
 ### Explore the events near you!
 
+Visit our [website](https://wie-dev.azurewebsites.net/)!
+
 <p>
 <img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
 </p>
@@ -142,7 +144,3 @@ This project was part of Software Project II -course in Haaga-Helia University o
 ![CC BY-SA 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
 Helsinki Open API [terms of use](http://open-api.myhelsinki.fi/terms).
-
-## Domain
-
-[WalkIn-Events](https://wie-dev.azurewebsites.net/)
