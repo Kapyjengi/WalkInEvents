@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/_functions.scss"; 
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+
+
+$theme-colors: (
+  "primary": #F97316,
+  "secondary": #ff4136,
+  "info": #F97316,
+  "danger": #ff4136,
+  "blue": #F97316
+);
+// Import Bootstrap and its default variables
+@import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.scss";
+@import '~bootstrap/scss/bootstrap.scss';

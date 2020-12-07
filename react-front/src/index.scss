@@ -8,6 +8,8 @@ $secondary: #ff4136;
 $toolbarBg: #EDF4FF;
 $secondarytoolbarBg: #D6E6FF;
 
+$blue: #143362;
+
 $bodyfontfamily: 'Open Sans', sans-serif;
 $headingsfontfamily: 'Montserrat', sans-serif;
 
@@ -91,7 +93,6 @@ body .navbar-brand {
   font-size: 1.2em;
   font-style: italic;
   margin-top: 1.2rem;
-  margin-left: .8rem;
 }
 
 body .navbar-nav ul {
@@ -112,14 +113,13 @@ body .navbar-collapse ul {
   padding: 0;
 }
 
-body .navbar-collapse.mobile-nav ul {
+body .navbar-collapse .show ul {
   background-color: #10274b;
-  padding: 1rem 0;
+/*   padding: 1rem 0; */
   margin-right: 0;
-  margin-bottom: 0;
 }
 
-body .navbar-collapse.mobile-nav ul a {
+body .navbar-collapse.show ul a {
   font-size: 1.1em;
   text-align: center;
   display: block;
@@ -146,6 +146,7 @@ body .leaflet-popup-content {
   margin: 0px 0px !important;
   line-height: 1.4;
 }
+
 
 .event-cards-card {
   margin-top: 1rem;
@@ -249,6 +250,71 @@ body .leaflet-container a.leaflet-popup-close-button {
   margin-top: 1rem;
 }
 
+body .range-slider input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+body .range-slider input[type=range] ::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+body input[type=range].range-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
+body .range-slider {
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+}
+
+
+
+body .range-slider .e-handle {
+  height: 20px;
+  width: 20px;
+  margin-left: -10px;
+  top: calc(50% - 10px);
+}
+
+
+body .range-slider .e-tab-handle::after {
+  background-color: #f9920b;
+}
+
+body .range-slider .e-slider-track {
+  height: 8px;
+  top: calc(50% - 4px);
+  border-radius: 0;
+}
+
+
+
+
+
+
+
+
 .toolbarfooter .range-slider__wrap {
   z-index: 1000;
 }
@@ -260,10 +326,10 @@ body .leaflet-container a.leaflet-popup-close-button {
   opacity: 1;
 }
 .toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label {
-  background-color: #F97316;
+  background-color: $blue;
 }
 .toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--top .range-slider__tooltip__arrow::before {
-  border-top-color: #F97316;
+  border-top-color: $blue;
 }
 
 .calendar-icon {
