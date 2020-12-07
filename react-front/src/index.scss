@@ -69,14 +69,14 @@ code {
 }
 
 body .navbar {
-  background-color: #5375A9;
+  background-color: #143362;
   padding: 0;
   align-items: normal;
   justify-content: normal;
 }
 
 body .navbar-brand {
-  background-color: #436394;
+  border-right: 1px solid #0e2442;
   padding-top: 1rem;
   padding-right: 1.3rem;
   padding-bottom: 1.5rem;
@@ -87,13 +87,25 @@ body .navbar-brand {
 }
 
 .tagline {
-  color: #143362;
+  color: #f97316;
   font-size: 1.2em;
   font-style: italic;
   margin-top: 1.2rem;
 }
 body .navbar-light .navbar-nav .nav-link {
   color: #fff;
+}
+
+body .navbar-light button {
+  margin-left: auto;
+}
+
+body .navbar-light .navbar-toggler,
+body .navbar-light .navbar-toggler:focus {
+  color: rgba(255,255,255,1);
+  border-color: rgba(255,255,255,1);
+  border-width: 0;
+  outline: none;
 }
 
 body .leaflet-popup-content {
