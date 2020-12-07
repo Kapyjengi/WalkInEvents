@@ -1,7 +1,6 @@
 ![CI/CD](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20test%20React-client,%20build%20and%20deploy%20Node.js%20to%20Azure%20Web%20App/badge.svg)
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)(http://creativecommons.org/licenses/by/4.0/)
-
+![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 # WalkIn-Events
 
 > explore the events near you
@@ -35,7 +34,6 @@ If you don't have node and/or npm installed on you computer just follow [these s
 1. Clone
 ```
 $ git clone https://github.com/Kapyjengi/WalkInEvents.git
-
 ```
 2. Install npm packages in \WalkInEvents
 ```
@@ -44,8 +42,6 @@ $ npm install
 3. Install npm packages in \WalkInEvents\react-front
 ```
 $ npm install
-```
-```
 $ npm install -g nodemon
 ```
 4. Run build in \WalkInEvents\react-front
@@ -54,10 +50,28 @@ $ npm run dev
 ```
 > Visit localhost:3001/api/events to be sure the the server is working correctly
 
+### Run tests
+```
+$ npm run test
+```
+
 ## How to use our app?
 
-miten sovellusta käytetään?
-tähän olisi hyvä lisätä screenshotteja projektin eri käyttövaiheista.
+On starting the application, it asks the location of the user. If the user grants access to the location information, then the application shows the location on a map. Otherwise the application will show the user on a default location, which is the center of Helsinki. By default the application will display events on a 3 km radius and today.
+
+> LISÄÄ KUVA ALOITUSNÄKYMÄSTÄ
+
+Our application has a number of ways for modifying the search results. Radius can be changed from the slider beneath the map, also the date picker is found underneath the map. There is also a sidebar for filters from which the different tags can be changed.
+
+> LISÄÄ KUVA, JOISSA RANGESLIDER JA TAGIT ON KOROSTETTUINA
+
+If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events. The events are shown in the map through pins. By clicking the pin, the events information pops up.
+
+> LISÄÄ KUVA KARTAN POPUPISTA
+
+All the events can be seen on the list tab aswell as the map tab. There is a search bar on the list tab with which you can filter from the events shown by their names.
+
+> LISÄÄ KUVA LISTANÄKYMÄSTÄ JOSSA NÄKYY MYÖS HAKUKENTTÄ
 
 ## Modifying the code to take other event data
 
@@ -119,8 +133,10 @@ This project was part of Software Project II -course in Haaga-Helia University o
 
 ## Licence
 
-minkä lisenssin alla projekti on?
+Helsinki Open API [terms of use](http://open-api.myhelsinki.fi/terms).
+
+![CC BY-SA 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
 ## Domain
 
-https://wie-dev.azurewebsites.net/instructions
+[WalkIn-Events](https://wie-dev.azurewebsites.net/)
