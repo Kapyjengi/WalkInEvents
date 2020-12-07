@@ -1,27 +1,28 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+import { Link } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
 
 export default function NavigationBar(){
 
     return (
-        <nav>
-        <ul>
-          <li>
-            <NavLink exact activeClassName="active" to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact activeClassName="active" to="/about">
+        
+        <Nav defaultActiveKey="/" as="ul">
+          <Nav.Item as="li">
+            <Nav.Link exact eventKey="1" as={Link} activeClassName="active" to="/">
+              Walk-in Events
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item as="li">
+            <Nav.Link exact eventKey="2" as={Link} activeClassName="active" to="/about">
               About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact activeClassName="active" to="/instructions">
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item as="li">
+            <Nav.Link exact eventKey="3" as={Link} activeClassName="active" to="/instructions">
               Contact
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+            </Nav.Link>
+          </Nav.Item>
+        
+      </Nav>
     )
 }

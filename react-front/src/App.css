@@ -20,12 +20,7 @@ html {
   box-sizing: border-box;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  background-color: #143362;
-  margin-bottom: 5px;
-}
+
 
 @media only screen and (max-width: 991px) {
   nav ul {
@@ -36,15 +31,3 @@ nav ul {
   }
 }
 
-nav ul li {
-  padding: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.active {
-  border-bottom: 3px solid rgb(255, 255, 255);
-}

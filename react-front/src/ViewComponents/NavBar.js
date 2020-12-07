@@ -19,9 +19,9 @@ export const NavBar = () => {
             <Navbar.Brand href="/"><Image alt="WIE" className="wie-logo" src={logo} height={30} ></Image></Navbar.Brand>
             <p className="tagline d-none d-md-block">Explore the events near you!</p>
             <Navbar.Collapse id="responsive-navbar-nav2" className="justify-content-end ml-3 d-none d-lg-block">
-                <Nav className="">
+                
                     <NavLinks />
-                </Nav>
+                
             </Navbar.Collapse>
             
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
