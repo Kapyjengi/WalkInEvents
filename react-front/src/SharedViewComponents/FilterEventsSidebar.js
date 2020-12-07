@@ -11,13 +11,19 @@ export default function FilterEventsSidebar(props) {
   const checkOrUncheckAll = () => {
     SwitchAllTagOptions()
   }
+  const checkButtonText = () => {
+    if (state.allTags[0].isChecked) {
+      return "Uncheck All"
+    } else {
+      return "Check All"
+    }
+  }
 
   return (
     <div className="filterEventsSidebar">
       <p>Showing {numberOfFilteredEvents} events.</p>
       <ShowTagOptions />
-      <Button variant="secondary" onClick={checkOrUncheckAll}>Check/Uncheck All</Button>
-
+      <Button variant="secondary" onClick={checkOrUncheckAll}>{checkButtonText()}</Button>
     </div>
   )
 }

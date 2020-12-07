@@ -6,10 +6,10 @@ import ShowTagOptions from './ShowTagOptions'
 import SwitchAllTagOptions from '../LogicalFunctions/SwitchAllTagChecks'
 
 export default function Filtteri(props) {
-  const state = useSelector(state => state) 
+  const state = useSelector(state => state)
   const [open, setOpen] = useState(false);
   const numberOfFilteredEvents = state.filteredEvents.length
-  
+
   const handleClose = () => {
     setOpen(false);
     RunEventFilters()
@@ -20,6 +20,15 @@ export default function Filtteri(props) {
   }
   const checkOrUncheckAll = () => {
     SwitchAllTagOptions()
+    console.log(state.allTags[0].isChecked)
+  }
+
+  const checkButtonText = () => {
+    if (state.allTags[0].isChecked) {
+      return "Uncheck All"
+    } else {
+      return "Check All"
+    }
   }
 
   return (
@@ -40,7 +49,7 @@ export default function Filtteri(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={checkOrUncheckAll}>Check/Uncheck All</Button>
+          <Button variant="secondary" onClick={checkOrUncheckAll}>{checkButtonText()}</Button>
           <Button variant="primary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
