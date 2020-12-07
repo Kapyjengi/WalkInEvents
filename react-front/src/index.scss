@@ -92,8 +92,26 @@ body .navbar-brand {
   font-style: italic;
   margin-top: 1.2rem;
 }
+
+body .navbar-nav {
+  margin-right: 1rem;
+}
+
 body .navbar-light .navbar-nav .nav-link {
   color: #fff;
+  text-align: center;
+}
+
+body .navbar-light .navbar-nav .nav-link:hover {
+  color: #DB6615;
+}
+
+body .navbar-collapse {
+  background-color: #10274b;
+  padding: 1rem 0;
+}
+body .navbar-collapse .nav-link {
+  font-size: 1.1em;
 }
 
 body .navbar-light button {
@@ -106,6 +124,10 @@ body .navbar-light .navbar-toggler:focus {
   border-color: rgba(255,255,255,1);
   border-width: 0;
   outline: none;
+}
+
+body .navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 280, 280, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 body .leaflet-popup-content {
