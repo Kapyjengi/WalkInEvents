@@ -1,12 +1,14 @@
 import React from 'react'
 import { Nav, Navbar, Image } from 'react-bootstrap'
 import logo from '../SharedViewComponents/wie-logo.png'
+import NavigationBar from './NavigationBar'
 
 export const NavLinks = () => (
     <>
-        <Nav.Link href="/">Events</Nav.Link>
+        {/* <Nav.Link href="/">Events</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
-        <Nav.Link href="/instructions">Instructions</Nav.Link>
+        <Nav.Link href="/instructions">Instructions</Nav.Link> */}
+        <NavigationBar/>
     </>
 )
 

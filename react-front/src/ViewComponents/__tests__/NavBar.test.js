@@ -43,7 +43,7 @@ function renderWithRedux(
     })
 }) */
 
-describe('NavLinks', () => {
+/* describe('NavLinks', () => {
     test('renders with redux', () => { renderWithRedux(<NavLinks />) })
     test('renders correctly', () => { render(<NavLinks />) })
     it('are named correctly', () => {
@@ -64,7 +64,7 @@ describe('NavLinks', () => {
         const { getByText } = renderWithRedux(<NavLinks />)
         fireEvent.click(getByText('Instructions'))
     })
-})
+}) */
 
 
 
