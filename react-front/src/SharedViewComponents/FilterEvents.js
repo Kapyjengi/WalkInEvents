@@ -34,7 +34,7 @@ export default function Filtteri(props) {
   return (
     <div className="button-container">
 
-      <Button variant="primary" size='sm' className={props.css + " float-right filters-btn"} onClick={handleClickOpen}>Filters</Button>
+      <Button variant="primary" size='md' className={props.css + " float-right filters-btn"} onClick={handleClickOpen}>Filters</Button>
 
       <Modal show={open} onHide={handleClose} >
         <Modal.Header>

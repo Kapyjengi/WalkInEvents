@@ -26,7 +26,7 @@ const MainView = () => {
             </Col>
             <Col xs={3} className="btn-heading-container-open">
               <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
-              <h5 className="d-none d-md-inline">Filters</h5>
+              <h5 className="d-none d-md-block">Filters</h5>
             </Col>
           </Row>
           <Row>

@@ -5,8 +5,8 @@
 $primary: #F97316;
 $primaryhover: #DB6615;
 $secondary: #ff4136;
-$toolbarBg: #EDF4FF;
-$secondarytoolbarBg: #D6E6FF;
+$toolbarBg: #d0e3ff; /* #EDF4FF; */
+$secondarytoolbarBg: #bcd7ff;
 
 $blue: #143362;
 
@@ -63,7 +63,8 @@ body {
 
 body p {
   font-family: $bodyfontfamily;
-  line-height: 1.6em;
+  line-height: 1.8em;
+  color: #143362;
 }
 
 code {
@@ -291,30 +292,6 @@ body .range-slider {
 
 
 
-body .range-slider .e-handle {
-  height: 20px;
-  width: 20px;
-  margin-left: -10px;
-  top: calc(50% - 10px);
-}
-
-
-body .range-slider .e-tab-handle::after {
-  background-color: #f9920b;
-}
-
-body .range-slider .e-slider-track {
-  height: 8px;
-  top: calc(50% - 4px);
-  border-radius: 0;
-}
-
-
-
-
-
-
-
 
 .toolbarfooter .range-slider__wrap {
   z-index: 1000;
@@ -343,10 +320,10 @@ body .range-slider .e-slider-track {
 }
 
 .tabnav-row h5 {
-  padding: 0rem 1rem 0 1rem;
+  padding: 1.15rem 1rem 0 1rem;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.15em;
 }
 
 .tabnav-row .nav .nav-link {
@@ -354,6 +331,7 @@ body .range-slider .e-slider-track {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   color: #f97316;
+  font-size: 1.15em;
 }
 .tabnav-row .nav .nav-link.active {
   border-bottom: 3px solid #f97316;
@@ -375,10 +353,9 @@ body .range-slider .e-slider-track {
 .btn-heading-container-closed {
   padding-top: 1.05rem 1rem .6rem 1rem;
   margin: 0;
-  background: $toolbarBg;
+  background: $secondarytoolbarBg;
 }
 .btn-heading-container-open {
-  padding: 1.05rem 1rem .6rem 1rem;
   margin: 0;
   background: $secondarytoolbarBg;
 }
@@ -416,9 +393,11 @@ body .range-slider .e-slider-track {
 }
 
 .textpage h1 {
-  font-family: $headingsfontfamily;
-  color: #222;
-  margin-top: 1rem;
+  font-family: "Montserrat", sans-serif;
+  color: #F97316;
+  margin-top: 2rem;
+  margin-bottom: 1.1rem;
+  font-size: 2.4em;
 }
 
 .textpage h1 span {

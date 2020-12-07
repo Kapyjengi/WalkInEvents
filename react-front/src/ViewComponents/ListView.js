@@ -114,7 +114,7 @@ export default function ListView() {
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   // API Rest on ladattu kokonaan ja näytetään koko lista.
   return (
-    <div className="App">
+    <div>
       {loading === '' ? (<MapView />) : (<div>Loading</div>)}
     </div>
   )

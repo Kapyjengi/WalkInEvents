@@ -19,7 +19,7 @@ export default function NavigationBar(){
           </Nav.Item>
           <Nav.Item as="li">
             <Nav.Link exact eventKey="3" as={Link} activeClassName="active" to="/instructions">
-              Contact
+              How to use
             </Nav.Link>
           </Nav.Item>
         
