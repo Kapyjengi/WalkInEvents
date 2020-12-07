@@ -141,7 +141,7 @@ For the lightest implementation, you could build a function that converts your d
     "location": {
         "lat": 60,
         "long": 25,
-        "streeet_address": "",
+        "street_address": "",
         "postal_code": "",
         "locality": ""
     },
