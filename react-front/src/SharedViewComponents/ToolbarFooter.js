@@ -3,7 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from "react";
 import Slider from '../SharedViewComponents/DistanceSlider'
 import { Calendar3 } from 'react-bootstrap-icons'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setDate } from '../GlobalStore/TimeActions'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -15,7 +15,6 @@ import Button from 'react-bootstrap/Button'
 export default function ToolbarFooter() {
 
     const [startDate, setStartDate] = useState(new Date());
-    const state = useSelector(state => state)
     const dispatch = useDispatch()
 
     const onChanged = (e) => {

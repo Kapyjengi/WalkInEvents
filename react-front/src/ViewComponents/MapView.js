@@ -18,7 +18,6 @@ const MapView = () => {
   const filteredEvents = state.filteredEvents
   const range = state.range
   const userLocation = state.userLocation
-
   const [zoom, setZoom] = React.useState(13)
   const location = { lat: userLocation.latitude, lng: userLocation.longitude }
   const iconMarkup = renderToStaticMarkup(

@@ -25,6 +25,7 @@ export default function ListView() {
   useEffect(() => {
     //Haetaan koordinaatit
     if (navigator.geolocation) {
+      // FIXME
       Coords();
     }
   },

@@ -14,6 +14,7 @@ export default function SearchByDate(events, selectedDay) {
   if (selectedDay !== 0 && events !== undefined) {
 
     //käydään lista läpi ja tarkastellaan onko tapahtumalla ja toivotulla päivämäärällä samatieto.
+    //FIXME
     events.map((event) => {
 
 
