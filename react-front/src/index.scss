@@ -91,6 +91,7 @@ body .navbar-brand {
   font-size: 1.2em;
   font-style: italic;
   margin-top: 1.2rem;
+  margin-left: .8rem;
 }
 
 body .navbar-nav ul {
@@ -111,13 +112,14 @@ body .navbar-collapse ul {
   padding: 0;
 }
 
-body .navbar-collapse .show ul {
+body .navbar-collapse.mobile-nav ul {
   background-color: #10274b;
-/*   padding: 1rem 0; */
+  padding: 1rem 0;
   margin-right: 0;
+  margin-bottom: 0;
 }
 
-body .navbar-collapse.show ul a {
+body .navbar-collapse.mobile-nav ul a {
   font-size: 1.1em;
   text-align: center;
   display: block;
