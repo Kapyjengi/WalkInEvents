@@ -2,8 +2,7 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 # WalkIn-Events
-
-> explore the events near you
+### Explore the events near you!
 
 <p>
 <img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
@@ -13,7 +12,12 @@
 
 Walk-in Events was made to answers the question "What events in Helsinki could I go to right now?"
 
-The project provides a way to view events from the [Helsinki Open API](http://open-api.myhelsinki.fi/). Events are filtered and then displayed as markers on a map and as a list. The filters we use are: time, distance to user, topic(tags) and when using the search-field, by name of event.
+The project provides a way to view events from the [Helsinki Open API](http://open-api.myhelsinki.fi/) maintained by [Helsinki Marketing](https://www.myhelsinki.fi/en/about). Events are filtered and then displayed as markers on a map and as a list. The filters we use are: 
+
+- time
+- distance to user
+- topictags
+- name of the event
 
 ## Getting started
 
@@ -122,7 +126,6 @@ The tag categories were made by hand and are hardcoded into LogicalFunctions/Get
 Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
 ## Project group
-This project was part of Software Project II -course in Haaga-Helia University of Applied Sciences.
 
 - [Anton Javits](https://github.com/AntonJavits)
 - [Petja Koivu](https://github.com/bgh312)
@@ -131,11 +134,14 @@ This project was part of Software Project II -course in Haaga-Helia University o
 - [Päivi Lampinen](https://github.com/PaiviL)
 - [Jukka Lehikoinen](https://github.com/JukkaLehikoinen)
 
+This project was part of Software Project II -course in Haaga-Helia University of Applied Sciences.
+
+
 ## Licence
 
-Helsinki Open API [terms of use](http://open-api.myhelsinki.fi/terms).
-
 ![CC BY-SA 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)
+
+Helsinki Open API [terms of use](http://open-api.myhelsinki.fi/terms).
 
 ## Domain
 
