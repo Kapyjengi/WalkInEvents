@@ -30,88 +30,49 @@ The project provides a way to view events from the [Helsinki Open API](http://op
 
 
 
-## getting started
+## Getting started
 
+Follow these steps to run our application locally!
 
-just follow these simple steps to run our project!
-
-
-
-### prerequisities
-
-
+### Prerequisities
 
 Be sure you are running node and npm on your computer.
 
-Open command-line tool, f.e. powershell and type `node -v`
-and then `npm -v`
+Open command-line tool, f.e. powershell and type `node -v` and then `npm -v`
 
 > the output should be something like this
 
-tähän_tulee_kuva_powershellistä.png
+<img alt="powershell - npm and node versions" src="https://imgur.com/a/EKJpvDL">
 
 > if not
 
 just follow [these steps](https://treehouse.github.io/installation-guides/windows/node-windows.html) and then come back!
 
+### Installation
 
-
-### installation
-
-
-> first you have to clone this repo to your local machine
+1. Clone
 ```
 $ git clone https://github.com/Kapyjengi/WalkInEvents.git
 
 ```
-
-> and then you have to install the npm packages:
-1) in WalkInEvents\walkin-node-backend
+2. Install npm packages in \WalkInEvents
 ```
 $ npm install
 ```
-2) in WalkInEvents\react-front
+3. Install npm packages in \WalkInEvents\react-front
 ```
 $ npm install
 ```
-3) Install global Nodemon
+and 
 ```
 npm install -g nodemon
 ```
-> after that you're good to go! Open folder "react-front" and start server in background, while react app is running at localhost:3000. To check, if server is working, visit localhost:3001/api/events
+After these you're good to go!
+4. Run build in \WalkInEvents\react-front
 ```
 $ npm run dev
 ```
-
-## Deployment to Heroku
-
-> From "\walkin-node-backend" run 
-
-```
-$ npm run build:ui
-```
-> From repo root run
-```
-$ heroku login
-$ git subtree push --prefix walkin-node-backend heroku master
-```
-
-## how to use our web-app?
-
-tähän tehdään hienot käyttöohjeet kuvineen ja sepustuksineen
-
-
-
-
-### npm packages that we have used in our project
-```
-npm install leaflet
-npm install react-leaflet
-npm install react-bootstrap bootstrap
-npm install react-router-dom
-npm install moment
-```
-localhost linkki
+> Visit localhost:3001/api/events to be sure the the server is working correctly
 
 ## How to use our app?
 
@@ -141,7 +102,7 @@ For the lightest implementation, you could build a function that converts your d
     "location": {
         "lat": 60,
         "long": 25,
-        "street_address": "",
+        "streeet_address": "",
         "postal_code": "",
         "locality": ""
     },
