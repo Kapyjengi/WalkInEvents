@@ -25,7 +25,7 @@ export const NavBar = () => {
             </Navbar.Collapse>
             
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
+            <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0 mobile-nav">
                 <Nav className="d-lg-none">
                     <NavLinks />
                 </Nav>

@@ -93,25 +93,34 @@ body .navbar-brand {
   margin-top: 1.2rem;
 }
 
-body .navbar-nav {
+body .navbar-nav ul {
   margin-right: 1rem;
 }
 
-body .navbar-light .navbar-nav .nav-link {
-  color: #fff;
-  text-align: center;
-}
-
-body .navbar-light .navbar-nav .nav-link:hover {
+body .navbar-nav nav ul a:hover {
   color: #DB6615;
+  text-decoration: none;
+}
+body .navbar-nav nav ul a.active {
+  color: #DB6615;
+  text-decoration: none;
+  border-bottom: 0;
+}
+body .navbar-collapse ul {
+  list-style: none;
+  padding: 0;
 }
 
-body .navbar-collapse.show {
+body .navbar-collapse .show ul {
   background-color: #10274b;
-  padding: 1rem 0;
+/*   padding: 1rem 0; */
+  margin-right: 0;
 }
-body .navbar-collapse .nav-link {
+
+body .navbar-collapse.show ul a {
   font-size: 1.1em;
+  text-align: center;
+  display: block;
 }
 
 body .navbar-light button {
