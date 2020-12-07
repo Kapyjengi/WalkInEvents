@@ -63,11 +63,11 @@ $ npm install
 ```
 $ npm install
 ```
-and 
 ```
-npm install -g nodemon
+$ npm install -g nodemon
 ```
 After these you're good to go!
+
 4. Run build in \WalkInEvents\react-front
 ```
 $ npm run dev
