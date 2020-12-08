@@ -149,6 +149,12 @@ body .leaflet-popup-content {
   line-height: 1.4;
 }
 
+.leaflet-popup-content .read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 250px;
+  overflow-y: scroll;
+}
 
 .event-cards-card {
   margin-top: 1rem;

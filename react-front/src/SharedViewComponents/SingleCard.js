@@ -7,8 +7,6 @@ import Card from 'react-bootstrap/Card'
 
 export default function SingleCard(props) {
 
-    const [readMore, setReadMore] = useState(false);
-
     let name = props.name;
     let dateAndTime = props.time
     let address = props.address
@@ -22,7 +20,6 @@ export default function SingleCard(props) {
         disable = true
         buttonColor = "secondary"
     }
-    const readMorelinkName = readMore ? 'Read Less << ' : 'Read More >> '
 
     return (
         <Card bg='light'>
@@ -32,11 +29,20 @@ export default function SingleCard(props) {
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{dateAndTime}<br />{address}</Card.Text>
                         <Card.Text>
-                            {desc}
-                            {readMore && fullDesc}
-                            <p className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
-                                <strong>{readMorelinkName}</strong>
-                            </p>
+                            
+                          
+
+                            <input type="checkbox" class="read-more-state" id={name} />
+                                    <div className="read-more-wrap">
+                                        <p>{desc}</p>
+
+                                        <div className="read-more-target">
+
+                                            {fullDesc}
+
+                                        </div>
+                                    </div>
+                            <label for={name} className="read-more-trigger"></label>
                         </Card.Text>
                     </Col>
                 </Row>
