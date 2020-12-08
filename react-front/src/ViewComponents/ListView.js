@@ -115,8 +115,13 @@ export default function ListView() {
   // API Rest on ladattu kokonaan ja näytetään koko lista.
   return (
     <div>
-      {loading === '' ? (<MapView />) : (<div>Loading</div>)}
-    </div>
+      {loading === '' ? (<MapView />) : 
+      (<div class="text-center">
+        <div class="spinner-border m-5 spinner-border-lg text-info" role="status">
+        <span class="sr-only">Loading...</span>
+        </div>
+        </div>)}
+      </div>
   )
 
 
