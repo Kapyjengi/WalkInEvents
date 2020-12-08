@@ -18,8 +18,8 @@ const InstructionsView = () => {
                     There is also a sidebar for filters from which the different tags can be changed.</p>
                     <p>If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events.
                     The events are shown in the map through pins.
-                    By clicking the pin, the events information pops up.
-                    All the events can be seen on the list tab aswell as the map tab.
+                    By clicking the pin, the selected event's information pops up.
+                    All the events can be seen on the list tab as well as the map tab.
                     There is a search bar on the list tab with which you can filter from the events shown by their names.</p>
                   </Col>
               </Row>

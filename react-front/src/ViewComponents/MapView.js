@@ -21,7 +21,7 @@ const MapView = () => {
   const [zoom, setZoom] = React.useState(13)
   const location = { lat: userLocation.latitude, lng: userLocation.longitude }
   const iconMarkup = renderToStaticMarkup(
-    <span style={{ color: 'Tomato' }}>
+    <span style={{ color: '#ed420e' }}>
       <i className='fas fa-street-view fa-3x' />
     </span>
   )

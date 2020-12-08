@@ -71,23 +71,23 @@ Our application has a number of ways for modifying the search results. Radius ca
 
 > LISÄÄ KUVA, JOISSA RANGESLIDER JA TAGIT ON KOROSTETTUINA
 
-If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events. The events are shown in the map through pins. By clicking the pin, the events information pops up.
+If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events. The events are shown in the map through pins. By clicking the pin, the selected event's information pops up.
 
 > LISÄÄ KUVA KARTAN POPUPISTA
 
-All the events can be seen on the list tab aswell as the map tab. There is a search bar on the list tab with which you can filter from the events shown by their names.
+All the events can be seen on the list tab as well as the map tab. There is a search bar on the list tab with which you can filter from the events shown by their names.
 
 > LISÄÄ KUVA LISTANÄKYMÄSTÄ JOSSA NÄKYY MYÖS HAKUKENTTÄ
 
 ## Modifying the code to take other event data
 
-The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have **at least** these fields: 
+The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have should include **at least** these fields: 
 
 - Name/Description
 - Location(coordinates, or use a geocoding tool with an address)
 - Start time
 
-For the lightest implementation, you could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field youre lacking in your data, either disable the functionality in the code or generate empty fields.
+For the lightest implementation, you could build a function that converts your data into our format in between it being fetched and being saved to redux-store. For each field you're lacking in your data, either disable the functionality in the code or generate empty fields.
 
 ### The structure of the relevant fields in the event-object we use from Helsinki-API:
 
@@ -123,9 +123,9 @@ For the lightest implementation, you could build a function that converts your d
 
 ```
 
-The tag categories were made by hand and are hardcoded into LogicalFunctions/GetTagList.js. They probably wont be useful for your data, but you can use it as a base for your own division.
+The tag categories were handmade and are hardcoded into LogicalFunctions/GetTagList.js. They probably won't be useful for your data, but you can use it as a base for your own division.
 
-Youll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
+You'll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
 ## Project group
 
