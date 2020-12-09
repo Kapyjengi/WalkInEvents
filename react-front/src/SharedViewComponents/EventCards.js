@@ -57,28 +57,25 @@ export default function EventCard() {
             <Col md={10}>
                 <Card key={i} bg='light' className="event-cards-card">
                     <Card.Body>
-                        <Row style={{ paddingBottom: 20 }}>
+                        <Row>
                             <Col>
                                 <Card.Title><h4>{name}</h4></Card.Title>
-                                <Card.Text><p>{dateAndTime}<br />{address}</p></Card.Text>
-                                <Card.Text>
-                                    <input type="checkbox" class="read-more-state" id={i} />
-                                    <div className="read-more-wrap">
+                                <input type="checkbox" class="read-more-state" id={i} />
+
+                                <div className="read-more-wrap">
+                                    <Card.Text><p>{dateAndTime}<br /><strong>{distance}</strong> | {address}</p></Card.Text>
+                                    <Card.Text>
                                         <p>{events.description.intro}</p>
 
                                         <div className="read-more-target">
-
                                             {parse(events.description.body)}
-
                                         </div>
-                                    </div>
-                                    <label for={i} className="read-more-trigger"></label>
-                                </Card.Text>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={6} className="align-middle"><p><strong>{distance}</strong></p></Col>
-                            <Col xs={6}>
+                                      </Card.Text>
+                                  </div>
+                                  
+                                  <label for={i} className="read-more-trigger"></label>
+                                
+                       
                                 {disable === false &&
 
                                     <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable} className="float-right">WWW</Button>
