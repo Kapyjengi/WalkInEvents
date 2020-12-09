@@ -22,40 +22,33 @@ export default function SingleCard(props) {
     }
 
     return (
-        <Card bg='light'>
+        <Card>
             <Card.Body>
-                <Row style={{ paddingBottom: 20 }}>
-                    <Col className="single-card">
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>{dateAndTime}<br />{address}</Card.Text>
-                        <Card.Text>
-                            
-                          
-
-                            <input type="checkbox" class="read-more-state" id={name} />
-                                    <div className="read-more-wrap">
-                                        <p>{desc}</p>
-
-                                        <div className="read-more-target">
-
-                                            {fullDesc}
-
-                                        </div>
-                                    </div>
-                            <label for={name} className="read-more-trigger"></label>
-                        </Card.Text>
-                    </Col>
-                </Row>
                 <Row>
-                    <Col xs={6}>{distance}</Col>
-                    <Col xs={6}>
-                        {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
-                        {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
+                    <Col xs={12} className="single-card popup-card">
+                    <Card.Title>{name}</Card.Title>
+                    <input type="checkbox" class="read-more-state" id={name} />
+                            
+                            
+                            <div className="read-more-wrap">
+                              <Card.Text>{dateAndTime}<br /><strong>{distance}</strong> | {address} </Card.Text>
+                              <Card.Text>
+                                <p>{desc}</p>
+                                <div className="read-more-target">
+                                  {fullDesc}
+                                </div>
+                              </Card.Text>
+                            </div>
+                            
+
+                            <label for={name} className="read-more-trigger"></label>
+
 
                         {disable === false &&
-                            <Button href={infoUrl} target="_blank" variant={buttonColor} className="float-right">WWW</Button>
+                            <Button href={infoUrl} target="_blank" variant={buttonColor} className="float-right popup-www-link">WWW</Button>
                         }
                     </Col>
+                   
 
                 </Row>
 
