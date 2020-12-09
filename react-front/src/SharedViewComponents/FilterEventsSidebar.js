@@ -21,7 +21,7 @@ export default function FilterEventsSidebar(props) {
 
   return (
     <div className="filterEventsSidebar">
-      <p>Showing {numberOfFilteredEvents} events.</p>
+      <p className="event-count-p">Showing {numberOfFilteredEvents} events.</p>
       <ShowTagOptions />
       <Button variant="secondary" onClick={checkOrUncheckAll}>{checkButtonText()}</Button>
     </div>

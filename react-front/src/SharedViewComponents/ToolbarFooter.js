@@ -35,14 +35,20 @@ export default function ToolbarFooter() {
     return (
         <div className="toolbarfooter">
             <Container fluid={true}>
-                <Row>
-                    <Col xs={9} md={7} align="center">
+                <Row className="justify-content-center">
+                    <Col xs={10} md={6} className="offset-md-1">
                         <Slider />
                     </Col>
-                    <Col xs={12} md={5}>
+                    <Col xs={12} md={5} align="right">
                         {/* <p>date: <input id="selectday" type="date" value={selectedDate} 
                         onChange={event => changeDateAndRunFilters(event)} /></p>*/}
-                        <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} customInput={<ExampleCustomInput />} />
+                        <DatePicker
+                        id="selectday"
+                        dateFormat="dd.MM.yyyy"
+                        selected={startDate}
+                        onChange={onChanged}
+                        popperPlacement="top"
+                        customInput={<ExampleCustomInput />} />
                     </Col>
                 </Row>
             </Container>

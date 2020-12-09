@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Col } from "react-bootstrap"
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import { setUserLocation } from '../GlobalStore/LocationActions'
 import GetToday from '../LogicalFunctions/GetToday'
@@ -114,14 +115,14 @@ export default function ListView() {
   // Niin kauan kuin loading state on 'LOADING' niin näytetään pelkästään lataus 'merkkiä'
   // API Rest on ladattu kokonaan ja näytetään koko lista.
   return (
-    <div>
+    <Col className="map-col">
       {loading === '' ? (<MapView />) : 
       (<div class="text-center">
         <div class="spinner-border m-5 spinner-border-lg text-info" role="status">
         <span class="sr-only">Loading...</span>
         </div>
         </div>)}
-      </div>
+      </Col>
   )
 
 

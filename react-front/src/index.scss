@@ -5,8 +5,8 @@
 $primary: #F97316;
 $primaryhover: #DB6615;
 $secondary: #ff4136;
-$toolbarBg: #d0e3ff; /* #EDF4FF; */
-$secondarytoolbarBg: #bcd7ff;
+$toolbarBg: #edf0f3; /* #EDF4FF; */
+$secondarytoolbarBg: #dbe3ea;
 
 $blue: #143362;
 
@@ -15,43 +15,36 @@ $headingsfontfamily: 'Montserrat', sans-serif;
 
 
 body .btn-primary {
-  background-color: #F97316;
-  color: white;
-  border: 2px solid #F97316;
-  border-radius: 20px;
-}
-body .btn-secondary {
-  background-color: rgba(255, 255, 255, $alpha: 0);
-  color: #F97316;
   border: 2px solid #F97316;
   border-radius: 25px;
+  padding: 0.3rem 1.1rem 0.35rem;
+  text-transform: uppercase;
+}
+body .btn-secondary {
+  color: $secondary;
+  border: 2px solid #F97316;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 0.3rem 1.1rem 0.35rem;
+  text-transform: uppercase;
 }
 body .btn-primary:hover {
   background-color: $primaryhover;
   border-color: $primaryhover;
 }
 body .btn-secondary:hover {
-  background-color: #f7f7f7;
+  background-color: #fff;
   border-color: $secondary;
   color: $secondary;
-}
-
-body button.btn-primary:not(:disabled):not(.disabled).active,
-body button.btn-primary:not(:disabled):not(.disabled):focus,
-button.btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
-  color: #FFF !important;
-  background-color: #A34809 !important;
-  border-color: $primaryhover;
-  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
 }
 
 body button.btn-secondary:not(:disabled):not(.disabled).active,
 body button.btn-secondary:not(:disabled):not(.disabled):focus,
 button.btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
-  color:  #A34809!important;
-  background-color: #f7f7f7!important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.5) !important;
-  border-color: $primaryhover;
+  color:  #F97316!important;
+  background-color: #fff!important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.3) !important;
+  border-color: $primaryhover
 }
 
 body {
@@ -79,7 +72,7 @@ body .navbar {
 }
 
 body .navbar-brand {
-  border-right: 1px solid #0e2442;
+  border-right: 0 solid #0e2442;
   padding-top: 0.6rem;
   padding-right: 1.3rem;
   padding-bottom: 1.1rem;
@@ -268,7 +261,7 @@ body .leaflet-container a.leaflet-popup-close-button {
 }
 
 .toolbarfooter {
-  background-color: rgb(247, 247, 247);
+  background-color: $toolbarBg;
   border-top: 2px solid #f1f1f1;
   padding: .6rem 0 .6rem;
   margin-top: 1rem;
@@ -386,6 +379,36 @@ body .range-slider {
   background: $secondarytoolbarBg;
 }
 
+.button-container {
+  padding-top: 0.15rem;
+}
+
+body .modal-title {
+  padding: .8rem 1rem 0 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.15em;
+}
+body .modal-header {
+  padding: .4rem 1rem .8rem 1rem;
+  background: $secondarytoolbarBg;
+}
+
+body .modal-body {
+  padding: 1.6rem 0 0.7rem 4rem;
+}
+body .modal-header p {
+  padding: 0.8rem 0.2rem .4rem 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+body .form-check-label {
+  margin-bottom: 0;
+  font-family: $bodyfontfamily;
+  color: #143362;
+}
+
 input {
   overflow: hidden;
   border-radius: 20px;
@@ -394,7 +417,7 @@ input {
   padding: 0.3em 1em 0.4em;
 }
 input:focus {
-  box-shadow: 0 0 3pt 2pt red;
+  box-shadow: 0 0 3pt 2pt #bcd7ff;
   outline: none;
 }
 
@@ -424,6 +447,11 @@ input:focus {
 
 .search-p {
   padding-top: 1rem;
+  font-weight: 600;
+}
+
+.event-count-p {
+  font-weight: 600;
 }
 
 .textpage {
@@ -447,18 +475,21 @@ body .react-datepicker-wrapper {
   text-align: center;
   width: 100%;
 }
-.range-slider__wrap.range-slider__wrap--lg {
+/* .range-slider__wrap.range-slider__wrap--lg {
   padding-left: 1rem;
 
 }
 .react-datepicker__input-container button {
   margin-right: 1rem;
-  float: right; 
-}  
+}   */
 
 @media only screen and (max-width: 350px) {
   .textpage h1 {
     font-size: 1.8em;
+  }
+  .toolbarfooter {
+    padding: .3rem 0 1rem;
+    margin-top: 0;
   }
 }
 
@@ -466,12 +497,13 @@ body .react-datepicker-wrapper {
   .mapDivContainer {
     margin-top: 0;
   }
-  body div.map-col {
+  body div.map-col  {
     padding-left: 0;
     padding-right: 0;
   }
   .toolbarfooter {
     margin-top: 0;
+    padding: .3rem 0 1rem;
   }
   .infofooter {
     margin-top: 0;

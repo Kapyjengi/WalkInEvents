@@ -13,13 +13,13 @@ export default function NavigationBar(){
             </Nav.Link>
           </Nav.Item>
           <Nav.Item as="li">
-            <Nav.Link exact eventKey="2" as={Link} activeClassName="active" to="/about">
-              About
+          <Nav.Link exact eventKey="3" as={Link} activeClassName="active" to="/instructions">
+              How to use
             </Nav.Link>
           </Nav.Item>
           <Nav.Item as="li">
-            <Nav.Link exact eventKey="3" as={Link} activeClassName="active" to="/instructions">
-              How to use
+            <Nav.Link exact eventKey="2" as={Link} activeClassName="active" to="/about">
+              About
             </Nav.Link>
           </Nav.Item>
         

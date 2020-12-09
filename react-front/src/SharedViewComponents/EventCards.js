@@ -93,9 +93,11 @@ export default function EventCard() {
     return (
         <div className="App">
             <Row className="justify-content-md-center">
-
-                {filtered.length > 0 ? (<p className="search-p">Search: <input id="eventos" onChange={SeekName} /></p>) : (<p className="search-p">Search: <input id="eventos" onChange={SeekName}/><br></br><p>No events to show :( Please widen range or filters.</p></p>)}
+              <Col align="center">
+                {filtered.length > 0 ? (<p className="search-p">Search: <input id="eventos" onChange={SeekName} /></p>) : (<p className="search-p">Search: <input id="eventos" onChange={SeekName}/><br/><br/><p>No events to show :( Please widen range or filters.</p></p>)}
+              </Col>  
                 {cardEvents}
+              
             </Row>
         </div>
     )

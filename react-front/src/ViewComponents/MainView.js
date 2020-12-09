@@ -32,7 +32,7 @@ const MainView = () => {
           <Row>
             <Col sm={12} md={9} className="map-col">
               <Tab.Content>
-                <Tab.Pane eventKey="map">
+                <Tab.Pane eventKey="map" className="map-col">
                   <ListView />
                 </Tab.Pane>
                 <Tab.Pane eventKey="list">
