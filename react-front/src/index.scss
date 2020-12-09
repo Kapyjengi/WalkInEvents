@@ -270,8 +270,12 @@ body .leaflet-container a.leaflet-popup-close-button {
 .toolbarfooter {
   background-color: rgb(247, 247, 247);
   border-top: 2px solid #f1f1f1;
-  padding: .4rem 0;
+  padding: .6rem 0 .6rem;
   margin-top: 1rem;
+}
+
+body .range-slider__wrap {
+  margin-top: -0.3rem;
 }
 
 body .range-slider input[type=range] {
@@ -382,6 +386,18 @@ body .range-slider {
   background: $secondarytoolbarBg;
 }
 
+input {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid gray;
+  padding: 0.3em;
+  padding: 0.3em 1em 0.4em;
+}
+input:focus {
+  box-shadow: 0 0 3pt 2pt red;
+  outline: none;
+}
+
 @media only screen and (max-width: 767px) {
   .btn-heading-container-open {
     background: $toolbarBg;
@@ -426,12 +442,38 @@ body .range-slider {
   white-space: nowrap;
 }
 
+body .react-datepicker-wrapper {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.range-slider__wrap.range-slider__wrap--lg {
+  padding-left: 1rem;
+
+}
+.react-datepicker__input-container button {
+  margin-right: 1rem;
+  float: right; 
+}  
+
 @media only screen and (max-width: 350px) {
   .textpage h1 {
     font-size: 1.8em;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  
+@media only screen and (max-width: 767px) {
+  .mapDivContainer {
+    margin-top: 0;
+  }
+  body div.map-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .toolbarfooter {
+    margin-top: 0;
+  }
+  .infofooter {
+    margin-top: 0;
+  }
 }

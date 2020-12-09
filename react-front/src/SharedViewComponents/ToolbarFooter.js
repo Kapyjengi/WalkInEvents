@@ -36,10 +36,10 @@ export default function ToolbarFooter() {
         <div className="toolbarfooter">
             <Container fluid={true}>
                 <Row>
-                    <Col xs={9} md={7}>
+                    <Col xs={9} md={7} align="center">
                         <Slider />
                     </Col>
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={5}>
                         {/* <p>date: <input id="selectday" type="date" value={selectedDate} 
                         onChange={event => changeDateAndRunFilters(event)} /></p>*/}
                         <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} customInput={<ExampleCustomInput />} />

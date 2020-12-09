@@ -30,7 +30,7 @@ const MainView = () => {
             </Col>
           </Row>
           <Row>
-            <Col sm={12} md={9}>
+            <Col sm={12} md={9} className="map-col">
               <Tab.Content>
                 <Tab.Pane eventKey="map">
                   <ListView />
