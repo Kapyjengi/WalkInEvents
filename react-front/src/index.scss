@@ -154,6 +154,7 @@ body .leaflet-popup-content {
 
 .leaflet-popup-content .card-body {
   padding: 1.25rem 1rem 0.6rem 1.25rem;
+  font-size: 1em;
 }
 
 .popup-card .read-more-wrap {
@@ -186,9 +187,15 @@ body .leaflet-popup-content .card {
   border-radius: 12px;
 }
 
-.popup-card .card-title {
+.popup-card .card-title{
+  margin-bottom: 0;
+}
+
+.popup-card .card-title h5 {
   margin-bottom: 0;
   padding-right: 1.5em;
+  font-family: $headingsfontfamily;
+  color: $blue;
 }
 
 
@@ -408,7 +415,7 @@ body .range-slider {
 }
 
 .textpage h1 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $headingsfontfamily;
   color: #F97316;
   margin-top: 2rem;
   margin-bottom: 1.1rem;
@@ -426,8 +433,5 @@ body .range-slider {
 }
 
 @media only screen and (max-width: 500px) {
-  .single-card {
-    overflow-y: scroll;
-      max-height: 250px;
-  }
+  
 }

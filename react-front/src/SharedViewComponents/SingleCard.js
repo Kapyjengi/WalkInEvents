@@ -26,7 +26,7 @@ export default function SingleCard(props) {
             <Card.Body>
                 <Row>
                     <Col xs={12} className="single-card popup-card">
-                    <Card.Title>{name}</Card.Title>
+                    <Card.Title><h5>{name}</h5></Card.Title>
                     <input type="checkbox" class="read-more-state" id={name} />
                             
                             
