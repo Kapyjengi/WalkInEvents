@@ -5,7 +5,7 @@ export default function InfoFooter() {
     return (
       <Row>
         <Col className="infofooter">
-            <p>Copyright &copy;2020 Walk-in Events. Licence: CC-BY. v1.1</p>
+            <p>Copyright &copy;2020 Walk-in Events. Licence: CC-BY</p>
         </Col>
       </Row>
     )

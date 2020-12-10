@@ -1,13 +1,13 @@
 ![CI/CD](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20test%20React-client,%20build%20and%20deploy%20Node.js%20to%20Azure%20Web%20App/badge.svg)
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
-# Walk-in-Events
+# Walk-in Events
 ### Explore the events near you!
 
 Visit our [website](https://wie-dev.azurewebsites.net/)!
 
 <p>
-<img alt="Walk-In Events" src="img/wie-logo-and-tagline-tr.png">
+<img alt="Walk-In Events" src="img/wie-logo-and-tagline-tr.png" width="400">
 </p>
 
 ## Description
@@ -65,19 +65,15 @@ $ npm run test
 
 On starting the application, it asks the location of the user. If the user grants access to the location information, then the application shows the location on a map. Otherwise the application will show the user on a default location, which is the center of Helsinki. By default the application will display events on a 3 km radius and today.
 
-> LISÄÄ KUVA ALOITUSNÄKYMÄSTÄ
+<img alt="Walk-In Events main view" src="img/wie-events.png" width="830px">
 
 Our application has a number of ways for modifying the search results. Radius can be changed from the slider beneath the map, also the date picker is found underneath the map. There is also a sidebar for filters from which the different tags can be changed.
 
-> LISÄÄ KUVA, JOISSA RANGESLIDER JA TAGIT ON KOROSTETTUINA
-
 If the preliminary search parameters can't locate any events, use the mentioned filtering methods to find events. The events are shown in the map through pins. By clicking the pin, the selected event's information pops up.
 
-> LISÄÄ KUVA KARTAN POPUPISTA
+<img alt="Walk-In Events main view" src="img/wie-list.png" width="830px">
 
 All the events can be seen on the list tab as well as the map tab. There is a search bar on the list tab with which you can filter from the events shown by their names.
-
-> LISÄÄ KUVA LISTANÄKYMÄSTÄ JOSSA NÄKYY MYÖS HAKUKENTTÄ
 
 ## Modifying the code to take other event data
 
