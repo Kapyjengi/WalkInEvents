@@ -35,7 +35,7 @@ const MainView = () => {
                 <Tab.Pane eventKey="map" className="map-col">
                   <ListView />
                 </Tab.Pane>
-                <Tab.Pane eventKey="list">
+                <Tab.Pane eventKey="list" className="list-col">
                   <ListScreen />
                 </Tab.Pane>
               </Tab.Content>
