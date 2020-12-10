@@ -77,7 +77,7 @@ All the events can be seen on the list tab as well as the map tab. There is a se
 
 ## Modifying the code to take other event data
 
-The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have should include **at least** these fields: 
+The project takes JSON data from an open API. If you want to use this as a base for your own project, the data you use should have **at least** these fields: 
 
 - Name/Description
 - Location(coordinates, or use a geocoding tool with an address)
@@ -98,7 +98,7 @@ For the lightest implementation, you could build a function that converts your d
     "location": {
         "lat": 60,
         "long": 25,
-        "streeet_address": "",
+        "street_address": "",
         "postal_code": "",
         "locality": ""
     },
@@ -119,7 +119,7 @@ For the lightest implementation, you could build a function that converts your d
 
 ```
 
-The tag categories were handmade and are hardcoded into LogicalFunctions/GetTagList.js. They probably won't be useful for your data, but you can use it as a base for your own division.
+The tag categories were made by hand and are hardcoded into LogicalFunctions/GetTagList.js. They probably won't be useful for your data, but you can use it as a base for your own division.
 
 You'll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
