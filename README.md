@@ -33,7 +33,7 @@ Open command-line tool, f.e. powershell and type `node -v` and then `npm -v`
 
 <img alt="powershell - npm and node versions" src="https://i.imgur.com/z63jbCR.jpeg">
 
-If you don't have node and/or npm installed on you computer just follow [these steps](https://treehouse.github.io/installation-guides/windows/node-windows.html) and then come back!
+If you don't have node or npm installed on you computer just follow [these steps](https://nodejs.org/en/) and then come back!
 
 ### Installation
 
