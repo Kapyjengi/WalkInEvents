@@ -1,13 +1,13 @@
 ![CI/CD](https://github.com/Kapyjengi/WalkInEvents/workflows/Build%20and%20test%20React-client,%20build%20and%20deploy%20Node.js%20to%20Azure%20Web%20App/badge.svg)
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
-# WalkIn-Events
+# Walk-in-Events
 ### Explore the events near you!
 
 Visit our [website](https://wie-dev.azurewebsites.net/)!
 
 <p>
-<img alt="Walk-In Events" src="https://i.imgur.com/qCMgqDu.png">
+<img alt="Walk-In Events" src="img/wie-logo-and-tagline-tr.png">
 </p>
 
 ## Description
