@@ -13,6 +13,11 @@ $blue: #143362;
 $bodyfontfamily: 'Open Sans', sans-serif;
 $headingsfontfamily: 'Montserrat', sans-serif;
 
+body a {
+  color: #143362;
+  text-decoration: underline;
+  background-color: transparent;
+}
 
 body .btn-primary {
   border: 2px solid #F97316;
@@ -257,7 +262,13 @@ body .leaflet-container a.leaflet-popup-close-button {
 
 .infofooter p {
   font-size: .85em;
-  color: rgb(171, 171, 171);
+  color: #ababab;
+  line-height: 1.5;
+}
+.infofooter p a {
+  color: #ababab;
+  line-height: 1.5;
+  text-decoration: underline;
 }
 
 .toolbarfooter {
