@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+
+$primary: #F97316;
+$primaryhover: #DB6615;
+$secondary: #ff4136;
+$toolbarBg: #edf0f3; /* #EDF4FF; */
+$secondarytoolbarBg: #dbe3ea;
+
+$blue: #143362;
+
+$bodyfontfamily: 'Open Sans', sans-serif;
+$headingsfontfamily: 'Montserrat', sans-serif;
+
+
+body .btn-primary {
+  border: 2px solid #F97316;
+  border-radius: 25px;
+  padding: 0.3rem 1.1rem 0.35rem;
+  text-transform: uppercase;
+}
+body .btn-secondary {
+  color: $secondary;
+  border: 2px solid #F97316;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 0.3rem 1.1rem 0.35rem;
+  text-transform: uppercase;
+}
+body .btn-primary:hover {
+  background-color: $primaryhover;
+  border-color: $primaryhover;
+}
+body .btn-secondary:hover {
+  background-color: #fff;
+  border-color: $secondary;
+  color: $secondary;
+}
+
+body button.btn-secondary:not(:disabled):not(.disabled).active,
+body button.btn-secondary:not(:disabled):not(.disabled):focus,
+button.btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+  color:  #F97316!important;
+  background-color: #fff!important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 128, 0.3) !important;
+  border-color: $primaryhover
+}
+
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body p {
+  font-family: $bodyfontfamily;
+  line-height: 1.8em;
+  color: #143362;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body .navbar {
+  background-color: #143362;
+  padding: 0;
+  align-items: normal;
+  justify-content: normal;
+}
+
+body .navbar-brand {
+  border-right: 0 solid #0e2442;
+  padding-top: 0.6rem;
+  padding-right: 1.3rem;
+  padding-bottom: 1.1rem;
+  padding-left: 1.3rem;
+}
+.wie-logo {
+  height: 30px;
+}
+
+.tagline {
+  color: #f97316;
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 1.05rem;
+}
+
+body .navbar ul {
+  margin-right: 1rem;
+}
+
+body .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  padding: 0 0.8rem 0.2rem 0.8rem;
+} 
+body .navbar-light .navbar-nav .nav-link:hover {
+  color: #DB6615;
+  text-decoration: none;
+}
+body .navbar-light .navbar-nav .nav-link.active {
+  color: #DB6615;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+
+body .mobile-nav ul, body .mobile-nav ul {
+  margin-right: 0;
+  padding: 1rem 0 1rem 0;
+  background-color: #10274b;
+}
+body .navbar-collapse.collapsing ul .nav-link, body .navbar-collapse.show ul .nav-link {
+  font-size: 1.1em;
+  text-align: center;
+  display: block;
+  padding: 1rem 0.8rem 1rem 0.8rem;
+}
+
+body .navbar-light button {
+  margin-left: auto;
+}
+
+body .navbar-light .navbar-toggler,
+body .navbar-light .navbar-toggler:focus {
+  color: rgba(255,255,255,1);
+  border-color: rgba(255,255,255,1);
+  border-width: 0;
+  outline: none;
+}
+
+body .navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+body .leaflet-popup-content {
+  margin: 0px 0px !important;
+  line-height: 1.4;
+}
+
+.event-cards-card {
+  margin-top: 1rem;
+}
+
+.leaflet-popup-content .card-body {
+  padding: 1.25rem 1rem 0.6rem 1.25rem;
+  font-size: 1em;
+}
+
+.popup-card .read-more-wrap {
+  max-height: 270px;
+  overflow-y: auto;
+  margin-bottom: 5px;
+  padding-right: 5px;
+} 
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+body .leaflet-popup-content .card {
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.popup-card .card-title{
+  margin-bottom: 0;
+}
+
+.popup-card .card-title h5 {
+  margin-bottom: 0;
+  padding-right: 1.5em;
+  font-family: $headingsfontfamily;
+  color: $blue;
+}
+
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Show more +';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Show less -';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+    color: $primary;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 25px;
+    margin-left: -0.2rem;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+}
+.read-more-trigger:hover {
+    border: 2px solid $primary;
+}
+
+
+.mapDivContainer {
+  margin-top: 1rem;
+}
+
+body .leaflet-container a.leaflet-popup-close-button {
+  top: 5px;
+  right: 10px;
+  padding: 4px 4px 0 0;
+  width: 35px;
+  height: 35px;
+  font: 40px/35px Tahoma, Verdana, sans-serif;
+  color: #F97316;
+  font-weight: bold;
+  background: transparent;
+}
+
+.leaflet-container a.popup-www-link {
+  color: #fff;
+}
+
+.infofooter {
+  margin-top: 1rem;
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: rgb(255, 255, 255);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid #e6e6e6;
+}
+
+.infofooter p {
+  font-size: .85em;
+  color: rgb(171, 171, 171);
+}
+
+.toolbarfooter {
+  background-color: $toolbarBg;
+  border-top: 2px solid #f1f1f1;
+  padding: .6rem 0 .6rem;
+  margin-top: 1rem;
+}
+
+body .range-slider__wrap {
+  margin-top: -0.3rem;
+}
+
+body .range-slider input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+body .range-slider input[type=range] ::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+body input[type=range].range-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
+body .range-slider {
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+}
+
+
+
+
+.toolbarfooter .range-slider__wrap {
+  z-index: 1000;
+}
+.react-datepicker-popper { z-index: 100000 !important }
+
+.toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on,
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label,
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__arrow {
+  opacity: 1;
+}
+.toolbarfooter .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label {
+  background-color: $blue;
+}
+.toolbarfooter .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--top .range-slider__tooltip__arrow::before {
+  border-top-color: $blue;
+}
+
+.calendar-icon {
+  margin-left: 7px;
+  margin-bottom: 2px;
+}
+
+.tabnav-row {
+  background-color: $toolbarBg;
+}
+
+.tabnav-row h5 {
+  padding: 1.15rem 1rem 0 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.15em;
+}
+
+.tabnav-row .nav .nav-link {
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  color: #f97316;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.tabnav-row .nav .nav-link.active {
+  border-bottom: 3px solid #f97316;
+}
+
+.close-sidebar {
+  margin-top: -0.225rem;
+}
+
+.close-sidebar a {
+  margin-top: -0.225rem;
+  padding: 1rem;
+}
+
+.filterEventsSidebar {
+  padding: 1.3rem 0 1.5em 1rem;
+}
+
+.filterEventsSidebar button {
+  margin-top: .5rem;
+}
+
+.btn-heading-container-closed {
+  padding-top: 1.05rem 1rem .6rem 1rem;
+  margin: 0;
+  background: $secondarytoolbarBg;
+}
+.btn-heading-container-open {
+  margin: 0;
+  background: $secondarytoolbarBg;
+}
+
+.button-container {
+  padding-top: 0.15rem;
+}
+
+body .modal-title {
+  padding: .8rem 1rem 0 1rem;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.15em;
+}
+body .modal-header {
+  padding: .4rem 1rem .8rem 1rem;
+  background: $secondarytoolbarBg;
+}
+
+body .modal-body {
+  padding: 1.6rem 0 0.7rem 4rem;
+}
+body .modal-header p {
+  padding: 0.8rem 0.2rem .4rem 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+body .form-check-label {
+  margin-bottom: 0;
+  font-family: $bodyfontfamily;
+  color: #143362;
+}
+
+input {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid gray;
+  padding: 0.3em;
+  padding: 0.3em 1em 0.4em;
+}
+input:focus {
+  box-shadow: 0 0 3pt 2pt #bcd7ff;
+  outline: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-heading-container-open {
+    background: $toolbarBg;
+  }
+}
+
+.filters-btn {
+  margin: 0.6rem 0.7rem 0 0;
+}
+
+.btn-heading-container-open .nav-link {
+  padding: .0.7rem 1rem 0.2rem 1rem;
+  text-transform: uppercase;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid gray;
+  font-weight: bold;
+}
+
+.range-slider-p {
+  white-space: nowrap;
+}
+
+.search-p {
+  padding-top: 1rem;
+  font-weight: 600;
+}
+
+.event-count-p {
+  font-weight: 600;
+}
+
+.textpage {
+  margin: 1.3em 0 2em 0;
+}
+
+.textpage h1 {
+  font-family: $headingsfontfamily;
+  color: #F97316;
+  margin-top: 2rem;
+  margin-bottom: 1.1rem;
+  font-size: 2.4em;
+}
+
+.textpage h1 span {
+  white-space: nowrap;
+}
+
+body .react-datepicker-wrapper {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+/* .range-slider__wrap.range-slider__wrap--lg {
+  padding-left: 1rem;
+
+}
+.react-datepicker__input-container button {
+  margin-right: 1rem;
+}   */
+
+@media only screen and (max-width: 350px) {
+  .textpage h1 {
+    font-size: 1.8em;
+  }
+  .toolbarfooter {
+    padding: .3rem 0 1rem;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mapDivContainer {
+    margin-top: 0;
+  }
+  body div.map-col  {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .toolbarfooter {
+    margin-top: 0;
+    padding: .3rem 0 1rem;
+  }
+  .infofooter {
+    margin-top: 0;
+  }
+}

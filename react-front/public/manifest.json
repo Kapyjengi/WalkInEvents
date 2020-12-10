@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Walk-in Events",
+  "name": "Walk-in Events. Explore the events near you!",
   "icons": [
     {
       "src": "favicon.ico",

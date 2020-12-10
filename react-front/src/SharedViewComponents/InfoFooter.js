@@ -1,10 +1,12 @@
 import React from "react";
+import { Row, Col } from "react-bootstrap"
 
 export default function InfoFooter() {
     return (
-        <div className="infofooter">
-            <p>Copyright (c) 2020 Walk-In-Events. v:0.1</p>
-        </div>
+      <Row>
+        <Col className="infofooter">
+            <p>Copyright &copy;2020 Walk-in Events. Licence: CC-BY</p>
+        </Col>
+      </Row>
     )
 }
-//content div a needs a margin-bottom?

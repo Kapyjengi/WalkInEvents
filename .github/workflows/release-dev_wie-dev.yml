@@ -1,31 +1,81 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - wie-dev
-
+name: Build and test React-client, build and deploy Node.js to Azure Web App
 on:
   push:
     branches:
       - release-dev
 
 jobs:
-  
-
-  build-and-deploy-backend:
-    # needs: build-and-deploy-client
+  build-client:
     runs-on: windows-latest
     steps:
 
     - uses: actions/checkout@master
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/react-front/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
         node-version: '12.13.0'
 
-    - name: npm install
+    - name: NPM install client
+      run: npm install
+      working-directory: ./react-front
+
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+      working-directory: ./react-front
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+
+    - name: Run client build
+      run: npm run build
+      env:
+        CI: false
+      working-directory: ./react-front
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: react-front/build
+
+  install-server-and-deploy-all:
+    needs: build-client
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: List files before artifact download
+      run: ls
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.13.0'
+
+    - name: NPM install server
       run: npm install
 
+    - name: Download a single artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build 
+        path: build/  
+        
+    - name: List files after download
+      run: ls
+    
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:

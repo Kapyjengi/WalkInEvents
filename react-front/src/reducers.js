@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux'
-import GetToday from './LogicalFunctions/GetToday'
 import GetTagList from './LogicalFunctions/GetTagList'
+import GetToday from './LogicalFunctions/GetToday'
 
 //rootReducer = combineReducers({})
 /* // Jatkossa ehkä tarvittavia kenttiä: 
@@ -8,7 +7,7 @@ searchLocation,
 
 */
 let initialState = {
-    range: 1,
+    range: 3,
     chosenTags: [],
     allTags: GetTagList(),
     //tagCategoryTitles: GetTagCategoryTitles(),
@@ -36,7 +35,7 @@ function rootReducer(state = initialState, action) {
 
         case 'REMOVE_TAG':
             // Create new array of tags which are not the removed tag
-            let newTags = state.chosenTags.filter(tag => tag != action.tag)
+            let newTags = state.chosenTags.filter(tag => tag !== action.tag)
             return Object.assign({}, state,
                 { chosenTags: [newTags] })
 

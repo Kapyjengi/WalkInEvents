@@ -7,7 +7,10 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rmdir /q/s build && cd react-front && npm run build --prod && xcopy /E build ..\\build\\"
+    "build:ui": "rmdir /q/s build && cd react-front && npm run build --prod && xcopy /E build ..\\build\\",
+    "copy-build-folder": "cd react-front && xcopy /Y build ..\\build\\",
+    "copy-build": "rmdir /Q/S build && cd react-front && xcopy /E build ..\\build\\",
+    "build:dummy": "echo 'echo from npm script'"
   },
   "author": "",
   "license": "ISC",

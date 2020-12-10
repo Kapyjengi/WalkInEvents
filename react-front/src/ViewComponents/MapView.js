@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Map, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -9,17 +9,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { divIcon } from 'leaflet'
 import { useSelector } from 'react-redux'
 import ToolbarFooter from '../SharedViewComponents/ToolbarFooter'
-
-import SearchByDate from '../LogicalFunctions/SearchByDate'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import moment from 'moment'
-import SearchByEvent from '../LogicalFunctions/SearchByEvent'
 import SingleCard from '../SharedViewComponents/SingleCard'
-import SearchByTag from '../LogicalFunctions/SearchByTag'
-import { setUserLocation } from '../GlobalStore/LocationActions'
 
 const MapView = () => {
 
@@ -27,11 +18,10 @@ const MapView = () => {
   const filteredEvents = state.filteredEvents
   const range = state.range
   const userLocation = state.userLocation
-
-  const [zoom, setZoom] = React.useState(15)
+  const [zoom, setZoom] = React.useState(13)
   const location = { lat: userLocation.latitude, lng: userLocation.longitude }
   const iconMarkup = renderToStaticMarkup(
-    <span style={{ color: 'Tomato' }}>
+    <span style={{ color: '#ed420e' }}>
       <i className='fas fa-street-view fa-3x' />
     </span>
   )
@@ -47,9 +37,10 @@ const MapView = () => {
 
   L.Marker.prototype.options.icon = DefaultIcon
 
+
   return (
     <div className="mapDivContainer">
-      <Map center={location} zoom={zoom}>
+      <Map center={location} zoom={zoom} dragging={!L.Browser.mobile} tap={!L.Browser.mobile}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -58,43 +49,15 @@ const MapView = () => {
           {filteredEvents.map((event, i) => (
             <Marker key={i} position={[event.location.lat, event.location.lon]}>
               <Popup>
-
-                {/*
-                <Card>
-                  <Card.Body>
-                    <Row style={{ paddingBottom: 20 }}>
-                      <Col xs={12} md={12}>
-                         <Card.Title>{event.name.fi}</Card.Title>
-                      <Card.Text>
-                        <p>{event.description.intro}</p>
-                        <p>{event.location.address.locality}</p>
-                        <p>Osoite: {event.location.address.street_address}</p>
-                        <p>Pvm ja aloitusaika {moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}</p>
-                        <p>Etäisyys: { (L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0) } m</p>
-                      </Card.Text> */}
-                        <SingleCard
-                          name={event.name.fi}
-                          desc={event.description.intro}
-                          fullDesc={event.description.body}
-                          address={event.location.address.street_address}
-                          time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
-                          distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon))).toFixed(0)}
-                          info_url={event.info_url}>
-                        </SingleCard>
-                      {/*</Col>
-                    </Row>
-                    <Row>
-                      <Col xs={6}>
-                         <Button variant="primary" style={{ marginRight: 10 }}>Show more</Button>
-                        <Button
-                          href={event.info_url}
-                          target="_blank"
-                          variant="secondary">WWW</Button> 
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>*/}
-
+                <SingleCard
+                  name={event.name.fi}
+                  desc={event.description.intro}
+                  fullDesc={event.description.body}
+                  address={event.location.address.street_address}
+                  time={moment(`${event.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")}
+                  distance={(L.latLng(location.lat, location.lng).distanceTo(L.latLng(event.location.lat, event.location.lon)) / 1000).toFixed(2) + ' km '}
+                  info_url={event.info_url}>
+                </SingleCard>
               </Popup>
             </Marker>
           ))}

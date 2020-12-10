@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import parse from 'html-react-parser'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -6,8 +6,6 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
 export default function SingleCard(props) {
-
-    const [readMore,setReadMore]=useState(false);
 
     let name = props.name;
     let dateAndTime = props.time
@@ -22,31 +20,36 @@ export default function SingleCard(props) {
         disable = true
         buttonColor = "secondary"
     }
-    const readMorelinkName = readMore?'Read Less << ':'Read More >> '
 
     return (
-        <Card bg='light'>
+        <Card>
             <Card.Body>
-                <Row style={{ paddingBottom: 20 }}>
-                    <Col >
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>{dateAndTime}<br />{address}</Card.Text>
-                        <Card.Text>
-                          {desc}
-                          {readMore && fullDesc}
-                          <a className="read-more-link" onClick={()=> { setReadMore(!readMore) }}>
-                              <strong>{readMorelinkName}</strong>
-                          </a>
-                        </Card.Text>
-                    </Col>
-                </Row>
                 <Row>
-                    <Col xs={6}>{distance} m</Col>
-                    <Col xs={6}>
-                        {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
-                        {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
-                        <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
+                    <Col xs={12} className="single-card popup-card">
+                    <Card.Title><h5>{name}</h5></Card.Title>
+                    <input type="checkbox" class="read-more-state" id={name} />
+                            
+                            
+                            <div className="read-more-wrap">
+                              <Card.Text>{dateAndTime}<br /><strong>{distance}</strong> | {address} </Card.Text>
+                              <Card.Text>
+                                <p>{desc}</p>
+                                <div className="read-more-target">
+                                  {fullDesc}
+                                </div>
+                              </Card.Text>
+                            </div>
+                            
+
+                            <label for={name} className="read-more-trigger"></label>
+
+
+                        {disable === false &&
+                            <Button href={infoUrl} target="_blank" variant={buttonColor} className="float-right popup-www-link">WWW</Button>
+                        }
                     </Col>
+                   
+
                 </Row>
 
             </Card.Body>

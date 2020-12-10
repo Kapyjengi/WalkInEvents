@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default function Loading(props) {
 
     //const [point, setPoint] = React.useState('')

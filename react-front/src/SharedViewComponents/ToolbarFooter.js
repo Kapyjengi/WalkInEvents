@@ -2,26 +2,20 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from "react";
 import Slider from '../SharedViewComponents/DistanceSlider'
-import { useDispatch, useSelector } from 'react-redux'
+import { Calendar3 } from 'react-bootstrap-icons'
+import { useDispatch } from 'react-redux'
 import { setDate } from '../GlobalStore/TimeActions'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import InfoFooter from './InfoFooter'
 import { Container } from "react-bootstrap";
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
+import Button from 'react-bootstrap/Button'
 
 
 export default function ToolbarFooter() {
 
     const [startDate, setStartDate] = useState(new Date());
-    const state = useSelector(state => state)
-    const range = state.range
-    const selectedDate = state.selectedDate
     const dispatch = useDispatch()
-    const changeDateAndRunFilters = (event) => {
-        dispatch(setDate(event.target.value))
-        RunEventFilters()
-    }
 
     const onChanged = (e) => {
         let date = e
@@ -31,22 +25,30 @@ export default function ToolbarFooter() {
         dispatch(setDate(isoDate))
         RunEventFilters()
     }
-
+    const ExampleCustomInput = ({ value, onClick }) => (
+        <Button color="primary" onClick={onClick}>
+            {value}
+            <Calendar3 color="white" size={15} className="calendar-icon" />
+        </Button>
+    );
 
     return (
         <div className="toolbarfooter">
             <Container fluid={true}>
-                <Row>
-                    <Col xs={3} md={1}>
-                        <p className="range-slider-p">Range: {range} km</p>
-                    </Col>
-                    <Col xs={9} md={7}>
+                <Row className="justify-content-center">
+                    <Col xs={10} md={6} className="offset-md-1">
                         <Slider />
                     </Col>
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={5} align="right">
                         {/* <p>date: <input id="selectday" type="date" value={selectedDate} 
-                        onChange={event => changeDateAndRunFilters(event)} /></p>*/} 
-                      <DatePicker id="selectday" dateFormat="dd.MM.yyyy" selected={startDate} onChange={onChanged} />
+                        onChange={event => changeDateAndRunFilters(event)} /></p>*/}
+                        <DatePicker
+                        id="selectday"
+                        dateFormat="dd.MM.yyyy"
+                        selected={startDate}
+                        onChange={onChanged}
+                        popperPlacement="top"
+                        customInput={<ExampleCustomInput />} />
                     </Col>
                 </Row>
             </Container>

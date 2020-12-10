@@ -12,18 +12,18 @@ export default function ShowTagOptions() {
     const [uselessState, setUselessState] = useState(0)
 
     function boxChecked(event) {
-        let tagID = options.findIndex(tag => tag.categoryTitle == event.target.id)
+        let tagID = options.findIndex(tag => tag.categoryTitle === event.target.id)
         let tagsCopy = options
-        tagsCopy[tagID] = {...tagsCopy[tagID], isChecked: event.target.checked}
+        tagsCopy[tagID] = { ...tagsCopy[tagID], isChecked: event.target.checked }
         dispatch(setTags(tagsCopy))
-        setUselessState(uselessState+1)
+        setUselessState(uselessState + 1)
         RunEventFilters()
     }
 
     function getTagStatus(tag) {
         return tag.isChecked
     }
-    
+
     return (
         <div>
             <Form>

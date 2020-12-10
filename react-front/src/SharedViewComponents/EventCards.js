@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { setEventSearch } from '../GlobalStore/EventActions'
 import store from '../GlobalStore/Store'
 import RunEventFilters from '../LogicalFunctions/RunEventFilters'
+import parse from 'html-react-parser'
 
 export default function EventCard() {
 
@@ -16,6 +17,7 @@ export default function EventCard() {
     const userLocation = state.userLocation
     const location = { lat: userLocation.latitude, lng: userLocation.longitude }
     const filtered = state.filteredEvents
+
 
     const SeekName = (e) => {
         let keyWord = e.target.value
@@ -35,7 +37,6 @@ export default function EventCard() {
     }
 
     let cardEvents = filtered.map((events, i) => {
-
         let name = getName(events);
         let dateAndTime = moment(`${events.event_dates.starting_day}`).format("DD.MM.YYYY HH:mm")
         let address = events.location.address.street_address + ', ' +
@@ -49,35 +50,55 @@ export default function EventCard() {
             buttonColor = "secondary"
         }
 
-        let distance = L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)).toFixed(0) + " m" 
+        let distance = (L.latLng(location.lat, location.lng).distanceTo(L.latLng(events.location.lat, events.location.lon)) / 1000).toFixed(2) + ' km '
 
         return (
-            <Card key={i} style={{ marginTop: 10 }} bg='light'>
-                <Card.Body>
-                    <Row style={{ paddingBottom: 20 }}>
-                        <Col>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Text>{dateAndTime}<br />{address}</Card.Text>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={6}>{distance}</Col>
-                        <Col xs={6}>
-                            {/* Jos otetaan lisätietoa ominaisuus käyttöön, tulee allaoleva rivi kommentoida pois.*/}
-                            {/* <Button variant="info" style={{ marginRight: 10 }}>Show more</Button> */}
-                            <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable}>WWW</Button>
 
-                        </Col>
-                    </Row>
-                </Card.Body>
-            </Card>
+            <Col md={10}>
+                <Card key={i} bg='light' className="event-cards-card">
+                    <Card.Body>
+                        <Row>
+                            <Col>
+                                <Card.Title><h4>{name}</h4></Card.Title>
+                                <input type="checkbox" class="read-more-state" id={i} />
+
+                                <div className="read-more-wrap">
+                                    <Card.Text><p>{dateAndTime}<br /><strong>{distance}</strong> | {address}</p></Card.Text>
+                                    <Card.Text>
+                                        <p>{events.description.intro}</p>
+
+                                        <div className="read-more-target">
+                                            {parse(events.description.body)}
+                                        </div>
+                                      </Card.Text>
+                                  </div>
+                                  
+                                  <label for={i} className="read-more-trigger"></label>
+                                
+                       
+                                {disable === false &&
+
+                                    <Button href={infoUrl} target="_blank" variant={buttonColor} disabled={disable} className="float-right">WWW</Button>
+                                }
+
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
+            </Col>
+
         )
     })
 
     return (
         <div className="App">
-             <p className="search-p">Search: <input id="eventos"  onChange={SeekName} /></p>
-            {cardEvents}
+            <Row className="justify-content-md-center">
+              <Col align="center">
+                {filtered.length > 0 ? (<p className="search-p">Search: <input id="eventos" onChange={SeekName} /></p>) : (<p className="search-p">Search: <input id="eventos" onChange={SeekName}/><br/><br/><p>No events to show :( Please widen range or filters.</p></p>)}
+              </Col>  
+                {cardEvents}
+              
+            </Row>
         </div>
     )
 }

@@ -1,68 +1,54 @@
-import React, { useState } from 'react'
-import Tabs from 'react-bootstrap/Tabs'
+import React from 'react'
 import Tab from 'react-bootstrap/Tab'
 import ListScreen from '../SharedViewComponents/ListScreen'
 import ListView from './ListView'
-import TestScreen from '../Tests/TestScreen'
-import Filtteri from '../SharedViewComponents/FilterEvents'
-import { Row, Col, Container, Nav } from "react-bootstrap";
+import { Row, Col, Container, Nav } from "react-bootstrap"
 import InfoFooter from '../SharedViewComponents/InfoFooter'
-
-
-// Entinen TabNav.js komponentti uudelleennimetty MainView.js, koska tämä tulisi olemaan alkunäkymä.
-// Pitäisikö ListView.js komponentin toiminnallisuus siirtää tälle sivulle fiksumman
-// arkkitehtuurin näkökulmasta? Nyt ListView tekee oikeastaan kaiken toiminnallisuuden,
-// vaikka nimensä mukaan sen pitäisi vain listata tapahtumat?
-
+import FilterEventsButton from '../SharedViewComponents/FilterEvents'
+import FilterEventsSidebar from '../SharedViewComponents/FilterEventsSidebar'
 
 const MainView = () => {
 
-    const [key, setKey] = useState('TabKey')
-
-    return (
-        <>
-        {/* <Tabs defaultActiveKey="map" id="uncontrolled-tab-example" onSelect={(k) => setKey(k)} >
-            <Tab eventKey="map" title="Map">
-                <ListView />
-            </Tab>
-            <Tab eventKey="list" title="List"  >
-                <ListScreen />
-            </Tab>
-            Kommentoidaan pois 
-            <Tab eventKey="Tests" title="Tests">
-                <TestScreen />
-            </Tab>
-        </Tabs> */}
-        <Container fluid={true}>
-            <Tab.Container defaultActiveKey="first">
-            <Row>
-            <Col xs={12} className="tabnav-row" >
-                <Nav /* variant="pills" */ className="tabnav-row">
+  return (
+    <>
+      <Container fluid={true}>
+        <Tab.Container defaultActiveKey="map">
+          <Row className="tabnav-row">
+            <Col xs={9} >
+              <Nav>
                 <Nav.Item>
-                    <Nav.Link eventKey="first">Map</Nav.Link>
+                  <Nav.Link eventKey="map">Map</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="second">List</Nav.Link>
+                  <Nav.Link eventKey="list">List</Nav.Link>
                 </Nav.Item>
-                </Nav>
+              </Nav>
             </Col>
-            <Col xs={12}>
-                <Tab.Content>
-                <Tab.Pane eventKey="first">
-                    <ListView />
-                </Tab.Pane>
-                <Tab.Pane eventKey="second">
-                    <ListScreen />
-                </Tab.Pane>
-                </Tab.Content>
+            <Col xs={3} className="btn-heading-container-open">
+              <FilterEventsButton css={"d-block d-md-none float-right filters-btn"} />
+              <h5 className="d-none d-md-block">Filters</h5>
             </Col>
-            </Row>
-            </Tab.Container>
-        </Container>
+          </Row>
+          <Row>
+            <Col sm={12} md={9} className="map-col">
+              <Tab.Content>
+                <Tab.Pane eventKey="map" className="map-col">
+                  <ListView />
+                </Tab.Pane>
+                <Tab.Pane eventKey="list">
+                  <ListScreen />
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+            <Col md={3} className='d-none d-md-block'>
+              <FilterEventsSidebar />
+            </Col>
+          </Row>
+        </Tab.Container>
         <InfoFooter />
-      </>
-
-    )
+      </Container>
+    </>
+  )
 }
 
 export default MainView
