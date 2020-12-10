@@ -123,6 +123,11 @@ The tag categories were made by hand and are hardcoded into LogicalFunctions/Get
 
 You'll find our data-fetch functions in the Services-folder. For changing the url you'll also need to edit "proxy"-field in package.json.
 
+## Contact us
+
+Please feel free to contact us if you need any further information!
+<walkinevents.hki@gmail.com>
+
 ## Project group
 
 - [Anton Javits](https://github.com/AntonJavits)
