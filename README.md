@@ -50,11 +50,11 @@ $ npm install
 $ npm install
 $ npm install -g nodemon
 ```
-4. Run build in \WalkInEvents\react-front
+4. Start node.js server and react frontend app in \WalkInEvents\react-front with one command
 ```
 $ npm run dev
 ```
-> Visit localhost:3001/api/events to be sure the the server is working correctly
+> Visit localhost:3001/api/events to be sure the the server is working correctly. React app is running in port 3000.
 
 ### Run tests
 ```
