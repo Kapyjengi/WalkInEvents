@@ -7,7 +7,7 @@
 Visit our [website](https://wie-dev.azurewebsites.net/)!
 
 <p>
-<img alt="Walk-In Events" src="img/wie-logo-and-tagline-tr.png" width="400">
+<img alt="Walk-In Events" src="img/wie-logo-and-tagline-tr.png" width="500">
 </p>
 
 ## Description
