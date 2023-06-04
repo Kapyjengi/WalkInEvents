@@ -10,7 +10,7 @@ export default async function GetAllEvents() {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('Getting all events failed');
+                // throw new Error('Getting all events failed');
             }
         })
         .then(data => {
